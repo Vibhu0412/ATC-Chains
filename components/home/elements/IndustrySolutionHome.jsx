@@ -28,11 +28,11 @@ const IndustrySolutionHome = () => {
   const disabled = subCategory?.length === 0;
   return (
     <div className=" industry-solution-bg">
-      <div className="bg-black/75  h-[90vh] grid grid-cols-1 lg:grid-cols-2 lg:px-32">
-        <div className=" grid gap-6 items-center py-10 px-20">
-          <div className=" w-full home-industry-solution-bg px-6 py-6 lg:py-14 lg:px-20">
+      <div className="bg-black/75 h-[90vh] grid grid-cols-1 lg:grid-cols-2 lg:px-32">
+        <div className=" grid gap-6 items-center py-10 px-4 lg:px-20">
+          <div className=" w-full mx-auto  max-w-md home-industry-solution-bg pl-2 pr-14 py-6 lg:py-14 lg:px-20">
             <select
-              className="block w-full -mb-2 px-6 py-4 text-lg text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
+              className="block bg-transparent w-full -mb-2 px-16 lg:px-0 py-4  text-lg lg:text-xl text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
               onChange={(e) => selectedIndusrty(e)}
             >
               <option slected>Select Category</option>
@@ -43,10 +43,10 @@ const IndustrySolutionHome = () => {
               ))}
             </select>
           </div>
-          <div className=" w-full flex rotate-180 flex-wrap-reverse home-industry-solution-bg px-6 py-6 lg:py-14 lg:px-20">
+          <div className=" w-full max-w-md flex rotate-180 mx-auto pr-2 pl-10  flex-wrap-reverse home-industry-solution-bg  py-6 lg:py-14 xl:px-20">
             <select
               disabled={disabled}
-              className="block w-full rotate-180 -mb-2 px-6 py-4  text-lg text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
+              className="block w-full bg-transparent rotate-180 -mb-2 px-16 lg:px-0 py-4  text-lg lg:text-xl text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
               onChange={(e) => subCategories(e)}
             >
               <option slected>Select Sub Category</option>
@@ -57,13 +57,13 @@ const IndustrySolutionHome = () => {
               ))}
             </select>
           </div>
-          <div className=" w-full home-industry-solution-bg px-6 py-6 lg:py-14 lg:px-20">
+          <div className=" w-full mx-auto max-w-md home-industry-solution-bg px-16 py-6 lg:py-14 lg:px-20">
             <button
               className={`${
                 selectedSubCategory === null
-                  ? " cursor-not-allowed bg-gray-50/60 border-gray-300/60"
-                  : "bg-gray-50 border-gray-300"
-              } -mb-2 text-xl w-full font-bold py-4 text-primary2 border-none rounded-3xl focus:ring-none focus:outline-none focus:border-none `}
+                  ? " cursor-not-allowed  border-gray-300/60"
+                  : " border-gray-300"
+              } -mb-2 text-lg lg:text-xl w-full font-bold py-4 text-primary2 border-none rounded-3xl focus:ring-none focus:outline-none focus:border-none `}
             >
               {selectedSubCategory === null ? (
                 <div className="flex items-center justify-between">

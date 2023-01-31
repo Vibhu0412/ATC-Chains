@@ -20,12 +20,12 @@ const NavBar = () => {
         <Link href={"/"}>
           <img
             src="/assets/images/logo/Logo-dark.png"
-            className="mr-3 h-14 sm:h-14"
+            className="mr-3 h-12 lg:h-14 sm:h-14"
             alt="ATC Chain India"
           />
         </Link>
       </Navbar>
-      <div className="flex md:order-2 gap-4 items-center">
+      <div className="flex gap-0 lg:gap-4 md:order-2 items-center">
         <NotificationNavbar />
 
         <Link href="/contact">

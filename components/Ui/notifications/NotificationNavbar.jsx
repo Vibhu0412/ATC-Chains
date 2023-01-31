@@ -18,9 +18,14 @@ const NotificationNavbar = () => {
       arrowIcon={false}
       inline={true}
       label={
-        <span className="text-primary p-2   rounded-full hover:bg-btn-secondary bg-btn-primary hidden xl:block lg:hidden">
-          <NavBarStarIcon color={`#fff`} />
-        </span>
+        <>
+          <span className="text-primary p-3 rounded-full hover:bg-btn-secondary bg-btn-primary hidden xl:block lg:hidden">
+            <NavBarStarIcon color={`#fff`} />
+          </span>
+          <span className="text-white xl:block lg:hidden hidden px-2 border border-white -ml-2 -mt-6 relative rounded-full bg-primary">
+            {notification?.length}
+          </span>
+        </>
       }
     >
       {notification?.map((notification) => (
