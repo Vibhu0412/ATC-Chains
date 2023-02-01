@@ -1,22 +1,25 @@
 import React from "react";
+import Link from "next/link";
+import moment from "moment";
+import { useQuery } from "@tanstack/react-query";
+//internal imports
 import {
   ClockIcon,
   FireIcon,
   HomeIcon,
 } from "../../../public/assets/icons/icons";
-import ErrorBoundary from "../../Ui/ErrorBoundary/ErrorBoundary";
-import Link from "next/link";
-import moment from "moment";
-import { useQuery } from "@tanstack/react-query";
 import { getAllBlogs } from "../../../fetchers/universalFetch";
-import { Loader, ProductNotFound } from "../../Ui";
+import { ErrorBoundary, Loader, ProductNotFound } from "../../Ui";
 
 const NewSingleSection = () => {
+  //gettting the data from the API response
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["news"],
     queryFn: getAllBlogs,
   });
+  //setting the API data in the blogsBlog
   const blogsBlog = data?.data?.blog;
+  //defining the API calling state
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="No Blog Data Found" />;
   return (

@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -46,7 +46,7 @@ const PopOver = ({ id }) => {
   };
 
   return (
-    <div className="w-full   px-2 rounded-xl">
+    <div className="w-full px-2 rounded-xl">
       <Popover className="  ">
         {({ open }) => (
           <>
@@ -59,10 +59,7 @@ const PopOver = ({ id }) => {
                 onMouseEnter={onMouseEnter.bind(null, open)}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <a
-                  href="#"
-                  className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                <a className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <RightArrowIcon />
                 </a>
               </Popover.Button>
@@ -91,10 +88,11 @@ const PopOver = ({ id }) => {
                       <Swiper
                         slidesPerView={2}
                         spaceBetween={10}
-                        slidesPerGroup={2}
+                        //slidesPerGroup={1}
                         loop={true}
                         loopFillGroupWithBlank={true}
                         navigation={false}
+                        scrollbar={{ draggable: true }}
                         className="mySwiper"
                       >
                         {popOverSubCategoryDataList?.map((product, index) => (
@@ -104,8 +102,10 @@ const PopOver = ({ id }) => {
                               className=" mx-2 my-2  w-full shadow-lg bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
                             >
                               <div className=" overflow-hidden w-[10rem]  pt-5  mx-auto ">
-                                <img
+                                <Image
                                   className=" h-28 w-28 mx-auto mt-4"
+                                  width={28}
+                                  height={28}
                                   src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${product?.image_1920[0]}`}
                                   alt="product image"
                                 />

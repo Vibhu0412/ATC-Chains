@@ -1,22 +1,10 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+
 import React from "react";
-const tmp = [
-  {
-    name: "Category",
-    link: "/products",
-  },
-  {
-    name: "Sub-Category",
-    link: "/products",
-  },
-];
 
 const BreadCrumbs = (props) => {
-  console.log(props);
   const { currentPage, child, subChild } = props;
-  const router = useRouter();
-  console.log(router.query);
+
   return (
     <>
       <div className="flex">

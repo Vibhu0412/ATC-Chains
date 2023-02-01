@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import { fadeIn } from "../../../utils/motion";
+import Image from "next/image";
 
 const ProductDetailCard = ({ data, currentPage, index }) => {
   const router = useRouter();
@@ -29,7 +30,7 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
           <Link href={productUrl}>
             {currentPage === "MainCategory" || currentPage === "VariantsId" ? (
               <div className="flex  mx-auto  items-center justify-center  ">
-                <img
+                <Image
                   className="z-0  mt-14"
                   src={
                     data && data?.image_1920 && data?.image_1920

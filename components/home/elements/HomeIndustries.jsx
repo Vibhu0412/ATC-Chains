@@ -1,21 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import { getIndustryList } from "../../../fetchers/universalFetch";
-import { Loader, ProductNotFound } from "../../Ui";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import ReactHtmlParser from "react-html-parser";
+//internal imports
+import { getIndustryList } from "../../../fetchers/universalFetch";
+import { Loader, ProductNotFound } from "../../Ui";
 
 const HomeIndustries = () => {
+  //getting the data from the API response
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["industryList"],
     queryFn: getIndustryList,
     refetchOnWindowFocus: false,
   });
+  //setting the response from the APi into Industry
   const Industry = data?.data?.Industry;
-
+  //setting the API state
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
-
+  //maping data list in the slider
   const industryList = Industry?.map((industries, index) => {
     return (
       <SplideSlide>

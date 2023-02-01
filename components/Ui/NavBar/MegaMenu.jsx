@@ -36,7 +36,7 @@ const MegaMenu = () => {
     if (!open) return;
     timeout = setTimeout(() => closePopover(), timeoutDuration);
   };
-
+  // if (isLoading) return "loading----------";
   return (
     <div className="w-full rounded-xl">
       <Popover className="  ">
@@ -79,26 +79,34 @@ const MegaMenu = () => {
                   >
                     <div className=" w-full bg-white rounded-xl overflow-hidden p-7 ">
                       <div className="flex gap-5">
-                        {categoriesList?.map((category, index) => (
-                          <div key={`category_${index}`} className=" ">
-                            <h1 className="font-bold border-b-2 border-black pb-4 w-full text-md text-primary">
-                              {category?.industry_category_name}
-                            </h1>
+                        {isLoading
+                          ? "loading..."
+                          : categoriesList?.map((category, index) => (
+                              <div key={`category_${index}`} className=" ">
+                                <h1 className="font-bold border-b-2 border-black pb-4 w-full text-md text-primary">
+                                  {category?.industry_category_name}
+                                </h1>
 
-                            <ul className="text-text-gray">
-                              {category?.industry_subcategory_name &&
-                                category?.industry_subcategory_name?.map(
-                                  (sub, index) => (
-                                    <Link key={index} href={`#${sub?.name}`}>
-                                      <li key={index} className="py-2">
-                                        {sub?.name}
-                                      </li>
-                                    </Link>
-                                  )
-                                )}
-                            </ul>
-                          </div>
-                        ))}
+                                <ul className="text-text-gray">
+                                  {category?.industry_subcategory_name &&
+                                    category?.industry_subcategory_name?.map(
+                                      (sub, index) => (
+                                        <Link
+                                          key={index}
+                                          href={`/industries#${
+                                            sub?.name &&
+                                            sub?.name.split(" ").join("_")
+                                          }`}
+                                        >
+                                          <li key={index} className="py-2">
+                                            {sub?.name}
+                                          </li>
+                                        </Link>
+                                      )
+                                    )}
+                                </ul>
+                              </div>
+                            ))}
                       </div>
                     </div>
                   </div>

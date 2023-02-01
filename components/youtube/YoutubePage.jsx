@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { BannerImage, ErrorBoundary, YoutubeVideoCard } from "../Ui";
 

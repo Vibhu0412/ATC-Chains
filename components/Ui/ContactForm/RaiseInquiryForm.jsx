@@ -18,16 +18,18 @@ const RaiseInquiryForm = (props) => {
     handleSubmit,
   } = useForm({ mode: "onChange" });
   const [formdata, setFormData] = useState();
-
+  //submitting the form data and getting data results
   const { mutate, isLoading, isError, isSuccess, status, data } = useMutation({
     mutationFn: (formdata) => {
       return conactForm(formdata);
     },
   });
+  //contact from data
   const contactFormDataHandle = (data) => {
     setFormData(data);
     mutate(data);
   };
+  //after form submit response
   useEffect(() => {
     if (isSuccess) {
       Toaster.fire({

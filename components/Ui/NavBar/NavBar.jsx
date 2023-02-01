@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import CommonBtn from "../Button/CommonBtn";
 import MegaMenu from "./MegaMenu";
 import NotificationNavbar from "../notifications/NotificationNavbar";
+import Image from "next/image";
 
 const NavBar = () => {
   const router = useRouter();
@@ -18,10 +19,12 @@ const NavBar = () => {
     >
       <Navbar className="">
         <Link href={"/"}>
-          <img
+          <Image
             src="/assets/images/logo/Logo-dark.png"
             className="mr-3 h-12 lg:h-14 sm:h-14"
             alt="ATC Chain India"
+            width={200}
+            height={200}
           />
         </Link>
       </Navbar>

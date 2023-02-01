@@ -8,7 +8,7 @@ const nextConfig = {
   },
   appDir: false,
   images: {
-    domains: ["192.168.0.61"],
+    domains: ["43.205.80.109"],
     unoptimized: true,
   },
 };

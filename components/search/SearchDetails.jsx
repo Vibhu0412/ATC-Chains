@@ -11,15 +11,15 @@ const SearchDetails = () => {
   const [showModal, setShowModal] = useState({ isShow: false, name: "" });
   const router = useRouter();
   const { id } = router.query;
+  //getting the search result from the API
   const { isLoading, isError, data, error, isIdle } = useQuery({
     queryKey: ["searchResult", id],
     queryFn: () => getSearchProductDetailById(id),
     enabled: !!id,
   });
 
+  //setting the search result
   const searchResult = data?.data?.result?.products;
-
-  console.log("searchResult", searchResult);
 
   const raiseInquiry = () => {
     setShowModal({

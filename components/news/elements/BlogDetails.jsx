@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { useRouter } from "next/router";
 import React from "react";
+//internal imports
 import { getBlogDetails } from "../../../fetchers/universalFetch";
 import { ClockIcon } from "../../../public/assets/icons/icons";
 
@@ -9,12 +10,13 @@ const BlogDetails = () => {
   const router = useRouter();
   const { blogId } = router.query;
   const BId = parseInt(blogId);
-
+  //gettting blog data from the API
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["blogDetails", BId],
     queryFn: () => getBlogDetails(BId),
     enabled: !!BId,
   });
+  //setting the API data in the blogDAta variable
   const blogData = data?.data?.blog;
 
   return (

@@ -1,41 +1,34 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 // Internal Imports
 import { getProductDetails } from "../../../fetchers/universalFetch";
 import { CubeIcon, ProductBgIcon } from "../../../public/assets/icons/icons";
-
 import {
   CustomSlider,
+  DownloadAttachments,
   ErrorBoundary,
   Loader,
   Modal,
-  Slider,
+  ProductNotFound,
+  RaiseInquiryForm,
   SubProducts,
   TitleSection,
 } from "../../Ui";
-import RaiseInquiryForm from "../../Ui/ContactForm/RaiseInquiryForm";
-import DownloadAttachments from "../../Ui/common/DownloadAttachments";
 
 const ProductDetailView = () => {
   const [showModal, setShowModal] = useState({ isShow: false, name: "" });
   const router = useRouter();
+  //getting IDS from router
   const { category, variantId, productId } = router.query;
-
-  console.log(
-    "category, variantId, productId ",
-    typeof category,
-    typeof variantId,
-    typeof productId
-  );
-
+  //getting product details
   const { isLoading, isError, data, error, onSuccess } = useQuery({
     queryKey: ["product", productId],
     queryFn: () => getProductDetails(category, variantId, productId),
     enabled: !!productId,
   });
+  //all product data in the array list
   const product = data?.data?.final_product;
   const raiseInquiry = () => {
     setShowModal({
@@ -43,6 +36,7 @@ const ProductDetailView = () => {
       name: "Inquiry Form",
     });
   };
+
   const downloadAttachments = () => {
     setShowModal({
       isShow: true,
@@ -52,7 +46,9 @@ const ProductDetailView = () => {
   const modalhide = () => {
     setShowModal((prev) => ({ ...prev, isShow: false }));
   };
+
   if (isLoading) return <Loader />;
+  if (isError) return <ProductNotFound />;
 
   return (
     <ErrorBoundary>

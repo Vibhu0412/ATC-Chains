@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
-import NewSingleSection from '../../news/elements/NewSingleSection';
+import React from "react";
+import NewSingleSection from "../../news/elements/NewSingleSection";
 
 const HomeBlogSection = () => {
   return (

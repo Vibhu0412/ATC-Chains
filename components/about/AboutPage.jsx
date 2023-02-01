@@ -1,27 +1,38 @@
-import Image from "next/image";
 import React from "react";
 import { AboutPageIcon } from "../../public/assets/icons/icons";
-import { CommonBtn, Slider, TeamSection, BannerImage } from "../Ui";
+import { TeamSection, BannerImage } from "../Ui";
 import PopularProductsGallery from "./elements/PopularProductsGallery";
 
 const AboutPage = () => {
   return (
     <>
       <BannerImage
-        text={"Belting solutions set to fix all your customized needs."}
-        description="Thriving in the manufacturing Industry, We build durable & robust machines which are built to last for generations."
+        text={
+          "Atcchains is basically one stop solution for all our Belting needs!"
+        }
+        description="Invest in our robust & durable unique belts & services and witness the difference yourself!
+        We believe in Delivering value to your business & hence, we rigorously work on it. 
+        "
         classes="bg-[#120202]"
       />
       <div class="relative pt-20 pb-20 lg:pb-0 px-4 lg:px-20">
         <div class=" inset-0 flex items-center justify-start gap-6">
           <div class="w-32 lg:w-96 border-2 bg-black border-black"></div>
-          <h1 className="text-5xl font-bold text-primary">Our Work</h1>
+          <h1 className="text-5xl font-bold text-primary">
+            About <span className="text-primary2">us</span>
+          </h1>
         </div>
         <div className="">
-          <p className="text-xl px-2 lg:px-28 font-normal">
-            Amet eu facilisi posuere ut at cras non ipsum proin nunc purus
-            tellus ultricies velit elementum ut dui sed augue ultrices phasellus
-            ullamcorper condimentum ut suspendisse viverra ornare sit venenatis
+          <p className="text-xl text-text-gray px-2 my-10  lg:px-28 font-normal">
+            We are team of 150+ experts leading and thriving in the
+            manufacturing industry. We have a large warehouse capacity
+            facilitates large production services. We build robust products and
+            machineries which are generated to sustain and last for generations.
+            We have worked our expertise with several brands of multiple niches
+            catering to their customized requirements. We deliver intelligent
+            and unique belt solutions that serve the best-fit for you. Our long
+            term vision is to build a customer-centric brand name with our
+            impeccable services.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 lg:mt-18 items-start justify-center ">
             <div className="col-span-2  relative">
@@ -48,13 +59,14 @@ const AboutPage = () => {
             <div className=" flex items-start justify-start  p-6 col-span-1 ">
               <div className="mt-20">
                 <h1 className="font-bold text-3xl text-primary my-4">
-                  Louis Vuitton
+                  Our quality, our integrity.
                 </h1>
                 <p className="text-text-gray text-m+d">
-                  Amet eu facilisi posuere ut at cras non ipsum proin nunc purus
-                  tellus ultricies velit elementum ut dui sed augue ultrices
-                  phasellus ullamcorper condimentum ut suspendisse viverra
-                  ornare sit venenatis
+                  Atcchains is always high in demand due to high due to its wide
+                  variety of sub-products in the Plastic slat chain series ,
+                  Modular belts series & conveyor components. We lead due to our
+                  consistent efforts in delivering the best suited services for
+                  our clients.
                 </p>
               </div>
             </div>
@@ -63,13 +75,15 @@ const AboutPage = () => {
             <div className=" flex items-start justify-start  p-6 col-span-1 ">
               <div className="mt-20">
                 <h1 className="font-bold text-3xl text-primary my-4">
-                  Louis Vuitton
+                  Why ATC chains?
                 </h1>
                 <p className="text-text-gray text-m+d">
-                  Amet eu facilisi posuere ut at cras non ipsum proin nunc purus
-                  tellus ultricies velit elementum ut dui sed augue ultrices
-                  phasellus ullamcorper condimentum ut suspendisse viverra
-                  ornare sit venenatis
+                  One year warranty. Our policies also include offer accidental
+                  warranty which is provided by no other company in the world. A
+                  diverse and wide variety of 1100+ products. 24*7 available
+                  technical assistance. Advisor & Support team helping you with
+                  your company needs. Staff that delivers premium set of
+                  services. Building customized end-to-end solutions.
                 </p>
               </div>
             </div>
@@ -98,7 +112,7 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4  items-center justify-between">
+      <div className="grid grid-cols-3 gap-4 lg:mb-0 mb-6 items-center justify-between">
         <div className=" border-4 border-btn-primary rounded-full  text-lg font-bold -ml-10 p-4 col-span-2">
           <h1 className="text-3xl pl-20 font-bold text-primary capitalize">
             Our Teams
@@ -120,7 +134,7 @@ const AboutPage = () => {
         />
       </section>
 
-      <div className="about-section-bg w-full h-full">
+      <div className="about-section-bg w-full h-full bg-primary">
         <div className="block lg:flex items-center  justify-center w-full px-6 lg:px-20">
           <div className="lg:w-2/3 w-full mx-auto items-center">
             <div className=" block lg:flex gap-6">
@@ -132,40 +146,37 @@ const AboutPage = () => {
                 />
               </div>
               <div className="text-white mt-14">
-                <h1 className="font-bold text-4xl my-3">
-                  Develop <br /> Without Limits
-                </h1>
+                <h1 className="font-bold text-4xl my-3">Our story</h1>
                 <p className="my-5 w-full lg:w-2/3">
-                  WooCommerce is developer friendly, too. Built with a REST API,
-                  WooCommerce is scalable and can integrate with virtually any
-                  service. Design a complex store from scratch, extend a store
-                  for a client, or simply add a single product to a WordPress
-                  site—your store, your way.
+                  Our Durable products like We are one the largest manufacturers
+                  across the countries like and we rigorously compete with other
+                  international parallel companies executing high-end quality
+                  machines.
                 </p>
               </div>
             </div>
           </div>
         </div>
         <div className=" block lg:flex items-center justify-center w-full px-6 lg:px-20">
-          <div className=" w-full lg:w-2/3 mx-auto items-center">
+          <div className=" w-full lg:w-3/3 mx-auto items-center">
             <div className="block lg:flex gap-6">
-              <div className="text-white mt-14 pl-0 lg:pl-56">
+              <div className="text-white flex flex-col w-full justify-start items-end mt-14 pl-0 lg:pl-56">
                 <h1 className="font-bold text-4xl my-3">
-                  Develop <br /> Without Limits
+                  Our Quality Statement
                 </h1>
                 <p className="my-5 w-full  lg:w-2/3">
-                  WooCommerce is developer friendly, too. Built with a REST API,
-                  WooCommerce is scalable and can integrate with virtually any
-                  service. Design a complex store from scratch, extend a store
-                  for a client, or simply add a single product to a WordPress
-                  site—your store, your way.
+                  Our services stand for our ethics and integrity. We have been
+                  delivering high –end quality machines which convey end-to-end
+                  belt solutions to cater to the customized needs of our
+                  customers. Our focus is on creating reliable, innovative &
+                  quality products.
                 </p>
               </div>
-              <div className="w-full">
+              <div className="mx-auto w-full">
                 <img
-                  className="rounded-xl ml-0 lg:ml-20 mt-10 -mb-10 mx-auto hover:scale-110 transition-all ease-in-out delay-100"
+                  className="rounded-xl mt-0 lg:-mt-14 ml-0 lg:ml-20 mx-auto hover:scale-110 transition-all  ease-in-out delay-100"
                   src="/assets/images/background/about2.png"
-                  alt="about-2"
+                  alt="about-1"
                 />
               </div>
             </div>

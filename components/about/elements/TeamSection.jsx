@@ -5,15 +5,17 @@ import { getAllEmployee } from "../../../fetchers/universalFetch";
 import { Loader, ProductNotFound } from "../../Ui";
 
 const TeamSection = () => {
+  //getting teams data from the API
   const { isLoading, isError, data, error, onSuccess } = useQuery({
     queryKey: ["teamDetails"],
     queryFn: getAllEmployee,
   });
-
+  //setting the teams data in the variable
   const teams = data?.data?.employee;
+  //defining the state of the API calling
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="No Team Data Found" />;
-
+  //mapping the slider teams data
   const teamSplide = teams?.map((team, index) => {
     return (
       <SplideSlide key={`${index}_pro`}>

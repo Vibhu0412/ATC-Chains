@@ -1,5 +1,4 @@
 import Slider from "./slider/Slider";
-import BlogCardSection from "./Card/BlogCardSection";
 import Layout from "./Layout/Layout";
 import NavBar from "./NavBar/NavBar";
 import FooterSection from "./Footer/FooterSection";
@@ -7,7 +6,6 @@ import CustomSlider from "./slider/CustomSlider";
 import CommonBtn from "./Button/CommonBtn";
 import ClientCardSection from "./Card/ClientCardSection";
 import IndustriesPage from "../industries/IndustriesPage";
-import IndustryCardSection from "./Card/IndustryCardSection";
 import ProductCard from "./Card/ProductCard";
 import ProductDetailCard from "./Card/ProductDetailCard";
 import ProductHoverOverView from "../home/elements/ProductHoverOverView";
@@ -37,27 +35,29 @@ import Modal from "./modal/Modal";
 import PopOverProductSlider from "./Card/PopOverProductSlider";
 import SearchDetails from "../search/SearchDetails";
 import SearchProductDetailProductCard from "./Card/SearchProductDetailProductCard";
+import RaiseInquiryForm from "./ContactForm/RaiseInquiryForm";
+import DownloadAttachments from "./common/DownloadAttachments";
 export {
   NavBar,
   SearchDetails,
   BannerImage,
   Slider,
   PopOverProductSlider,
-  BlogCardSection,
   Layout,
   Toaster,
   HomeIndustries,
   FooterSection,
+  RaiseInquiryForm,
   CustomSlider,
   CommonBtn,
   Banner,
   Modal,
   MainProductPage,
+  DownloadAttachments,
   ClientCardSection,
   IndustriesPage,
   ProductNotFound,
   SubProducts,
-  IndustryCardSection,
   ProductCard,
   ProductDetailView,
   ProductHoverOverView,

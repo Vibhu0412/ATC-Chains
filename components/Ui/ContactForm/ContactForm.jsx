@@ -3,11 +3,7 @@ import { Alert, Toast } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { conactForm } from "../../../fetchers/universalFetch";
-import {
-  AirplaneIcon,
-  CallingIcon,
-  HomeIcon,
-} from "../../../public/assets/icons/icons";
+import { CallingIcon, HomeIcon } from "../../../public/assets/icons/icons";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Toaster from "../Toast/Toaster";
 
@@ -19,16 +15,18 @@ const ContactForm = () => {
     handleSubmit,
   } = useForm({ mode: "onChange" });
   const [formdata, setFormData] = useState();
-
+  //submitting the form data and getting data results
   const { mutate, isLoading, isError, isSuccess, status, data } = useMutation({
     mutationFn: (formdata) => {
       return conactForm(formdata);
     },
   });
+  //contact from data
   const contactFormDataHandle = (data) => {
     setFormData(data);
     mutate(data);
   };
+  //after form submit response
   useEffect(() => {
     if (isSuccess) {
       Toaster.fire({
@@ -41,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <ErrorBoundary>
-      <div className=" -mt-36 mb-20 contact-section-bg  block pt-32 lg:pt-80 md:block lg:flex gap-5 items-center justify-center ">
+      <div className=" lg:-mt-36 md:mt-20 mt-0 mb-20 contact-section-bg  block pt-32 lg:pt-80 md:block lg:flex gap-5 items-center justify-center ">
         <div className="w-full  items-center justify-center">
           <div className="w-full flex items-center justify-center">
             <div className="absolute p-6 m-[140px] hidden lg:block  lg:mt-[550px] 2xl:mt-[620px]  bg-white rounded-[30px] flex labelChips">

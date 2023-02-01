@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+//internal imports
 import { CubeIcon } from "../../../public/assets/icons/icons";
 
 const VariantView = ({ data, currentPage, index }) => {
@@ -10,6 +12,7 @@ const VariantView = ({ data, currentPage, index }) => {
   const mainCategory = parseInt(category);
   const subCategoryId = parseInt(variantId);
 
+  //setting the product router url
   const productUrl =
     currentPage === "MainCategory"
       ? `/products/${data?.id}`
@@ -24,13 +27,16 @@ const VariantView = ({ data, currentPage, index }) => {
       {index % 2 === 0 ? (
         <div className="flex  rounded-lg ">
           <div className=" bg-white w-full rounded-l-lg mx-auto ">
-            <img
+            <Image
               className="mx-auto p-2"
               src={
                 data?.image_url
                   ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${data?.image_url}`
                   : "/assets/images/products/productImageNotFound.jpg"
               }
+              width={300}
+              height={300}
+              alt="product image"
             />
           </div>
           <div className="variant-bg rounded-lg overflow-hidden mx-auto w-full py-4 px-4 pr-16 text-white">
@@ -137,13 +143,16 @@ const VariantView = ({ data, currentPage, index }) => {
             </Link>
           </div>
           <div className=" bg-white w-full rounded-r-lg mx-auto ">
-            <img
-              className="mx-auto p-2"
+            <Image
+              className="mx-auto p-2 w-[300px] h-[300px] "
               src={
                 data?.image_url
                   ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${data?.image_url}`
                   : "/assets/images/products/productImageNotFound.jpg"
               }
+              width={300}
+              height={300}
+              alt="product image"
             />
           </div>
         </div>

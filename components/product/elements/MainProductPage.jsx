@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 import _ from "lodash";
-
+//internal imports
 import {
   getAllMainCategory,
   getAllSubCategory,
@@ -26,7 +27,6 @@ import {
   Toaster,
 } from "../../Ui";
 import VariantView from "./VariantView";
-import { useForm } from "react-hook-form";
 
 const MainProductPage = ({ currentPage }) => {
   const {
@@ -36,23 +36,26 @@ const MainProductPage = ({ currentPage }) => {
     handleSubmit,
   } = useForm({ mode: "onChange" });
   const [searchData, setSearchData] = useState();
-  const [productDataList, setProductDataList] = useState();
   const router = useRouter();
   const { category, variantId } = router.query;
   const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
   const Id = parseInt(variantId) !== NaN ? parseInt(variantId) : "";
 
+  //getting Maincategory product deatils
   const MainCategory = useQuery({
     queryKey: ["MainCategory"],
     queryFn: getAllMainCategory,
     refetchOnWindowFocus: false,
   });
 
+  //getting Subcategory product deatils and depend on ProductId
   const SubCategory = useQuery({
     queryKey: ["SubCategory", ProductId],
     queryFn: () => getAllSubCategory(ProductId),
     enabled: !!ProductId,
   });
+
+  //getting variants product deatils and depend on ProductId and Id
   const variants = useQuery({
     queryKey: ["Variants", Id],
     queryFn: () => getAllVariants({ ProductId, Id }),
@@ -61,6 +64,7 @@ const MainProductPage = ({ currentPage }) => {
 
   let product = [];
 
+  //all product data in the array list
   if (currentPage === "MainCategory") {
     product =
       MainCategory?.data?.data?.response?.primary_products &&
@@ -75,19 +79,20 @@ const MainProductPage = ({ currentPage }) => {
   if (currentPage === "VariantsId") {
     product = variants?.data?.data?.variants && variants?.data?.data?.variants;
   }
-
+  //search form data calling the in post method using uesquery and passing the search data
   const { mutate, isLoading, isError, isSuccess, status, data } = useMutation({
     mutationFn: (searchData) => {
       return searchProduct(searchData);
     },
   });
+  //search result data store in the product vatiable in the array list
   const isSearchDataAvailable = data?.data?.result?.products?.search_products;
   if (isSearchDataAvailable) {
     product =
       data?.data?.result?.products?.search_products &&
       data?.data?.result?.products?.search_products;
   }
-
+  //if
   useEffect(() => {
     if (status === 200) {
       Toaster.fire({
@@ -96,11 +101,12 @@ const MainProductPage = ({ currentPage }) => {
       });
     }
   }, [isSuccess]);
-
+  //setting the search data in useState variable
   const search = (data_list) => {
     mutate(data_list);
     setSearchData(data_list);
   };
+  //API calling state is define
   const loading =
     status || MainCategory?.status || SubCategory?.status || variants?.status;
   const error =

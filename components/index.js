@@ -16,7 +16,7 @@ import TestimonialsCardSection from "./Ui/Card/TestimonialsCardSection";
 import ProductCard from "./Ui/Card/ProductCard";
 import IndustrySolutionHome from "./home/elements/IndustrySolutionHome";
 import HomeIndustries from "./home/elements/HomeIndustries";
-import BlogCardSection from "./Ui/Card/BlogCardSection";
+
 import Loader from "./Ui/common/loader/Loader";
 import ErrorBoundary from "./Ui/ErrorBoundary/ErrorBoundary";
 import ErrorHandle from "./Ui/common/error/ErrorHandle";
@@ -33,6 +33,8 @@ import HeadSection from "./Ui/Headsection/HeadSection";
 import ProductsPage from "./product/ProductsPage";
 import ProductDetailView from "./product/elements/ProductDetailView";
 import IndustryDetails from "./industries/elements/IndustryDetails";
+import RaiseInquiryForm from "./Ui/ContactForm/RaiseInquiryForm";
+import DownloadAttachments from "./Ui/common/DownloadAttachments";
 export {
   NavBar,
   Layout,
@@ -47,8 +49,10 @@ export {
   NewsPage,
   YoutubePage,
   YoutubeVideoCard,
+  RaiseInquiryForm,
   MainProductPage,
   ProductDetailView,
+  DownloadAttachments,
   SubProducts,
   VariantView,
   ProductHoverOverView,
@@ -57,7 +61,6 @@ export {
   ProductCard,
   IndustrySolutionHome,
   HomeIndustries,
-  BlogCardSection,
   Loader,
   ErrorBoundary,
   ErrorHandle,

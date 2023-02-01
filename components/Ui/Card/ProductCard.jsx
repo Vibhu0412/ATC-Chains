@@ -49,11 +49,9 @@ const ProductCard = () => {
                   />
                 </div>
                 <div className="px-5 pb-5">
-                  <a href="#">
-                    <h2 className="text-xl font-bold mb-3 text-text-secondary dark:text-white line-clamp-1">
-                      {product?.name}
-                    </h2>
-                  </a>
+                  <h2 className="text-xl font-bold mb-3 text-text-secondary dark:text-white line-clamp-1">
+                    {product?.name}
+                  </h2>
 
                   <div className="flex items-center justify-between w-96">
                     <span className="text-md font-normal text-text-gray opacity-75 dark:text-white line-clamp-2">

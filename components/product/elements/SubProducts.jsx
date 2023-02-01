@@ -1,23 +1,27 @@
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/router";
-import { getAllMainCategory } from "../../../fetchers/universalFetch";
-import { Loader, PopOver, ProductNotFound } from "../../Ui";
 import { motion } from "framer-motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+//internal imports
+import { getAllMainCategory } from "../../../fetchers/universalFetch";
+import { Loader, PopOver, ProductNotFound } from "../../Ui";
+import Image from "next/image";
+
 const SubProducts = (isVisible) => {
+  //getting Maincategory product deatils
   const { isLoading, isError, data, error, isIdle, onSuccess } = useQuery({
     queryKey: ["SliderProducts"],
     queryFn: getAllMainCategory,
   });
-
+  //setting the slider products
   const productData = data?.data?.response?.primary_products;
-  const router = useRouter();
+  //defining the API calling state
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
 
+  //mapping the data in the slider
   const challengeSplide = productData?.map((product, index) => {
     return (
       <SplideSlide key={`${index}_pro`}>
@@ -27,7 +31,7 @@ const SubProducts = (isVisible) => {
               <div className="border border-primary rounded-xl">
                 <div className="flex flex-col space-y-4 md:space-y-8  md:mt-0  ">
                   <div className="relative  group flex justify-center items-center rounded-t-xl w-full h-full ">
-                    <img
+                    <Image
                       className="object-center object-cover h-[300px] max-w-[400px]  rounded-t-xl"
                       src={
                         product?.image_1920 && product?.image_1920
@@ -38,6 +42,8 @@ const SubProducts = (isVisible) => {
                             }`
                           : "/assets/images/products/product2.jpeg"
                       }
+                      width={400}
+                      height={300}
                       alt={product?.name}
                     />
                     <button className="focus:outline-none line-clamp-1 focus:ring-2 rounded-t-xl r   top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-5 w-full bg-primary/40">
@@ -70,10 +76,10 @@ const SubProducts = (isVisible) => {
   return (
     <Splide
       options={{
-        rewind: false,
+        rewind: true,
         autoWidth: true,
-        perPage: 6,
-        perMove: 2,
+        perPage: 10,
+        perMove: 10,
         pagination: false,
         gap: "1em",
         focus: "center",

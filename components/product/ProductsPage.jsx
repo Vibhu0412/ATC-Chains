@@ -1,12 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Banner,
-  ErrorBoundary,
-  MainProductPage,
-  Slider,
-  SubProducts,
-} from "../Ui";
+import { Banner, ErrorBoundary, MainProductPage, SubProducts } from "../Ui";
 import { staggerContainer } from "../../utils/motion";
 
 const ProductsPage = ({ currentPage }) => {
