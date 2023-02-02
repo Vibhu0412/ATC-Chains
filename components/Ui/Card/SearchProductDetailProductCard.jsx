@@ -1,18 +1,17 @@
-import { Carousel } from "flowbite-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 const SearchProductDetailProductCard = ({ data, currentPage }) => {
-  console.log("data ------------->", data, currentPage);
   return (
     <ErrorBoundary>
       <motion.div className="my-4 px-2 mx-auto  bg-transparent">
         <div className=" -z-1 h-[350px] w-[350px] shadow-lg  overflow-hidden bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 hover:shadow-2xl  duration-200">
           <Link href={`/search/${data?.id}`}>
             <div className="flex  mx-auto  items-center justify-center  ">
-              <img
+              <Image
                 className="z-0  mt-14"
                 src={
                   data && data?.image_1920 && data?.image_1920

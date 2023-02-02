@@ -164,7 +164,6 @@ const ProductDetailView = () => {
             </div>
           </div>
         </div>
-
         <div className="pb-6">
           <TitleSection name="Related Products" />
         </div>

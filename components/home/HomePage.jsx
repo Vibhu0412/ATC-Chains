@@ -83,7 +83,7 @@ const HomePage = () => {
       <section id="industrySection" className="my-10 px-4">
         <TitleSection name="industries" />
         <div className="">
-          <IndustriesPage />
+          <IndustriesPage setRouter="homePage" />
         </div>
       </section>
       <section id="productSection" className="">

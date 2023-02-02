@@ -14,7 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const IndustriesPage = ({ title, content }) => {
+const IndustriesPage = ({ title, content, setRouter }) => {
   const router = useRouter();
   const [subCategoryList, setSubCategoryList] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
@@ -29,10 +29,11 @@ const IndustriesPage = ({ title, content }) => {
     const button = e.target.closest("button"); // get the button
     const buttonParent = button?.parentElement.parentElement; // get the buttons parent (<dt> tag here)
     const parent = buttonParent?.parentElement; // get the buttons parent parent (Disclosure as div here)
+    console.log("Array?.prototype?.indexOf", Array?.prototype?.indexOf);
     const index =
-      Array.prototype?.indexOf &&
-      Array.prototype?.indexOf?.call(parent?.children, buttonParent); // find the index of the button in container
-    console.log("index", index);
+      Array?.prototype?.indexOf != "undefined" ||
+      (Array?.prototype?.indexOf != null &&
+        Array?.prototype?.indexOf?.call(parent?.children, buttonParent)); // find the index of the button in container
     for (let i = 0; i < AccordionRefs.current.length; i++) {
       // loop throug
       if (
@@ -94,7 +95,7 @@ const IndustriesPage = ({ title, content }) => {
   const activeDeactiveTab = (selected, catName) => {
     return classNames(
       "w-64  rounded-lg py-8 text-sm font-medium leading-5 ",
-      "ring-white ring-opacity-60 px-4 ring-none  focus:outline-none focus:ring-none",
+      "ring-white ring-opacity-60 px-4 ring-none focus:outline-none focus:ring-none",
       activeIndustries === catName?.split(" ").join("_") || selected
         ? "industryActive "
         : "text-black industry "
@@ -110,13 +111,17 @@ const IndustriesPage = ({ title, content }) => {
               {industry &&
                 industry?.map((industry, index) => {
                   return (
-                    <Disclosure as="div" className="pt-2" open={index === 1}>
-                      {({ open, close }) => {
+                    <Disclosure
+                      as="div"
+                      defaultOpen={index === 0}
+                      className="pt-2"
+                    >
+                      {({ open }) => {
                         return (
                           <>
                             <dt
                               className={`${
-                                activeDisclousre === index
+                                activeDisclousre === index || open
                                   ? "industryActive text-white"
                                   : "industry text-primary"
                               } py-6 px-10 w-80`}
@@ -124,7 +129,7 @@ const IndustriesPage = ({ title, content }) => {
                               ref={(el) => (AccordionRefs.current[index] = el)}
                             >
                               <Disclosure.Button
-                                open={activeDisclousre === index}
+                                open={activeDisclousre === index || open}
                                 className="flex my-4 justify-between items-center px-2 w-full  focus:outline-none"
                               >
                                 <span className="w-full font-medium  ">
@@ -133,7 +138,7 @@ const IndustriesPage = ({ title, content }) => {
                                 <span className="flex ml-6 menuItems-center h-7">
                                   <ChevronUpIcon
                                     className={`${
-                                      activeDisclousre === index
+                                      activeDisclousre === index || open
                                         ? "rotate-180 transform"
                                         : ""
                                     } h-6 w-6 text-gray-500`}
@@ -166,13 +171,17 @@ const IndustriesPage = ({ title, content }) => {
                                                 category?.name
                                               )
                                             }
-                                            onClick={() => {
-                                              router.push(
-                                                `/industries#${category.name
-                                                  .split(" ")
-                                                  .join("_")}`
-                                              );
-                                            }}
+                                            onClick={
+                                              setRouter === "homePage"
+                                                ? ""
+                                                : () => {
+                                                    router.push(
+                                                      `/industries#${category.name
+                                                        .split(" ")
+                                                        .join("_")}`
+                                                    );
+                                                  }
+                                            }
                                           >
                                             {category?.name}
                                           </Tab>
