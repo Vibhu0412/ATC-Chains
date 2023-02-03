@@ -28,7 +28,7 @@ const HeroSection = () => {
 
   const disabled = subCategory.length === 0;
   return (
-    <section className="relative  h-96 md:h-[60vh] lg:h-[85vh] -mt-20 flex flex-col items-start  justify-evenly text-start text-white py-0 lg:px-20 sm:px-2 px-8">
+    <section className="relative  h-96 md:h-[60vh] lg:h-[85vh] lg:-mt-20 flex flex-col items-start  justify-evenly text-start text-white py-0 lg:px-20 sm:px-2 px-8">
       <div className="video-docker rounded-b-3xl  absolute bottom-0 top-0 left-0 w-full h-full overflow-hidden">
         <video
           className="min-w-full min-h-full absolute object-cover"

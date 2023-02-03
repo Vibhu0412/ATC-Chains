@@ -13,15 +13,12 @@ const NavBar = () => {
   const router = useRouter();
 
   return (
-    <Navbar
-      fluid={false}
-      className="dark:bg-gray-200  fixed top-0 text-transparent w-full z-20 shadow-md rounded-b-[30px] rounded-t-none "
-    >
+    <Navbar className="dark:bg-gray-200 fixed top-0 text-transparent w-full z-20 shadow-md rounded-b-[30px] rounded-t-none ">
       <Navbar className="">
         <Link href={"/"}>
           <Image
             src="/assets/images/logo/Logo-dark.png"
-            className="mr-3 h-12 lg:h-14 sm:h-14"
+            className=" h-10 lg:h-14"
             alt="ATC Chain India"
             width={200}
             height={200}
@@ -35,7 +32,7 @@ const NavBar = () => {
           <CommonBtn
             name={"Contact Us"}
             customClasses={
-              "text-white py-2 px-4 bg-btn-primary rounded-lg border"
+              "text-white py-2 px-4 hidden lg:block bg-btn-primary rounded-lg border"
             }
           />
         </Link>

@@ -3,7 +3,10 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { useDebouncedCallback } from "use-debounce";
+
 import _ from "lodash";
+
 //internal imports
 import {
   getAllMainCategory,
@@ -32,6 +35,7 @@ const MainProductPage = ({ currentPage }) => {
   const {
     register,
     reset,
+    getValues,
     formState: { errors },
     handleSubmit,
   } = useForm({ mode: "onChange" });
@@ -70,7 +74,6 @@ const MainProductPage = ({ currentPage }) => {
       MainCategory?.data?.data?.response?.primary_products &&
       MainCategory?.data?.data?.response?.primary_products;
   }
-
   if (currentPage === "SubCategory") {
     product =
       SubCategory?.data?.data?.response?.sub_category &&
@@ -91,7 +94,12 @@ const MainProductPage = ({ currentPage }) => {
     product =
       data?.data?.result?.products?.search_products &&
       data?.data?.result?.products?.search_products;
+  } else {
   }
+
+  const debounced = useDebouncedCallback((value) => {
+    search(value);
+  }, 600);
   //if
   useEffect(() => {
     if (status === 200) {
@@ -139,6 +147,10 @@ const MainProductPage = ({ currentPage }) => {
                 type="search"
                 className="border-none w-full bg-text-gray/210 rounded-xl focus:ring-none"
                 placeholder="Search Product"
+                value={getValues("name")}
+                onInput={(e) => {
+                  debounced(e.target.value);
+                }}
                 {...register("name")}
               />
               <button

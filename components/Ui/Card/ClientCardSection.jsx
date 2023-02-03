@@ -27,7 +27,7 @@ const ClientCardSection = () => {
           src={
             client?.image_url
               ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${client?.image_url}`
-              : ""
+              : "/assets/images/products/productImageNotFound.jpg"
           }
           alt={client?.name}
           className="mx-2 rounded-lg  max-h-32"

@@ -3,7 +3,7 @@ import React from "react";
 const BannerImage = ({ image, text, description, classes }) => {
   return (
     <div>
-      <section className="relative h-full  lg:h-[80vh]  flex flex-col items-start  justify-evenly text-start text-white py-0 lg:px-20 sm:px-2 px-8">
+      <section className="relative h-[60vh]  lg:h-[80vh] sm:h-[50vh] md:h-[70vh] flex flex-col items-start  justify-evenly text-start text-white py-0 lg:px-20 sm:px-2 px-8">
         <div className="video-docker rounded-b-3xl absolute bottom-0 top-0 left-0 w-full h-full overflow-hidden">
           <img
             src={`${image ? image : "/assets/icons/svg/aboutPageBanner.svg"}`}
