@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { AboutPageIcon } from "../../public/assets/icons/icons";
 import { TeamSection, BannerImage } from "../Ui";
@@ -17,7 +18,7 @@ const AboutPage = () => {
       />
       <div class="relative pt-20 pb-20 lg:pb-0 px-4 lg:px-20">
         <div class=" inset-0 flex items-center justify-start gap-6">
-          <div class="w-32 lg:w-96 border-2 bg-black border-black"></div>
+          <div class="w-12 md:w-56 lg:w-56 xl:w-96 border-2 bg-black border-black"></div>
           <h1 className="text-5xl font-bold text-primary">
             About <span className="text-primary2">us</span>
           </h1>
@@ -34,7 +35,7 @@ const AboutPage = () => {
             term vision is to build a customer-centric brand name with our
             impeccable services.
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 lg:mt-18 items-start justify-center ">
+          <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-3 mt-10 lg:mt-18 items-start justify-center ">
             <div className="col-span-2  relative">
               <h1 className="text-9xl hidden lg:block 2xl:left-96 lg:left-20 absolute top-4 text-text-gray">
                 01
@@ -47,7 +48,7 @@ const AboutPage = () => {
                     alt="about-1"
                   />
                 </div>
-                <div class="  h-96  text-center rounded-2xl shadow-lg transform z-0  translate-y-10 lg:-translate-y-52 sm:-translate-y-72 max-w-lg ml-0 lg:-ml-72">
+                <div class=" h-96 text-center rounded-2xl shadow-lg transform z-0  translate-y-10 lg:-translate-y-52 sm:-translate-y-72 max-w-lg ml-0 lg:-ml-72">
                   <img
                     className="w-full h-full rounded-xl"
                     src="/assets/images/about/about-2.png"
@@ -71,9 +72,9 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 items-start justify-center ">
-            <div className=" flex items-start justify-start  p-6 col-span-1 ">
-              <div className="mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-3 items-start justify-center ">
+            <div className=" flex items-start justify-start p-6 col-span-1 ">
+              <div className="xl:mt-20 mt-0">
                 <h1 className="font-bold text-3xl text-primary my-4">
                   Why ATC chains?
                 </h1>
@@ -88,7 +89,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="col-span-2 relative">
-              <h1 className="text-9xl hidden lg:block 2xl:left-96 lg:left-20 absolute top-4 text-text-gray">
+              <h1 className="text-9xl hidden lg:block 2xl:left-96 xl:left-20 absolute top-4 text-text-gray">
                 02
               </h1>
               <div class="mx-5 block lg:grid place-content-end">
@@ -158,13 +159,13 @@ const AboutPage = () => {
           </div>
         </div>
         <div className=" block lg:flex items-center justify-center w-full px-6 lg:px-20">
-          <div className=" w-full lg:w-3/3 mx-auto items-center">
+          <div className=" w-full lg:w-2/3 mx-auto items-center">
             <div className="block lg:flex gap-6">
-              <div className="text-white flex flex-col w-full justify-start items-end mt-14 pl-0 lg:pl-56">
+              <div className="text-white mx-auto flex flex-col w-full justify-start items-start mt-14 pl-0 lg:pl-56">
                 <h1 className="font-bold text-4xl my-3">
                   Our Quality Statement
                 </h1>
-                <p className="my-5 w-full  lg:w-2/3">
+                <p className="my-5 ">
                   Our services stand for our ethics and integrity. We have been
                   delivering high –end quality machines which convey end-to-end
                   belt solutions to cater to the customized needs of our
@@ -172,11 +173,13 @@ const AboutPage = () => {
                   quality products.
                 </p>
               </div>
-              <div className="mx-auto w-full">
-                <img
+              <div className="mx-auto max-w-md">
+                <Image
                   className="rounded-xl mt-0 lg:-mt-14 ml-0 lg:ml-20 mx-auto hover:scale-110 transition-all  ease-in-out delay-100"
                   src="/assets/images/background/about2.png"
                   alt="about-1"
+                  width={500}
+                  height={500}
                 />
               </div>
             </div>
@@ -186,8 +189,8 @@ const AboutPage = () => {
 
       <section>
         <div className="bg-primary text-white py-8">
-          <div className="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
-            <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-4">
+          <div className="container mx-auto flex flex-col items-start sm:flex-row md:flex-row my-0 md:my-24">
+            <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 sm:w-full mt-2 md:mt-12 px-4">
               <p className="ml-2 text-yellow-300 uppercase tracking-loose">
                 Working Process
               </p>

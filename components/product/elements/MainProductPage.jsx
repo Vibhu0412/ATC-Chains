@@ -99,7 +99,7 @@ const MainProductPage = ({ currentPage }) => {
 
   const debounced = useDebouncedCallback((value) => {
     search(value);
-  }, 600);
+  }, 800);
   //if
   useEffect(() => {
     if (status === 200) {
@@ -147,7 +147,7 @@ const MainProductPage = ({ currentPage }) => {
                 type="search"
                 className="border-none w-full bg-text-gray/210 rounded-xl focus:ring-none"
                 placeholder="Search Product"
-                value={getValues("name")}
+                // value={getValues("name")}
                 onInput={(e) => {
                   debounced(e.target.value);
                 }}

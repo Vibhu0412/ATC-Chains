@@ -10,6 +10,7 @@ import {
 } from "../../../public/assets/icons/icons";
 import { getAllBlogs } from "../../../fetchers/universalFetch";
 import { ErrorBoundary, Loader, ProductNotFound } from "../../Ui";
+import Image from "next/image";
 
 const NewSingleSection = () => {
   //gettting the data from the API response
@@ -29,13 +30,16 @@ const NewSingleSection = () => {
           key={index}
           className="flex relative cursor-pointer hover:bg-gray-500/20 my-4 p-3 rounded-lg border-b-2 gap-4 items-center"
         >
-          <img
+          <Image
             className="h-48 rounded-xl min-w-[15rem] max-w-[15rem] "
             src={
               blog?.image_url
                 ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${blog?.image_url}`
                 : "/assets/images/blogs/blog-1.png"
             }
+            alt={blog?.name}
+            width={150}
+            height={150}
           />
           <Link href={`/news/${blog?.id}`} className=" group">
             <div className="w-full flex items-center gap-4">

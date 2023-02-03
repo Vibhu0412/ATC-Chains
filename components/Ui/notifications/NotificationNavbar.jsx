@@ -13,6 +13,8 @@ const NotificationNavbar = () => {
   });
 
   const notification = data?.data?.notification;
+  if (isLoading) return "laoding...";
+  // if (isError) return "No Notification data";
   return (
     <Dropdown
       arrowIcon={false}
@@ -28,27 +30,31 @@ const NotificationNavbar = () => {
         </>
       }
     >
-      {notification?.map((notification) => (
-        <Dropdown.Item key={notification?.id} className="m-2 rounded-md">
-          <div className=" max-w-lg flex gap-2 border bg-white shadow-md rounded-lg p-6  ">
-            <div className="w-1/3">
-              <img
-                className="w-32 h-32"
-                src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${notification?.image_url}`}
-                //src="/assets/images/products/product-1.png"
-              />
+      {isError ? (
+        <div className="px-2">No Notification data</div>
+      ) : (
+        notification?.map((notification) => (
+          <Dropdown.Item key={notification?.id} className="m-2 rounded-md">
+            <div className=" max-w-lg flex gap-2 border bg-white shadow-md rounded-lg p-6  ">
+              <div className="w-1/3">
+                <img
+                  className="w-32 h-32"
+                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${notification?.image_url}`}
+                  //src="/assets/images/products/product-1.png"
+                />
+              </div>
+              <div className="w-2/3">
+                <h2 className="font-semibold text-xl capitalize text-primary line-clamp-1">
+                  {notification?.name}
+                </h2>
+                <p className="text-text-gray line-clamp-5 w-56">
+                  {ReactHtmlParser(notification?.description)}
+                </p>
+              </div>
             </div>
-            <div className="w-2/3">
-              <h2 className="font-semibold text-xl capitalize text-primary line-clamp-1">
-                {notification?.name}
-              </h2>
-              <p className="text-text-gray line-clamp-5 w-56">
-                {ReactHtmlParser(notification?.description)}
-              </p>
-            </div>
-          </div>
-        </Dropdown.Item>
-      ))}
+          </Dropdown.Item>
+        ))
+      )}
     </Dropdown>
   );
 };

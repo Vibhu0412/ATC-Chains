@@ -22,6 +22,8 @@ const NavBar = () => {
             alt="ATC Chain India"
             width={200}
             height={200}
+            priority
+            //layout="object-fit"
           />
         </Link>
       </Navbar>
@@ -32,7 +34,7 @@ const NavBar = () => {
           <CommonBtn
             name={"Contact Us"}
             customClasses={
-              "text-white py-2 px-4 hidden lg:block bg-btn-primary rounded-lg border"
+              "text-white py-2 px-4 hidden  xl:block bg-btn-primary rounded-lg border"
             }
           />
         </Link>

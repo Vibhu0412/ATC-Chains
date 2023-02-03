@@ -140,7 +140,7 @@ const FooterSection = () => {
                   <button
                     type="submit"
                     onClick={() => downloadAttachments()}
-                    className="bg-btn-secondary h-[2.1rem] w-[11rem] rounded-full text-white"
+                    className="bg-btn-secondary h-[2.1rem] w-[11rem] md:w-[8rem] rounded-full text-white"
                   >
                     Download
                   </button>
