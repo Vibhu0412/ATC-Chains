@@ -54,7 +54,9 @@ const MegaMenu = () => {
                 <Link
                   href="/industries"
                   className={`${
-                    router.pathname === "/industries"
+                    router.pathname == "/industries" ||
+                    router.pathname == "/industry-details/[industryId]" ||
+                    router.pathname == "/industry-details/details/[ProId]"
                       ? "font-bold text-primary"
                       : "text-text-gray"
                   }  font-semibold hover:text-primary focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}

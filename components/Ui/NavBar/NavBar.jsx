@@ -76,8 +76,9 @@ const NavBar = () => {
         <Navbar>
           <Link href="/industries" as="/industries">
             <h1
-              className={` bg-transparent hover:text-text-primary   font-semibold ${
-                router.pathname == "/industries"
+              className={` bg-transparent hover:text-text-primary font-semibold ${
+                router.pathname == "/industries" ||
+                router.pathname == "/industry-details/[industryId]"
                   ? "font-bold text-primary"
                   : "text-text-gray "
               } `}
@@ -91,7 +92,7 @@ const NavBar = () => {
           <Navbar key={i}>
             <Link href={item?.href} as={item?.href}>
               <h1
-                className={` bg-transparent hover:text-text-primary  font-semibold ${
+                className={`bg-transparent hover:text-text-primary font-semibold ${
                   router.pathname == item?.href
                     ? "font-bold text-primary"
                     : "text-text-gray "

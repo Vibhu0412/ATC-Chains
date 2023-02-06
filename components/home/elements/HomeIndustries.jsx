@@ -21,7 +21,7 @@ const HomeIndustries = () => {
   //maping data list in the slider
   const industryList = Industry?.map((industries, index) => {
     return (
-      <SplideSlide>
+      <SplideSlide key={index}>
         <div key={index} className="relative mx-2">
           <div className="">
             <div

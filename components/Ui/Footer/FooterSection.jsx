@@ -1,11 +1,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-  FacebookIcon,
   FooterDownloadSectionIcon,
   FooterSettingIcon,
-  InstagramIcon,
-  TwitterIcon,
+  LinkedinIcon,
+  YoutubeIcon,
 } from "../../../public/assets/icons/icons";
 import ClientCardSection from "../Card/ClientCardSection";
 import DownloadAttachments from "../common/DownloadAttachments";
@@ -105,10 +104,13 @@ const FooterSection = () => {
                   ATC Chains
                 </h2>
                 <p className="text-lg w-full lg:w-2/3 text-gray-300 mb-4">
-                  4517 Washington Ave. Manchester, Kentucky 39495
+                  22, Kalyannagar Society, O/s Shahpur Gate, Shahpur, Ahmedabad
+                  - 380004
                 </p>
-                <p className=" text-gray-300 mb-4">(689) 555-0102</p>
-                <p className=" text-gray-300 mb-4">(603) 555-0123</p>
+                <p className=" text-gray-300 mb-4">
+                  <a href="tel:90237 25674">+91 (902) 37-25676</a>
+                </p>
+                {/* <p className=" text-gray-300 mb-4">(603)  90237 25674 </p> */}
               </div>
 
               <div className="">
@@ -157,14 +159,19 @@ const FooterSection = () => {
                 . All right reserved.
               </span>
               <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-                <a href="#" className="text-gray-500 hover:text-white">
-                  <FacebookIcon />
+                <a
+                  href="https://www.linkedin.com/company/atc-chains-india-ahmedabad/"
+                  target="_blank"
+                  className="text-gray-500 hover:text-white"
+                >
+                  <YoutubeIcon />
                 </a>
-                <a href="#" className="text-gray-500 hover:text-white ">
-                  <InstagramIcon />
-                </a>
-                <a href="#" className="text-gray-500 hover:text-white ">
-                  <TwitterIcon />
+                <a
+                  href="https://www.youtube.com/@atcchainsindia3442"
+                  target="_blank"
+                  className="text-gray-500 hover:text-white "
+                >
+                  <LinkedinIcon />
                 </a>
               </div>
             </div>

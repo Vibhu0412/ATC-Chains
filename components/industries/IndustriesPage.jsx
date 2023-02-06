@@ -9,6 +9,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { ProductCard, TitleSection } from "../Ui";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -113,6 +114,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                   return (
                     <Disclosure
                       as="div"
+                      key={index}
                       defaultOpen={index === 0}
                       className="pt-2"
                     >
@@ -200,14 +202,16 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                             )}
                                           >
                                             {subCategory?.multi_images != 0 && (
-                                              <div className="h-72 max-w-7xl mx-auto sm:h-64 xl:h-96 2xl:h-96">
+                                              <div className="h-[60vh] max-w-7xl mx-auto ">
                                                 <Carousel>
                                                   {subCategory?.multi_images?.map(
                                                     (image) => (
-                                                      <img
+                                                      <Image
                                                         className="w-full h-full"
                                                         src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
                                                         alt={image?.name}
+                                                        width={500}
+                                                        height={500}
                                                       />
                                                     )
                                                   )}
