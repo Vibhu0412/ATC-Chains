@@ -21,12 +21,11 @@ const ProductCard = () => {
 
   const challengeSplide = productData?.map((product, index) => {
     return (
-      <SplideSlide>
+      <SplideSlide key={index}>
         <div className="flex">
           <motion.div
             variants={fadeIn("right", "spring", index * 0.2, 0.75)}
             className="m-4"
-            key={index}
           >
             {" "}
             <Link href={`/products/${product.id}`}>

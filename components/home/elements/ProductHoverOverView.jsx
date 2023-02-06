@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const ProductHoverOverView = () => {
   return (
     <img
-      className='w-full h-full overflow-x-hidden'
-      src='/assets/images/products/5656.gif'
+      className="w-full h-full overflow-x-hidden"
+      src="/assets/images/products/5656.gif"
     />
   );
 };
