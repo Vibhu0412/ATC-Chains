@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 import {
   HeadSection,
   Layout,
   NewSingleSection,
   TitleSection,
-} from '../../components';
-import BlogDetails from '../../components/news/elements/BlogDetails';
+} from "../../components";
+import BlogDetails from "../../components/news/elements/BlogDetails";
 
 const index = () => {
   return (
     <>
       <HeadSection
-        title={'Blog Details | ATC Chains India'}
-        description={'description'}
-        keyWords={'Keywords'}
+        title={"Blog Details - ATC Chains India"}
+        description={"description"}
+        keyWords={"Keywords"}
       />
       <Layout>
         <BlogDetails />

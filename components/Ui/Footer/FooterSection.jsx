@@ -15,13 +15,12 @@ const FooterSection = () => {
   const [showModal, setShowModal] = useState({ isShow: false, name: "" });
   const downloadableAttachments = [
     {
-      name: "testing.txt",
-      attachements:
-        "http://192.168.0.61:8069/web/content/ir.attachment/7235/datas?download=true",
+      name: "Product-overview.pdf",
+      attachment_url: "/assets/docs/PRODUCT_OVERVIEW_CATALOGUE.pdf",
     },
     {
       name: "testing.pdf",
-      attachements:
+      attachment_url:
         "http://192.168.0.61:8069/web/content/ir.attachment/7235/datas?download=true",
     },
   ];
@@ -152,11 +151,9 @@ const FooterSection = () => {
             <hr className="my-6 border-gray-600 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
               <span className="text-sm sm:text-center ">
-                © 2022{" "}
-                <a href="#" className="hover:underline">
-                  Traunship
-                </a>
-                . All right reserved.
+                © Copyright Atc Chains 2022{" "}
+                <a href="#" className="hover:underline"></a>. All right
+                reserved.
               </span>
               <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <a

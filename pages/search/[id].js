@@ -6,7 +6,7 @@ const index = () => {
   return (
     <div>
       <HeadSection
-        title={"Search || ATC Chains India"}
+        title={"Search - ATC Chains India"}
         description={"description"}
         keyWords={"Keywords"}
       />

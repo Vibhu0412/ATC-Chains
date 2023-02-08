@@ -11,7 +11,7 @@ const index = () => {
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
       <HeadSection
-        title={"Industry-details | ATC Chains India"}
+        title={"Industry-details - ATC Chains India"}
         description={"description"}
         keyWords={"Keywords"}
       />

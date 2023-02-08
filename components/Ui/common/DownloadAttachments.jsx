@@ -5,7 +5,7 @@ const DownloadAttachments = (props) => {
     props?.data?.attachements || props?.data?.data?.attachements
       ? props?.data?.attachements || props?.data?.product_attachment
       : props?.data || props?.data?.data?.attachements;
-
+  console.log("props--------", props, downloadableAttachments);
   return (
     <ul
       role="list"
@@ -39,6 +39,7 @@ const DownloadAttachments = (props) => {
               <a
                 href={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${attachment?.attachment_url}`}
                 className="font-medium text-indigo-600 hover:text-indigo-500"
+                download
               >
                 Download
               </a>

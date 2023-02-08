@@ -50,12 +50,13 @@ const ContactForm = () => {
                   </p>
                 </span>
                 <p className="font-bold text-text-primary  h-[34px] md:h-[60px] w-[250px] md:w-[250px]">
-                  35 West Dental Street California 1004
+                  22, Kalyannagar Society, O/s Shahpur Gate, Shahpur, Ahmedabad
+                  - 380004
                 </p>
               </div>
             </div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.857764410038!2d72.52734171538503!3d23.02899412186599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8555282e0cbf%3A0x21347c8e76fbf474!2sTecblic%20Private%20Limited!5e0!3m2!1sen!2sin!4v1673595504166!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7343.257677229065!2d72.57585897692887!3d23.03739633978203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8442629d0ef7%3A0x475a2529ab81e2dc!2sATC%20CHAINS%20INDIA!5e0!3m2!1sen!2sin!4v1675669203787!5m2!1sen!2sin"
               className=" rounded-3xl w-full lg:w-[70vh] h-full lg:h-[75vh] hidden lg:block "
               style={{ border: 0 }}
               loading="lazy"
