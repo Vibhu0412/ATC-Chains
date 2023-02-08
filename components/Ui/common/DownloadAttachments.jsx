@@ -5,7 +5,14 @@ const DownloadAttachments = (props) => {
     props?.data?.attachements || props?.data?.data?.attachements
       ? props?.data?.attachements || props?.data?.product_attachment
       : props?.data || props?.data?.data?.attachements;
-  console.log("props--------", props, downloadableAttachments);
+  const downloadableType = props.type;
+  console.log(
+    "props--------",
+    props,
+    downloadableAttachments,
+    "------------",
+    downloadableType
+  );
   return (
     <ul
       role="list"
@@ -36,13 +43,23 @@ const DownloadAttachments = (props) => {
               </span>
             </div>
             <div className="ml-4 flex-shrink-0">
-              <a
-                href={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${attachment?.attachment_url}`}
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-                download
-              >
-                Download
-              </a>
+              {downloadableType === "Footer" ? (
+                <a
+                  href={`${attachment?.attachment_url}`}
+                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  download
+                >
+                  Download
+                </a>
+              ) : (
+                <a
+                  href={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${attachment?.attachment_url}`}
+                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  download
+                >
+                  Download
+                </a>
+              )}
             </div>
           </li>
         ))}

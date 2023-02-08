@@ -72,6 +72,7 @@ const FooterSection = () => {
               setShowModal={setShowModal}
               handleClose={modalhide}
               data={downloadableAttachments}
+              type="Footer"
             />
           ) : (
             ""
