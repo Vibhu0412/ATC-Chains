@@ -16,7 +16,7 @@ const FooterSection = () => {
   const downloadableAttachments = [
     {
       name: "Product-overview.pdf",
-      attachment_url: "/assets/docs/PRODUCT_OVERVIEW_CATALOGUE.pdf",
+      attachment_url: "assets/docs/PRODUCT_OVERVIEW_CATALOGUE.pdf",
     },
     {
       name: "testing.pdf",
