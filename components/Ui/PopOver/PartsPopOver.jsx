@@ -44,7 +44,7 @@ const PartsPopOver = ({ imageUrl, title }) => {
                 onMouseEnter={onMouseEnter.bind(null, open)}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <a className="text-white bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
+                <a className="text-white bg-btn-secondary/50 w-4 h-4 z-auto lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
               </Popover.Button>
               <Transition
                 as={Fragment}
@@ -55,7 +55,7 @@ const PartsPopOver = ({ imageUrl, title }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="px-4 transform overflow-auto -translate-x-2/3 left-1/3  sm:px-0 ">
+                <Popover.Panel className="px-4 z-10 transform overflow-auto -translate-x-1/3 left-1/3  sm:px-0 ">
                   <div
                     className="  rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
                     onMouseEnter={onMouseEnter.bind(null, open)}
@@ -63,7 +63,7 @@ const PartsPopOver = ({ imageUrl, title }) => {
                   >
                     <div className="w-full bg-white rounded-xl overflow-hidden p-7 ">
                       <div>
-                        <h1 className="font-bold w-full text-xl text-text-orange">
+                        <h1 className="font-bold min-w-[10rem] max-w-xl text-center w-full mb-4 text-xl text-text-orange">
                           {title}
                         </h1>
                       </div>
@@ -72,12 +72,12 @@ const PartsPopOver = ({ imageUrl, title }) => {
                         {imageUrl &&
                           imageUrl.map((images) => (
                             <div class="mb-4">
-                              <img
+                              <Image
                                 src={`${images.image}`}
-                                class="max-w-full h-auto min-w-md min-h-md  px-2"
+                                class="max-w-full h-auto  px-2"
                                 alt=""
-                                width={100}
-                                height={100}
+                                width={70}
+                                height={70}
                               />
                             </div>
                           ))}

@@ -121,26 +121,26 @@ export const parts = [
     title: "Side Brackets & Connecting Joints Strips",
     imageUrl: [
       {
-        image: "/assets/images/productOverview/joint1.svg",
+        image: "/assets/images/productOverview/joints1.svg",
       },
       {
-        image: "/assets/images/productOverview/joint2.svg",
+        image: "/assets/images/productOverview/joints2.svg",
       },
       {
-        image: "/assets/images/productOverview/joint3.svg",
+        image: "/assets/images/productOverview/joints3.svg",
       },
       {
-        image: "/assets/images/productOverview/joint4.svg",
+        image: "/assets/images/productOverview/joints4.svg",
       },
       {
-        image: "/assets/images/productOverview/joint5.svg",
+        image: "/assets/images/productOverview/joints5.svg",
       },
     ],
   },
 
   {
-    top: "67%",
-    left: "68%",
+    top: "69%",
+    left: "75%",
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
