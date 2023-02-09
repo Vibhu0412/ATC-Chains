@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Fragment, useRef } from "react";
 
 const PartsPopOver = ({ imageUrl, title }) => {
-  console.log("imageUrl", imageUrl, title);
   const buttonRef = useRef(null);
   const timeoutDuration = 200;
   let timeout;
