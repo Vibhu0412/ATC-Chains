@@ -55,7 +55,7 @@ const PartsPopOver = ({ imageUrl, title }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="px-4 w-96 mt-0 transform overflow-hidden  sm:px-0 ">
+                <Popover.Panel className="px-4 transform overflow-auto -translate-x-2/3 left-1/3  sm:px-0 ">
                   <div
                     className="  rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
                     onMouseEnter={onMouseEnter.bind(null, open)}
@@ -68,14 +68,16 @@ const PartsPopOver = ({ imageUrl, title }) => {
                         </h1>
                       </div>
 
-                      <div className="flex mx-auto  items-center mt-3 justify-center">
+                      <div className="flex flex-wrap mx-auto  items-center mt-3 justify-center">
                         {imageUrl &&
                           imageUrl.map((images) => (
                             <div class="mb-4">
                               <img
                                 src={`${images.image}`}
-                                class="max-w-full h-auto  px-2"
+                                class="max-w-full h-auto min-w-md min-h-md  px-2"
                                 alt=""
+                                width={100}
+                                height={100}
                               />
                             </div>
                           ))}
