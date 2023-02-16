@@ -21,7 +21,7 @@ const ProductHoverOverView = () => {
 
             opacity: part.opacity,
           }}
-          className=" rounded-full absolute"
+          className=" rounded-full z-0 absolute"
         >
           <PartsPopOver title={part.title} imageUrl={part.imageUrl} />
         </div>

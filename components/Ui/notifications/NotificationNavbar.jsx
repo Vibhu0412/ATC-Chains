@@ -15,7 +15,7 @@ const NotificationNavbar = () => {
   });
 
   const notification = data?.data?.notification;
-  if (isLoading) return "laoding...";
+  //if (isLoading) return "laoding...";
   // if (isError) return "No Notification data";
   return (
     <Dropdown
@@ -24,12 +24,22 @@ const NotificationNavbar = () => {
       dismissOnClick={false}
       label={
         <>
-          <span className="text-primary p-3 rounded-full hover:bg-btn-secondary bg-btn-primary hidden xl:block lg:hidden">
-            <NavBarStarIcon color={`#fff`} />
-          </span>
-          <span className="text-white xl:block lg:hidden hidden px-2 border border-white -ml-2 -mt-6 relative rounded-full bg-primary">
-            {notification?.length}
-          </span>
+          {notification?.length >= 0 ? (
+            <>
+              <span
+                alt="no notfication"
+                className="text-primary p-3 rounded-full hover:bg-btn-secondary bg-btn-primary hidden xl:block lg:hidden"
+              >
+                <NavBarStarIcon color={`#fff`} />
+              </span>
+
+              <span className="text-white xl:block lg:hidden hidden px-2 border border-white -ml-2 -mt-6 relative rounded-full bg-primary">
+                {notification?.length}
+              </span>
+            </>
+          ) : (
+            ""
+          )}
         </>
       }
     >
