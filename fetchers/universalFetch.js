@@ -2,6 +2,14 @@ import apiClient from "./api.service";
 import { API } from "./constants/api.constants";
 
 //all get API list
+export const getProductMegaMenuList = async () => {
+  try {
+    const res = await apiClient.get(`${API.MEGAMENULIST}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getAllMainCategory = async () => {
   try {
     const res = await apiClient.get(`${API.MAINCATEGORY}`);
@@ -98,6 +106,14 @@ export const getBlogDetails = async (BlogId) => {
 export const getIndustryList = async () => {
   try {
     const res = await apiClient.get(`${API.INDUSTRYLIST}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getIndustryListFurniture = async () => {
+  try {
+    const res = await apiClient.get(`${API.INDUSTRYLISTFURNITURE}`);
     return res;
   } catch (error) {
     console.log(error);

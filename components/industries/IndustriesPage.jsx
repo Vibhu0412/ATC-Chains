@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { Accordion, Carousel, Tabs } from "flowbite-react";
+import { Carousel } from "flowbite-react";
 import React, { useEffect, useRef, useState } from "react";
 import { getIndustryList } from "../../fetchers/universalFetch";
 import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Tab } from "@headlessui/react";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
@@ -153,7 +154,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                               <div className="w-full text-base text-gray-500">
                                 <div className="w-full block  lg:flex gap-5  sm:px-0">
                                   <Tab.Group>
-                                    <Tab.List className=" w-80 rounded-xl">
+                                    <Tab.List className="">
                                       {industry?.industry_subcategory_name?.map(
                                         (category) => (
                                           <Tab

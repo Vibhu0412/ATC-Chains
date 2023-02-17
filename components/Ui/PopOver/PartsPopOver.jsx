@@ -94,7 +94,7 @@ const PartsPopOver = ({ imageUrl, title }) => {
                     onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className="w-full bg-white rounded-xl overflow-hidden p-7 ">
+                    <div className="w-full z-100 bg-white rounded-xl overflow-hidden p-7 ">
                       <div>
                         <h1 className="font-bold min-w-[10rem] max-w-xl text-center w-full mb-4 text-xl text-text-orange">
                           {title}

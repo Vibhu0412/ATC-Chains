@@ -81,17 +81,17 @@ const FooterSection = () => {
       ) : (
         ""
       )}
-      <div className="footer-bg z-0 mt-20 pt-28 lg:pt-0 border-none relative">
-        <span className="absolute bottom-0 right-0 hidden 2xl:block">
+      <div className="footer-bg  mt-28  lg:pt-0 border-none ">
+        {/* <span className="absolute bottom-0 right-0 hidden 2xl:block">
           <FooterSettingIcon />
-        </span>
+        </span> */}
         <div className="w-full flex items-center justify-center">
           <div className="lg:max-w-6xl md:max-w-3xl sm:max-w-2xl  max-w-lg w-full rounded-3xl pb-5  mb-6 lg:p-12 p-3 bg-primary">
             <div className="flex flex-col items-center justify-center text-white mb-6">
               <p>Wall of fame</p>
               <h1 className="font-bold text-4xl sm:text-3xl">Our Clients</h1>
             </div>
-            <div className=" overflow-hidden">
+            <div className=" overflow-x-hidden">
               <ClientCardSection />
             </div>
           </div>
@@ -108,7 +108,7 @@ const FooterSection = () => {
                   - 380004
                 </p>
                 <p className=" text-gray-300 mb-4">
-                  <a href="tel:90237 25674">+91 (902) 37-25676</a>
+                  <a href="tel:90237 25674">+91 (902) 37-25674 </a>
                 </p>
                 {/* <p className=" text-gray-300 mb-4">(603)  90237 25674 </p> */}
               </div>

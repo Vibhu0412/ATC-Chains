@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { getAllMainCategory } from "../../../fetchers/universalFetch";
 import { Loader, PopOver, ProductNotFound } from "../../Ui";
 import Image from "next/image";
+import ProductSubCategroy from "../../Ui/PopOver/ProductSubCategroy";
 
 const SubProducts = (isVisible) => {
   //getting Maincategory product deatils
@@ -26,14 +27,15 @@ const SubProducts = (isVisible) => {
     return (
       <SplideSlide key={`${index}_pro`}>
         <div key={index} className="flex">
-          <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-10 px-2">
+          <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-4 px-2">
             <Link href={`/products/${product?.id}`}>
               <div className="border border-primary rounded-xl">
-                <div className="flex flex-col space-y-4 md:space-y-8  md:mt-0  ">
+                <div className="flex flex-col ">
                   <div className="relative  group flex justify-center items-center rounded-t-xl w-full h-full ">
-                    <Image
-                      className="object-center object-cover h-[300px] max-w-[400px]  rounded-t-xl"
-                      src={
+                    <ProductSubCategroy
+                      name={product?.name}
+                      id={product?.id}
+                      image={
                         product?.image_1920 && product?.image_1920
                           ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
                               product?.image_1920
@@ -42,28 +44,20 @@ const SubProducts = (isVisible) => {
                             }`
                           : "/assets/images/products/product2.jpeg"
                       }
-                      width={400}
-                      height={300}
-                      alt={product?.name}
                     />
-                    <button className="focus:outline-none line-clamp-1 focus:ring-2 rounded-t-xl r   top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-5 w-full bg-primary/40">
+                    <div className=" px-2 focus:outline-none line-clamp-2 focus:ring-2 rounded-t-xl top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-4 w-full bg-primary">
                       {product?.name}
-                    </button>
-                    <div className="absolute opacity-0 group-hover:opacity-100 rounded-t-xl transition duration-500 top-0 py-[30px] z-0 px-20 w-full bg-primary/50 bg-opacity-50" />
+                    </div>
                   </div>
                 </div>
-                <div className="p-2 bg-primary text-white rounded-b-lg flex justify-between items-center px-6">
+                <div className="p-2 bg-primary/40 text-white rounded-b-lg flex justify-between items-center px-6">
                   <div>
                     <h3 className="text-lg  font-bold hover:underline line-clamp-1 min-h-10 ">
                       Click Here For more Detail
                     </h3>
                   </div>
-                  <div className="relative ">
-                    {isVisible?.isVisible == "productPage" ? (
-                      ""
-                    ) : (
-                      <PopOver id={product?.id} />
-                    )}
+                  <div className=" relative z-0">
+                    <PopOver id={product?.id} />
                   </div>
                 </div>
               </div>

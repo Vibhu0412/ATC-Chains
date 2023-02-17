@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -88,6 +88,29 @@ const MainProductPage = ({ currentPage }) => {
       return searchProduct(searchData);
     },
   });
+
+  // const {
+  //   status,
+  //   data,
+  //   isSuccess,
+  //   isFetching,
+  //   isFetchingNextPage,
+  //   isFetchingPreviousPage,
+  //   fetchNextPage,
+  //   fetchPreviousPage,
+  //   hasNextPage,
+  //   hasPreviousPage,
+  // } = useInfiniteQuery(
+  //   ["search"],
+  //   async (searchData) => {
+  //     return searchProduct(searchData);
+  //   },
+  //   {
+  //     getPreviousPageParam: (searchData) =>
+  //       searchData?.page_number ?? undefined,
+  //     getNextPageParam: (searchData) => searchData.page_number ?? undefined,
+  //   }
+  // );
   //search result data store in the product vatiable in the array list
   const isSearchDataAvailable = data?.data?.result?.products?.search_products;
   if (isSearchDataAvailable) {
@@ -98,6 +121,7 @@ const MainProductPage = ({ currentPage }) => {
   }
 
   const debounced = useDebouncedCallback((value) => {
+    console.log("value----------->", { page_number: 1, name: value });
     search(value);
   }, 800);
   //if
@@ -163,13 +187,13 @@ const MainProductPage = ({ currentPage }) => {
           </form>
         </div>
       </div>
-      <div className="relative ">
-        <span className="absolute -z-10 -top-32 -left-10">
+      <div className=" ">
+        {/* <span className="absolute -z-10 -top-32 -left-10">
           <ProductPageIcon />
         </span>
         <span className="absolute -bottom-28 -z-10 -right-10 flex flex-wrap-reverse">
           <ProductPageIconTwo />
-        </span>
+        </span> */}
         {currentPage === "VariantsId" ? (
           loading == "loading" ? (
             <Loader />

@@ -26,26 +26,24 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
   return (
     <ErrorBoundary>
       <motion.div className="my-4 px-2 -z-auto mx-auto">
-        <div className=" h-[350px] w-[350px] shadow-lg  overflow-hidden bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 hover:shadow-2xl  duration-200">
+        <div className=" h-[350px] w-[400px] shadow-lg  bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 hover:shadow-2xl  duration-200">
           <Link href={productUrl}>
             {currentPage === "MainCategory" || currentPage === "VariantsId" ? (
-              <div className="flex  mx-auto  items-center justify-center  ">
-                <Image
-                  className="z-0  mt-14"
-                  src={
-                    data && data?.image_1920 && data?.image_1920
-                      ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
-                          data?.image_1920 ? data?.image_1920 : data?.image_url
-                        }`
-                      : "/assets/images/products/image 39.png"
-                  }
-                  alt="product image"
-                  width={300}
-                  height={300}
-                />
-              </div>
+              <Image
+                className="z-0 px-1 w-[400px] h-[300px] pt-14 mt-14"
+                src={
+                  data && data?.image_1920 && data?.image_1920
+                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                        data?.image_1920 ? data?.image_1920 : data?.image_url
+                      }`
+                    : "/assets/images/products/image 39.png"
+                }
+                alt="product image"
+                width={390}
+                height={300}
+              />
             ) : (
-              <div className="h-[285px] w-[300px] overflow-x-hidden mx-auto overflow-hidden">
+              <div className="h-[300px] w-[350px]  mx-auto ">
                 <Carousel
                   className=""
                   indicators={false}
@@ -56,7 +54,7 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
                     data?.image_1920 &&
                     data?.image_1920?.map((image, index) => (
                       <img
-                        className="overflow-hidden mt-14"
+                        className=" mt-14"
                         src={
                           data?.image_1920 && data?.image_1920
                             ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image}`
@@ -64,7 +62,7 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
                         }
                         alt="product image"
                         key={index}
-                        width={300}
+                        width={400}
                         height={300}
                       />
                     ))}

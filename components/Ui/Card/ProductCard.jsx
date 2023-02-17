@@ -8,6 +8,12 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ArrowDownCircleIcon,
+  ArrowLeftIcon,
+  ArrowRightCircleIcon,
+} from "@heroicons/react/20/solid";
+import ProductSubCategroy from "../PopOver/ProductSubCategroy";
 const ProductCard = () => {
   const { isLoading, isError, data, error, isIdle, onSuccess } = useQuery({
     queryKey: ["SliderProducts"],
@@ -28,12 +34,25 @@ const ProductCard = () => {
             className="m-4"
           >
             {" "}
-            <Link href={`/products/${product.id}`}>
-              <div className="w-full  bg-white rounded-3xl border border-gra-400 dark:bg-gray-800 dark:border-gray-700">
-                <div className=" p-4 h-[350px] overflow-hidden mx-auto ">
-                  <Image
-                    className="rounded-3xl w-full  mx-auto"
-                    width={500}
+            <div className="w-full  bg-white rounded-3xl border border-gra-400 dark:bg-gray-800 dark:border-gray-700">
+              <Link href={`/products/${product.id}`}>
+                <div className=" p-4 overflow-hidden mx-auto ">
+                  <ProductSubCategroy
+                    name={product?.name}
+                    id={product?.id}
+                    image={
+                      product?.image_1920 && product?.image_1920
+                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                            product?.image_1920
+                              ? product?.image_1920
+                              : product?.image_url
+                          }`
+                        : "/assets/images/products/aluminium-kettenfoerdersystem-4-modular-automation-1380x640_01 3.png"
+                    }
+                  />
+                  {/* <Image
+                    className="rounded-3xl object-cover h-[300px] max-w-[400px]  mx-auto"
+                    width={400}
                     height={300}
                     src={
                       product?.image_1920 && product?.image_1920
@@ -45,21 +64,23 @@ const ProductCard = () => {
                         : "/assets/images/products/aluminium-kettenfoerdersystem-4-modular-automation-1380x640_01 3.png"
                     }
                     alt={product?.name}
-                  />
+                  /> */}
                 </div>
-                <div className="px-5 pb-5">
-                  <h2 className="text-xl font-bold mb-3 text-text-secondary dark:text-white line-clamp-1">
+              </Link>
+              <div className="px-5 pb-5">
+                <div className="flex gap-2 items-center justify-between text-text-secondary hover:text-text-orange">
+                  <h2 className="text-xl  font-bold mb-3 text-text-secondary dark:text-white line-clamp-1">
                     {product?.name}
                   </h2>
+                </div>
 
-                  <div className="flex items-center justify-between w-96">
-                    <span className="text-md font-normal text-text-gray opacity-75 dark:text-white line-clamp-2">
-                      {product?.description}
-                    </span>
-                  </div>
+                <div className="flex items-center justify-between w-96">
+                  <span className="text-md font-normal text-text-gray opacity-75 dark:text-white line-clamp-2">
+                    {product?.description}
+                  </span>
                 </div>
               </div>
-            </Link>
+            </div>
           </motion.div>
         </div>
       </SplideSlide>

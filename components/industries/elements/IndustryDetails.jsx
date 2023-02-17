@@ -28,7 +28,7 @@ const IndustryDetails = () => {
                 className="font-bold text-primary text-2xl pl-6 mb-6 capitalize"
                 key={index}
               >
-                {industries?.name}
+                {industries?.product_tmpl_id && industries?.product_tmpl_id[1]}
               </h1>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 {industries.products.map((product, index) => (

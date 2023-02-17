@@ -80,7 +80,7 @@ const MegaMenu = () => {
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
                     <div className=" w-full bg-white rounded-xl overflow-hidden p-7 ">
-                      <div className="flex gap-5">
+                      <div className="flex flex-wrap gap-5">
                         {isLoading
                           ? "loading..."
                           : categoriesList?.map((category, index) => (

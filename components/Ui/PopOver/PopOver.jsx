@@ -22,7 +22,7 @@ const PopOver = ({ id }) => {
   const MainId = data?.data?.primary_product;
   const popOverSubCategoryDataList = data?.data?.response?.sub_category;
   const buttonRef = useRef(null);
-  const timeoutDuration = 400;
+  const timeoutDuration = 1000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -34,11 +34,11 @@ const PopOver = ({ id }) => {
     );
   };
 
-  const onMouseEnter = (open) => {
-    clearTimeout(timeout);
-    if (open) return;
-    return buttonRef.current?.click();
-  };
+  // const onMouseEnter = (open) => {
+  //   clearTimeout(timeout);
+  //   if (open) return;
+  //   return buttonRef.current?.click();
+  // };
 
   const onMouseLeave = (open) => {
     if (!open) return;
@@ -46,7 +46,7 @@ const PopOver = ({ id }) => {
   };
 
   return (
-    <div className="w-full px-2 rounded-xl">
+    <div className="w-full relative z-10  rounded-xl">
       <Popover className="  ">
         {({ open }) => (
           <>
@@ -55,8 +55,8 @@ const PopOver = ({ id }) => {
                 ref={buttonRef}
                 className={`
                   ${open ? "" : "text-opacity-90"}
-                  text-white group relative px-3 py-2 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
-                onMouseEnter={onMouseEnter.bind(null, open)}
+                  text-white group relative  py-2 rounded-md inline-flex justify-end items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
+                // onMouseEnter={onMouseEnter.bind(null, open)}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <a className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -72,13 +72,13 @@ const PopOver = ({ id }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute mb-50 z-10   px-4 mt-0 transform overflow-hidden -translate-x-2/3 left-1/3 sm:px-0 ">
+                <Popover.Panel className="absolute mb-50 z-50   px-4 mt-0 transform overflow-hidden -translate-x-2/3 left-1/3 sm:px-0 ">
                   <div
-                    className=" relative rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
-                    onMouseEnter={onMouseEnter.bind(null, open)}
+                    className="  rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
+                    // onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className=" z-10 w-full max-w-md bg-white rounded-xl overflow-hidden p-7 ">
+                    <div className="z-50 w-full max-w-md bg-white rounded-xl overflow-hidden p-7 ">
                       <div>
                         <h1 className="font-bold w-full text-xl text-text-orange">
                           Showing Sub{" "}
@@ -88,10 +88,10 @@ const PopOver = ({ id }) => {
                       <Swiper
                         slidesPerView={2}
                         spaceBetween={10}
-                        //slidesPerGroup={1}
+                        slidesPerGroup={1}
                         loop={true}
                         loopFillGroupWithBlank={true}
-                        navigation={false}
+                        navigation={true}
                         scrollbar={{ draggable: true }}
                         className="mySwiper"
                       >

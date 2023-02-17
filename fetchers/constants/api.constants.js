@@ -1,5 +1,6 @@
 export const API = {
   //all get api name
+  MEGAMENULIST: "product_menu",
   MAINCATEGORY: "primary_products",
   ALLEMPLOYEE: "employee",
   ALLCOMPANY: "company",
@@ -8,6 +9,7 @@ export const API = {
   ALLCLIENTS: "clients",
   ALLBLOGS: "blogs",
   INDUSTRYLIST: "industry",
+  INDUSTRYLISTFURNITURE: "industry/furniture",
   INDUSTRYPRODUCTS: "industry/product",
   ALLNOTIFICATION: "notification",
 

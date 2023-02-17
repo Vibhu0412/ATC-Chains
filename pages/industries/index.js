@@ -16,7 +16,7 @@ const index = () => {
         keyWords={"Keywords"}
       />
       <Layout>
-        <BannerImage />
+        <BannerImage image="/assets/icons/svg/industryBannerBg.svg" />
         <div className="py-14">
           <TitleSection name="industries" />
         </div>

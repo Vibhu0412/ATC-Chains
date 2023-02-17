@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { getIndustryList } from "../../../fetchers/universalFetch";
+import { getIndustryListFurniture } from "../../../fetchers/universalFetch";
 import { PlayIcon } from "../../../public/assets/icons/icons";
 
 const IndustrySolutionHome = () => {
   const [subCategory, setSubCategory] = useState([]);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["industryList"],
-    queryFn: getIndustryList,
+    queryKey: ["industryListFurniture"],
+    queryFn: getIndustryListFurniture,
     refetchOnWindowFocus: false,
   });
   const Industry = data?.data?.Industry;
@@ -24,7 +24,7 @@ const IndustrySolutionHome = () => {
   const subCategories = (e) => {
     setSelectedSubCategory(e.target.value);
   };
-
+  console.log("first--------------------------------", data);
   const disabled = subCategory?.length === 0;
   return (
     <div className=" industry-solution-bg">
@@ -35,7 +35,7 @@ const IndustrySolutionHome = () => {
               className="block bg-transparent w-full -mb-2 px-16 lg:px-0 py-4  text-lg lg:text-xl text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
               onChange={(e) => selectedIndusrty(e)}
             >
-              <option slected>Select Category</option>
+              <option slected>Conver type</option>
               {Industry?.map((industry, index) => (
                 <option key={index} value={industry.id}>
                   {industry?.industry_category_name}
@@ -49,7 +49,7 @@ const IndustrySolutionHome = () => {
               className="block w-full bg-transparent rotate-180 -mb-2 px-16 lg:px-0 py-4  text-lg lg:text-xl text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
               onChange={(e) => subCategories(e)}
             >
-              <option slected>Select Sub Category</option>
+              <option slected>I need a solution for</option>
               {subCategory?.map((sub, index) => (
                 <option key={index} value={sub?.id}>
                   {sub?.name}
@@ -83,7 +83,9 @@ const IndustrySolutionHome = () => {
         <div className=" w-full bottom-8 right-5 text-white">
           <div className="flex items-center justify-start h-full px-4 lg:mt-20">
             <div className=" lg:pl-52">
-              <p className="capitalize font-bold">SOLUTION</p>
+              <p className="capitalize font-bold">
+                SOLUTION MAKE YOUR OWN CONVER
+              </p>
               <h2 className="text-4xl font-semibold py-4">
                 Belting solutions set to fix your tailor-made needs.
               </h2>

@@ -41,7 +41,7 @@ input::-webkit-inner-spin-button {
 }
 
 .footer-bg{
-  background-image: url(/assets/images/background/footer-bg.png);
+  background-image: url(/assets/images/background/32.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -341,3 +341,5 @@ input::-webkit-inner-spin-button {
  svg .transform {
   fill:#fff
 }
+
+

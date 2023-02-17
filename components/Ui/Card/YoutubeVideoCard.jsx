@@ -1,13 +1,13 @@
-import Image from 'next/image';
-import React from 'react';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-import Loader from '../common/loader/Loader';
-import ProductNotFound from '../common/error/ProductNotFound';
-import { getAllVideos } from '../../../fetchers/universalFetch';
-import { useQuery } from '@tanstack/react-query';
+import Image from "next/image";
+import React from "react";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
+import Loader from "../common/loader/Loader";
+import ProductNotFound from "../common/error/ProductNotFound";
+import { getAllVideos } from "../../../fetchers/universalFetch";
+import { useQuery } from "@tanstack/react-query";
 const YoutubeVideoCard = () => {
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ['videos'],
+    queryKey: ["videos"],
     queryFn: getAllVideos,
   });
   const youtubeData = data?.data?.video;
@@ -19,7 +19,7 @@ const YoutubeVideoCard = () => {
         <ErrorBoundary>
           <div
             key={index}
-            className=" rounded-lg bg-white  border-[#0090C5] h-72 w-full border-4 p-3"
+            className=" rounded-lg bg-white border-[#bebebe7a]  w-full border-2 p-3"
           >
             <Image
               src="/assets/images/background/YouTube.png"
@@ -27,7 +27,7 @@ const YoutubeVideoCard = () => {
               height={20}
               alt="Youtube"
             />
-            <section className="relative rounded-lg mx-auto mt-2 flex flex-col items-start h-56 max-w-[550px] min-w-full  justify-evenly text-start text-white">
+            <section className="relative rounded-lg mx-auto mt-2 flex flex-col items-start h-64 max-w-[550px] min-w-full  justify-evenly text-start text-white">
               <iframe
                 className="w-full h-full"
                 src={video?.url}
@@ -36,6 +36,7 @@ const YoutubeVideoCard = () => {
                 allowFullScreen
               ></iframe>
             </section>
+            <h2 className="text-primary font-bold   my-2">{video?.title}</h2>
           </div>
         </ErrorBoundary>
       ))}

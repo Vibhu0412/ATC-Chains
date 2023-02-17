@@ -20,18 +20,20 @@ const ClientCardSection = () => {
   const clientsList = clients?.map((client, index) => {
     return (
       <SplideSlide key={index}>
-        <Image
-          key={index}
-          width={200}
-          height={200}
-          src={
-            client?.image_url
-              ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${client?.image_url}`
-              : "/assets/images/products/productImageNotFound.jpg"
-          }
-          alt={client?.name}
-          className="mx-2 rounded-lg  max-h-32"
-        />
+        <div>
+          <img
+            key={index}
+            width={200}
+            height={200}
+            src={
+              client?.image_url
+                ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${client?.image_url}`
+                : "/assets/images/products/productImageNotFound.jpg"
+            }
+            alt={client?.name}
+            className="mx-2 rounded-lg h-[150px] w-[200px] "
+          />
+        </div>
       </SplideSlide>
     );
   });

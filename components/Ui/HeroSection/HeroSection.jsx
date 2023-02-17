@@ -32,7 +32,7 @@ const HeroSection = () => {
       <div className="video-docker rounded-b-3xl  absolute bottom-0 top-0 left-0 w-full h-full overflow-hidden">
         <video
           className="min-w-full min-h-full absolute object-cover"
-          src="https://josecuono.dev/video1.mp4"
+          src="/assets/videos/main.mp4"
           type="video/mp4"
           autoPlay
           muted

@@ -8,12 +8,13 @@ import CommonBtn from "../Button/CommonBtn";
 import MegaMenu from "./MegaMenu";
 import NotificationNavbar from "../notifications/NotificationNavbar";
 import Image from "next/image";
+import ProductMegaMenu from "./ProductMegaMenu";
 
 const NavBar = () => {
   const router = useRouter();
 
   return (
-    <Navbar className="dark:bg-gray-200 fixed top-0 text-transparent w-full z-20 shadow-md rounded-b-[30px] rounded-t-none ">
+    <Navbar className="dark:bg-gray-200 fixed top-0 text-transparent w-full z-10 shadow-md rounded-b-[30px] rounded-t-none ">
       <Navbar className="">
         <Link href={"/"}>
           <Image
@@ -69,7 +70,7 @@ const NavBar = () => {
                   : "text-text-gray "
               } `}
             >
-              Products
+              <ProductMegaMenu />
             </h1>
           </Link>
         </Navbar>
