@@ -28,7 +28,7 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
   });
 
   const variants = useQuery({
-    queryKey: ["Variants", ProductId],
+    queryKey: ["Variantspop", ProductId],
     queryFn: () => getAllVariants({ ProductId, Id: id }),
     enabled: !!ProductId,
   });

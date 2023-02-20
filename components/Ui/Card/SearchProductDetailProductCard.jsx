@@ -12,10 +12,10 @@ const SearchProductDetailProductCard = ({ data, currentPage }) => {
           <Link href={`/search/${data?.id}`}>
             <div className="flex  mx-auto  items-center justify-center  ">
               <Image
-                className="z-0  mt-14"
+                className="-z-1  mt-14"
                 src={
                   data && data?.image_1920 && data?.image_1920
-                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                    ? `${process.env.NEXT_PUBLC_API_BASE_URL_DEV}${
                         data?.image_1920 ? data?.image_1920 : data?.image_url
                       }`
                     : "/assets/images/products/image 39.png"
