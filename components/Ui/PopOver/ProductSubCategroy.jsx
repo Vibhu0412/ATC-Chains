@@ -9,20 +9,44 @@ import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Fragment, useRef } from "react";
-import { getAllSubCategory } from "../../../fetchers/universalFetch";
+import {
+  getAllSubCategory,
+  getAllVariants,
+} from "../../../fetchers/universalFetch";
 import { RightArrowIcon } from "../../../public/assets/icons/icons";
+import { useRouter } from "next/router";
 
-const ProductSubCategroy = ({ id, image, name }) => {
-  const { isLoading, isError, data, error, onSuccess } = useQuery({
+const ProductSubCategroy = ({ id, image, name, type }) => {
+  const router = useRouter();
+  const { category, variantId } = router.query;
+  const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
+
+  const subCategory = useQuery({
     queryKey: ["popoverItem", id],
     queryFn: () => getAllSubCategory(id),
     refetchOnWindowFocus: false,
   });
 
-  const MainId = data?.data?.primary_product;
-  const popOverSubCategoryDataList = data?.data?.response?.sub_category;
+  const variants = useQuery({
+    queryKey: ["Variants", ProductId],
+    queryFn: () => getAllVariants({ ProductId, Id: id }),
+    enabled: !!ProductId,
+  });
+  let popOverSubCategoryDataList = [];
+  let MainId = "";
+  ///const MainId = subCategory?.data?.data?.primary_product;
+
+  if (type === "subCategory") {
+    MainId = subCategory?.data?.data?.primary_product;
+    popOverSubCategoryDataList =
+      subCategory?.data?.data?.response?.sub_category;
+  }
+  if (type === "variants") {
+    MainId = subCategory?.data?.data?.primary_product;
+    popOverSubCategoryDataList = variants?.data?.data?.variants;
+  }
   const buttonRef = useRef(null);
-  const timeoutDuration = 100000;
+  const timeoutDuration = 10000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -46,7 +70,7 @@ const ProductSubCategroy = ({ id, image, name }) => {
   };
 
   return (
-    <div className="w-full  top-16 rounded-xl">
+    <div className="w-full top-16 rounded-xl">
       <Popover className="  ">
         {({ open }) => (
           <>
@@ -105,12 +129,19 @@ const ProductSubCategroy = ({ id, image, name }) => {
                               className=" mx-2 my-2 max-w-xl  w-full rounded-xl "
                             >
                               <Link
-                                href={`/products/${MainId}/variants/${product.id}`}
+                                href={
+                                  type === "subCategory"
+                                    ? `/products/${MainId}/variants/${product.id}`
+                                    : `/products/${ProductId}/variants/${id}/product/${product.id}`
+                                }
                               >
                                 <div className="px-2 py-1  flex justify-start items-center text-black rounded-b-xl">
                                   <div className="text-lg font-semibold tracking-tight ">
                                     <p className=" line-clamp-1">
-                                      {">"} {product?.display_name}
+                                      {">"}{" "}
+                                      {product?.display_name
+                                        ? product?.display_name
+                                        : product?.product_name}
                                     </p>
                                   </div>
                                 </div>

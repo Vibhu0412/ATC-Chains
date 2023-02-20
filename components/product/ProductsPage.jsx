@@ -8,20 +8,27 @@ const ProductsPage = ({ currentPage }) => {
   return (
     <ErrorBoundary>
       <div>
-        <Banner image={"product-page-banner"} />
+        <Banner
+          image={`${
+            currentPage === "MainCategory"
+              ? "product-page-banner"
+              : currentPage === "SubCategory"
+              ? "product-page-bannerTwo"
+              : "product-page-bannerThree"
+          }`}
+        />
         <div className=" 2xl:px-8 relative">
           {currentPage === "MainCategory" ? (
-            <div className="-mt-72 pb-10 px-4">
+            <div className=" -mt-[14rem] 2xl:-mt-[20rem] pb-2 px-4">
               <SubProducts />
             </div>
           ) : currentPage === "SubCategory" ? (
-            <div className="-mt-72 pb-10 px-4">
+            <div className="-mt-[14rem] 2xl:-mt-[20rem] pb-2 px-4">
               <SubProductVariants />
             </div>
           ) : (
             ""
           )}
-
           <div>
             <MainProductPage currentPage={currentPage} />
           </div>

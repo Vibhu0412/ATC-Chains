@@ -7,10 +7,19 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useRef } from "react";
-import { getAllMainCategory } from "../../../fetchers/universalFetch";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useRef, useState } from "react";
+import {
+  getAllMainCategory,
+  getAllSubCategory,
+} from "../../../fetchers/universalFetch";
 
-const PartsPopOver = ({ imageUrl, title }) => {
+const PartsPopOver = ({ title, id, type }) => {
+  const router = useRouter();
+  const { category, variantId } = router.query;
+  const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
+
+  const [productId, setProductId] = useState();
   const buttonRef = useRef(null);
   const timeoutDuration = 200;
   let timeout;
@@ -35,30 +44,49 @@ const PartsPopOver = ({ imageUrl, title }) => {
     timeout = setTimeout(() => closePopover(), timeoutDuration);
   };
 
+  const { isLoading, isError, data, error, isIdle, onSuccess } = useQuery({
+    queryKey: ["SubCategoryOverview", productId],
+    queryFn: () => getAllSubCategory(productId),
+    //enabled: !!productId,
+  });
+  const MainId = data?.data?.primary_product;
+  const apiCAll = (e) => {
+    setProductId(id);
+  };
   //mapping the data in the slider
-  const images = imageUrl?.map((images, index) => {
+
+  const products = data?.data?.response?.sub_category?.map((product, index) => {
     return (
-      <SplideSlide key={`${index}_pro`}>
-        <div key={index} className="flex">
-          <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-10 px-2">
-            <Link href={`/products/${"445"}`}>
-              <div className="border border-primary rounded-xl">
-                <div className="flex flex-col space-y-4 md:space-y-8  md:mt-0  ">
-                  <div className="relative  group flex justify-center items-center rounded-t-xl w-full h-full ">
-                    <div class="mb-4">
-                      <Image
-                        src={`${images.image}`}
-                        class="max-w-full h-32 w-32 mx-auto  px-2"
-                        alt=""
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                  </div>
-                </div>
+      <SplideSlide key={`${index}`}>
+        <div
+          key={`${index}`}
+          className=" mx-2 my-2 w-[200px] h-[150px]   bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
+        >
+          <Link href={`/products/${MainId}/variants/${product.id}`}>
+            <div className=" overflow-hidden w-[195px] h-[150px] pt-5  mx-auto ">
+              <Image
+                className="  mx-auto my-4"
+                width={400}
+                height={400}
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                  product?.image_1920
+                    ? product?.image_1920[0]
+                    : product?.image_url
+                }`}
+                alt="product image"
+              />
+            </div>
+
+            <div className="px-4 py-1 bg-btn-primary flex justify-center items-center text-white rounded-b-xl">
+              <div className="text-lg font-semibold tracking-tight ">
+                <p className=" line-clamp-1">
+                  {product?.display_name
+                    ? product?.display_name
+                    : product?.product_name}
+                </p>
               </div>
-            </Link>
-          </motion.div>
+            </div>
+          </Link>
         </div>
       </SplideSlide>
     );
@@ -74,7 +102,7 @@ const PartsPopOver = ({ imageUrl, title }) => {
                 className={`
                   ${open ? "" : "text-opacity-90"}
                   text-white group relative rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
-                onMouseEnter={onMouseEnter.bind(null, open)}
+                onMouseEnter={(e) => apiCAll(e)}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <a className="text-white  bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
@@ -88,34 +116,40 @@ const PartsPopOver = ({ imageUrl, title }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="px-4 transform overflow-auto -translate-x-1/3 left-1/3  sm:px-0 ">
+                <Popover.Panel className="px-4 transform overflow-auto rounded-xl bg-white pb-10 border -translate-x-1/3 left-1/3  sm:px-0 ">
                   <div
-                    className="  rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
+                    className=" px-4 rounded-xl   "
                     onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className="w-full z-100 bg-white rounded-xl overflow-hidden p-7 ">
+                    <div className="w-full flex flex-wrap z-100 lg:max-w-2xl   rounded-xl overflow-hidden p-7 ">
                       <div>
-                        <h1 className="font-bold min-w-[10rem] max-w-xl text-center w-full mb-4 text-xl text-text-orange">
-                          {title}
+                        <h1 className="font-bold min-w-[10rem]  text-center w-full mb-4 text-xl text-text-orange">
+                          {data?.data?.primary_product_name
+                            ? data?.data?.primary_product_name
+                            : title}
                         </h1>
                       </div>
-                      <Splide
-                        options={{
-                          rewind: true,
-                          autoWidth: true,
-                          perPage: 5,
-                          perMove: 5,
-                          pagination: false,
-                          gap: "1em",
-                          focus: "center",
-                          type: "slide",
-                          easing: "ease",
-                          arrows: true,
-                        }}
-                      >
-                        {images}
-                      </Splide>
+                      {isLoading ? (
+                        "Loading..."
+                      ) : (
+                        <Splide
+                          options={{
+                            rewind: false,
+                            autoWidth: true,
+                            perPage: 20,
+                            perMove: 2,
+                            pagination: false,
+                            gap: "1em",
+                            focus: "center",
+                            type: "slide",
+                            easing: "ease",
+                            arrows: true,
+                          }}
+                        >
+                          {products}
+                        </Splide>
+                      )}
                     </div>
                   </div>
                 </Popover.Panel>

@@ -130,7 +130,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                             >
                               <Disclosure.Button
                                 open={activeDisclousre === index || open}
-                                className="flex my-4 justify-between items-center px-2 w-full  focus:outline-none"
+                                className="flex my-4 justify-between items-center px-3 w-full  focus:outline-none"
                               >
                                 <span className="w-full font-medium  ">
                                   {industry.industry_category_name}
@@ -154,7 +154,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                               <div className="w-full text-base text-gray-500">
                                 <div className="w-full block  lg:flex gap-5  sm:px-0">
                                   <Tab.Group>
-                                    <Tab.List className="">
+                                    <Tab.List className=" w-56">
                                       {industry?.industry_subcategory_name?.map(
                                         (category) => (
                                           <Tab

@@ -2,7 +2,7 @@ export const parts = [
   {
     top: "67%",
     left: "25%",
-    title: "Conveyor Support Base Components",
+    title: "CONVEYOR COMPONENTS",
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
@@ -33,7 +33,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "Flexible Chain & Assembly",
+    title: "FINGER CHAIN & SPROCKET",
     imageUrl: [
       {
         image: "/assets/images/productOverview/flexible1.svg",
@@ -67,7 +67,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "SS & Plastic Chains",
+    title: "THERMOPLASTIC SLAT CHAIN & SPROCKET",
     imageUrl: [
       {
         image: "/assets/images/productOverview/plastic_chains1.svg",
@@ -93,7 +93,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "Conveyor Bearings",
+    title: "SS SLAT CHAIN & SPROCKET & PULLEY",
     imageUrl: [
       {
         image: "/assets/images/productOverview/bearings1.svg",
@@ -144,7 +144,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "Wear Strips",
+    title: "MODULAR BELT SPROCKET",
     imageUrl: [
       {
         image: "/assets/images/productOverview/wear1.svg",
@@ -181,7 +181,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "Straigh & Inclined Modular Belt & Sprocket",
+    title: "MODULAR BELT",
     imageUrl: [
       {
         image: "/assets/images/productOverview/sprocket1.svg",
@@ -215,7 +215,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "Conveyor Rollers",
+    title: "WEAR STRIP",
     imageUrl: [
       {
         image: "/assets/images/productOverview/rollers1.svg",
@@ -240,7 +240,7 @@ export const parts = [
     opacity: 1,
     bgColor: "skyBlue",
     activeBgColor: "blue",
-    title: "Bucket Elevator & Assembly",
+    title: "Z BUCKET ELEVATOR",
     imageUrl: [
       {
         image: "/assets/images/productOverview/bucket1.svg",

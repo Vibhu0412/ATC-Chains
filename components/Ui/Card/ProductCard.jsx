@@ -13,7 +13,7 @@ import {
   ArrowLeftIcon,
   ArrowRightCircleIcon,
 } from "@heroicons/react/20/solid";
-import ProductSubCategroy from "../PopOver/ProductSubCategroy";
+
 const ProductCard = () => {
   const { isLoading, isError, data, error, isIdle, onSuccess } = useQuery({
     queryKey: ["SliderProducts"],
@@ -37,20 +37,7 @@ const ProductCard = () => {
             <div className="w-full  bg-white rounded-3xl border border-gra-400 dark:bg-gray-800 dark:border-gray-700">
               <Link href={`/products/${product.id}`}>
                 <div className=" p-4 overflow-hidden mx-auto ">
-                  <ProductSubCategroy
-                    name={product?.name}
-                    id={product?.id}
-                    image={
-                      product?.image_1920 && product?.image_1920
-                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
-                            product?.image_1920
-                              ? product?.image_1920
-                              : product?.image_url
-                          }`
-                        : "/assets/images/products/aluminium-kettenfoerdersystem-4-modular-automation-1380x640_01 3.png"
-                    }
-                  />
-                  {/* <Image
+                  <Image
                     className="rounded-3xl object-cover h-[300px] max-w-[400px]  mx-auto"
                     width={400}
                     height={300}
@@ -64,7 +51,7 @@ const ProductCard = () => {
                         : "/assets/images/products/aluminium-kettenfoerdersystem-4-modular-automation-1380x640_01 3.png"
                     }
                     alt={product?.name}
-                  /> */}
+                  />
                 </div>
               </Link>
               <div className="px-5 pb-5">

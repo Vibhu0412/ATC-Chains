@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const ProductNotFound = ({ text, customeClasses }) => {
   return (
     <div
-      className={`flex items-center mx-auto  justify-center rounded-xl p-10 bg-white my-4 ${customeClasses}`}
+      className={`flex items-center mx-auto  justify-center rounded-xl p-10 bg-white max-w-2xl my-4 ${customeClasses}`}
     >
       <div className="text-center">
         <Image

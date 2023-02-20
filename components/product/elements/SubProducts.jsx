@@ -30,7 +30,7 @@ const SubProducts = (isVisible) => {
           <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-4 px-2">
             <Link href={`/products/${product?.id}`}>
               <div className="border border-primary rounded-xl">
-                <div className="flex flex-col ">
+                <div className="flex flex-col bg-primary/40 rounded-t-xl ">
                   <div className="relative  group flex justify-center items-center rounded-t-xl w-full h-full ">
                     <ProductSubCategroy
                       name={product?.name}
@@ -44,20 +44,20 @@ const SubProducts = (isVisible) => {
                             }`
                           : "/assets/images/products/product2.jpeg"
                       }
+                      type="subCategory"
                     />
                     <div className=" px-2 focus:outline-none line-clamp-2 focus:ring-2 rounded-t-xl top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-4 w-full bg-primary">
                       {product?.name}
                     </div>
                   </div>
                 </div>
-                <div className="p-2 bg-primary/40 text-white rounded-b-lg flex justify-between items-center px-6">
-                  <div>
-                    <h3 className="text-lg  font-bold hover:underline line-clamp-1 min-h-10 ">
-                      Click Here For more Detail
-                    </h3>
-                  </div>
-                  <div className=" relative z-0">
-                    <PopOver id={product?.id} />
+                <div className="p-2 py-1 bg-primary/40 text-white rounded-b-lg flex justify-between items-center px-6">
+                  <h3 className="text-lg  font-bold hover:underline line-clamp-1 min-h-10 ">
+                    Click Here For more Detail
+                  </h3>
+
+                  <div className=" relative z-10">
+                    <PopOver type="SubCategory" id={product?.id} />
                   </div>
                 </div>
               </div>
@@ -70,10 +70,10 @@ const SubProducts = (isVisible) => {
   return (
     <Splide
       options={{
-        rewind: true,
+        rewind: false,
         autoWidth: true,
-        perPage: 10,
-        perMove: 10,
+        perPage: 20,
+        perMove: 2,
         pagination: false,
         gap: "1em",
         focus: "center",

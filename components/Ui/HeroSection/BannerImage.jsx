@@ -13,7 +13,7 @@ const BannerImage = ({ image, text, description, classes }) => {
             className={`min-w-full min-h-full  opacity-70 absolute object-cover ${classes}`}
           ></div>
         </div>
-        <div className="video-content z-0 w-full pt-28 md:w-full sm:full lg:w-[75vh]">
+        <div className="video-content z-0 w-full pt-32 md:w-full sm:full lg:w-[100vh]">
           <h1 className="font-semibold capitalize tracking-widest lg:font-bold  2xl:text-6xl  text-white text-xl lg:text-4xl sm:text-2xl md:text-2xl">
             {text ? text : ""}
           </h1>

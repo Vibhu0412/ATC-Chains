@@ -14,7 +14,7 @@ const NavBar = () => {
   const router = useRouter();
 
   return (
-    <Navbar className="dark:bg-gray-200 fixed top-0 text-transparent w-full z-10 shadow-md rounded-b-[30px] rounded-t-none ">
+    <Navbar className="dark:bg-gray-200 fixed top-0 text-transparent w-full z-50 shadow-md rounded-b-[30px] rounded-t-none ">
       <Navbar className="">
         <Link href={"/"}>
           <Image

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,20 +10,47 @@ import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Fragment, useRef } from "react";
-import { getAllSubCategory } from "../../../fetchers/universalFetch";
+import {
+  getAllSubCategory,
+  getAllVariants,
+} from "../../../fetchers/universalFetch";
 import { RightArrowIcon } from "../../../public/assets/icons/icons";
+import { useRouter } from "next/router";
 
-const PopOver = ({ id }) => {
-  const { isLoading, isError, data, error, onSuccess } = useQuery({
+const PopOver = ({ id, type }) => {
+  const router = useRouter();
+  const { category, variantId } = router.query;
+  const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
+
+  const subCategory = useQuery({
     queryKey: ["popoverItem", id],
     queryFn: () => getAllSubCategory(id),
     refetchOnWindowFocus: false,
   });
+  const variants = useQuery({
+    queryKey: ["Variants", ProductId],
+    queryFn: () => getAllVariants({ ProductId: ProductId, Id: id }),
+    enabled: !!ProductId,
+  });
 
-  const MainId = data?.data?.primary_product;
-  const popOverSubCategoryDataList = data?.data?.response?.sub_category;
+  let popOverSubCategoryDataList = [];
+  let MainId = "";
+  ///const MainId = subCategory?.data?.data?.primary_product;
+  //products/450/variants/216/product/1401
+  if (type === "SubCategory") {
+    MainId = subCategory?.data?.data?.primary_product;
+    popOverSubCategoryDataList =
+      subCategory?.data?.data?.response?.sub_category;
+  }
+  if (type === "variants") {
+    MainId = subCategory?.data?.data?.primary_product;
+    popOverSubCategoryDataList = variants?.data?.data?.variants;
+  }
+
+  // const MainId = data?.data?.primary_product;
+  // const popOverSubCategoryDataList = data?.data?.response?.sub_category;
   const buttonRef = useRef(null);
-  const timeoutDuration = 1000;
+  const timeoutDuration = 100000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -78,7 +106,7 @@ const PopOver = ({ id }) => {
                     // onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className="z-50 w-full max-w-md bg-white rounded-xl overflow-hidden p-7 ">
+                    <div className=" relative z-10 w-full max-w-md bg-white rounded-xl overflow-hidden p-7 ">
                       <div>
                         <h1 className="font-bold w-full text-xl text-text-orange">
                           Showing Sub{" "}
@@ -86,15 +114,17 @@ const PopOver = ({ id }) => {
                         </h1>
                       </div>
                       <Swiper
+                        modules={[Navigation, Pagination, Scrollbar, A11y]}
                         slidesPerView={2}
                         spaceBetween={10}
                         slidesPerGroup={1}
                         loop={true}
                         loopFillGroupWithBlank={true}
-                        navigation={true}
+                        navigation
                         scrollbar={{ draggable: true }}
                         className="mySwiper"
                       >
+                        {popOverSubCategoryDataList?.length}
                         {popOverSubCategoryDataList?.map((product, index) => (
                           <SwiperSlide>
                             <div
@@ -106,18 +136,30 @@ const PopOver = ({ id }) => {
                                   className=" h-28 w-28 mx-auto mt-4"
                                   width={28}
                                   height={28}
-                                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${product?.image_1920[0]}`}
+                                  src={`${
+                                    process.env.NEXT_PUBLIC_API_BASE_URL_DEV
+                                  }${
+                                    product?.image_1920
+                                      ? product?.image_1920[0]
+                                      : product?.image_url
+                                  }`}
                                   alt="product image"
                                 />
                               </div>
 
                               <Link
-                                href={`/products/${MainId}/variants/${product.id}`}
+                                href={
+                                  type === "subCategory"
+                                    ? `/products/${MainId}/variants/${product.id}`
+                                    : `/products/${ProductId}/variants/${id}/product/${product.id}`
+                                }
                               >
                                 <div className="px-4 py-1 bg-btn-primary flex justify-center items-center text-white rounded-b-xl">
                                   <div className="text-lg font-semibold tracking-tight ">
                                     <p className=" line-clamp-1">
-                                      {product?.display_name}
+                                      {product?.display_name
+                                        ? product?.display_name
+                                        : product?.product_name}
                                     </p>
                                   </div>
                                 </div>

@@ -88,29 +88,6 @@ const MainProductPage = ({ currentPage }) => {
       return searchProduct(searchData);
     },
   });
-
-  // const {
-  //   status,
-  //   data,
-  //   isSuccess,
-  //   isFetching,
-  //   isFetchingNextPage,
-  //   isFetchingPreviousPage,
-  //   fetchNextPage,
-  //   fetchPreviousPage,
-  //   hasNextPage,
-  //   hasPreviousPage,
-  // } = useInfiniteQuery(
-  //   ["search"],
-  //   async (searchData) => {
-  //     return searchProduct(searchData);
-  //   },
-  //   {
-  //     getPreviousPageParam: (searchData) =>
-  //       searchData?.page_number ?? undefined,
-  //     getNextPageParam: (searchData) => searchData.page_number ?? undefined,
-  //   }
-  // );
   //search result data store in the product vatiable in the array list
   const isSearchDataAvailable = data?.data?.result?.products?.search_products;
   if (isSearchDataAvailable) {
@@ -121,7 +98,6 @@ const MainProductPage = ({ currentPage }) => {
   }
 
   const debounced = useDebouncedCallback((value) => {
-    console.log("value----------->", { page_number: 1, name: value });
     search(value);
   }, 800);
   //if
@@ -143,8 +119,6 @@ const MainProductPage = ({ currentPage }) => {
     status || MainCategory?.status || SubCategory?.status || variants?.status;
   const error =
     MainCategory?.isError || SubCategory?.isError || variants?.isError;
-  // if (isLoading) return "loading.............";
-  //if (error) return <ProductNotFound />;
 
   return (
     <ErrorBoundary>

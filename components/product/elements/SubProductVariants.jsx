@@ -4,12 +4,11 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 //internal imports
 import { getAllSubCategory } from "../../../fetchers/universalFetch";
 import { Loader, PopOver, ProductNotFound } from "../../Ui";
-import Image from "next/image";
 import ProductSubCategroy from "../../Ui/PopOver/ProductSubCategroy";
-import { useRouter } from "next/router";
 
 const SubProductVariants = (isVisible) => {
   const router = useRouter();
@@ -34,10 +33,10 @@ const SubProductVariants = (isVisible) => {
       <SplideSlide key={`${index}_pro`}>
         <div key={index} className="flex">
           <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-4 px-2">
-            <Link href={`/products/${product?.id}`}>
-              <div className="border border-primary rounded-xl">
-                <div className="flex flex-col ">
-                  <div className="relative  group flex justify-center items-center rounded-t-xl w-full h-full ">
+            <Link href={`/products/${ProductId}/variants/${product?.id}`}>
+              <div className="border border-primary  rounded-xl">
+                <div className="flex flex-col bg-white rounded-t-2xl">
+                  <div className="relative group flex justify-center items-center rounded-t-xl w-full h-full ">
                     <ProductSubCategroy
                       name={product?.name}
                       id={product?.id}
@@ -50,20 +49,21 @@ const SubProductVariants = (isVisible) => {
                             }`
                           : "/assets/images/products/product2.jpeg"
                       }
+                      type="variants"
                     />
                     <div className=" px-2 focus:outline-none mb-3 line-clamp-2 focus:ring-2 rounded-t-xl top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-4 w-full bg-primary">
                       {product?.display_name}
                     </div>
                   </div>
                 </div>
-                <div className="p-2 bg-primary/40 text-white rounded-b-lg flex justify-between items-center px-6">
+                <div className="p-2 py-1 bg-primary/40 text-white rounded-b-lg flex justify-between items-center px-6">
                   <div>
                     <h3 className="text-lg  font-bold hover:underline line-clamp-1 min-h-10 ">
-                      Click Here For more Detail
+                      Click Here For more Details
                     </h3>
                   </div>
                   <div className=" relative z-0">
-                    <PopOver id={product?.id} />
+                    <PopOver type="variants" id={product?.id} />
                   </div>
                 </div>
               </div>
@@ -76,10 +76,10 @@ const SubProductVariants = (isVisible) => {
   return (
     <Splide
       options={{
-        rewind: true,
+        rewind: false,
         autoWidth: true,
         perPage: 10,
-        perMove: 10,
+        perMove: 5,
         pagination: false,
         gap: "1em",
         focus: "center",

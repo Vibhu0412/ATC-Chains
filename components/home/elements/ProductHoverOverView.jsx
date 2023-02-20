@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getAllMainCategory } from "../../../fetchers/universalFetch";
 import { parts } from "../../../utils/data";
 import PartsPopOver from "../../Ui/PopOver/PartsPopOver";
@@ -13,7 +13,22 @@ const ProductHoverOverView = () => {
   });
   //setting the slider products
   const productData = data?.data?.response?.primary_products;
-  console.log("productData-----------", productData);
+  const [pro, setPro] = useState([]);
+  const filterProductOverview = () => {
+    productData &&
+      productData.filter((product) => {
+        return parts.some(({ title, top, left }) => {
+          if (title === product.name) {
+            setPro((prev) => [...prev, { top, left, ...product }]);
+          }
+        });
+      });
+  };
+
+  useEffect(() => {
+    filterProductOverview();
+  }, [productData]);
+
   return (
     <div className="relative flex flex-wrap-reverse">
       <Image
@@ -22,7 +37,7 @@ const ProductHoverOverView = () => {
         width={500}
         height={500}
       />
-      {parts?.map((part, i) => (
+      {pro?.map((part, i) => (
         <div
           key={i}
           style={{
@@ -33,7 +48,7 @@ const ProductHoverOverView = () => {
           }}
           className=" rounded-full z-0 absolute"
         >
-          <PartsPopOver title={part.title} imageUrl={part.imageUrl} />
+          <PartsPopOver title={part.name} id={part.id} />
         </div>
       ))}
     </div>
