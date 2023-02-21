@@ -1,4 +1,5 @@
 import { Popover, Transition } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -64,8 +65,8 @@ const ProductMegaMenu = () => {
                     router.pathname ==
                       "/products/[category]/[variants]/[variantId]/product/[productId]"
                       ? "font-bold text-primary"
-                      : "text-text-gray"
-                  }  font-semibold hover:text-primary focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+                      : "text-text-gray font-[500]"
+                  }   hover:text-primary focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
                 >
                   Products
                 </Link>
@@ -99,7 +100,7 @@ const ProductMegaMenu = () => {
                                       : "text-text-gray"
                                   }  font-semibold hover:underline`}
                                 >
-                                  <h1 className="font-bold border-b-2 border-black pb-4 w-full text-md ">
+                                  <h1 className="font-bold text-primary border-b-2 border-black pb-4 w-full text-md ">
                                     {categories?.name}
                                   </h1>
                                 </Link>

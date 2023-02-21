@@ -19,7 +19,7 @@ const YoutubeVideoCard = () => {
         <ErrorBoundary>
           <div
             key={index}
-            className=" rounded-lg bg-white border-[#bebebe7a]  w-full border-2 p-3"
+            className=" rounded-lg relative -z-[1] bg-white  border-[#bebebe7a]  w-full border-2 p-3"
           >
             <Image
               src="/assets/images/background/YouTube.png"
@@ -27,9 +27,9 @@ const YoutubeVideoCard = () => {
               height={20}
               alt="Youtube"
             />
-            <section className="relative rounded-lg mx-auto mt-2 flex flex-col items-start h-64 max-w-[550px] min-w-full  justify-evenly text-start text-white">
+            <section className="relative z-[1] rounded-lg mx-auto mt-2 flex flex-col items-start h-64 max-w-[550px] min-w-full  justify-evenly text-start text-white">
               <iframe
-                className="w-full h-full"
+                className="w-full relative  h-full"
                 src={video?.url}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -8,15 +8,16 @@ import "swiper/css/navigation";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
   getAllSubCategory,
   getAllVariants,
 } from "../../../fetchers/universalFetch";
-import { RightArrowIcon } from "../../../public/assets/icons/icons";
 import { useRouter } from "next/router";
 
-const ProductSubCategroy = ({ id, image, name, type }) => {
+const ProductSubCategroy = ({ parent, id, image, name, type }) => {
+  const [productMainId, setProductMainId] = useState(id);
+
   const router = useRouter();
   const { category, variantId } = router.query;
   const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
@@ -28,10 +29,11 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
   });
 
   const variants = useQuery({
-    queryKey: ["Variantspop", ProductId],
+    queryKey: ["Variants", productMainId],
     queryFn: () => getAllVariants({ ProductId, Id: id }),
-    enabled: !!ProductId,
+    enabled: !!productMainId,
   });
+
   let popOverSubCategoryDataList = [];
   let MainId = "";
   ///const MainId = subCategory?.data?.data?.primary_product;
@@ -45,8 +47,10 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
     MainId = subCategory?.data?.data?.primary_product;
     popOverSubCategoryDataList = variants?.data?.data?.variants;
   }
+  useEffect(() => {}, [productMainId]);
+
   const buttonRef = useRef(null);
-  const timeoutDuration = 10000;
+  const timeoutDuration = 1000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -69,18 +73,22 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
     timeout = setTimeout(() => closePopover(), timeoutDuration);
   };
 
+  const apiCAll = () => {
+    setProductMainId(id);
+  };
   return (
-    <div className="w-full top-16 rounded-xl">
-      <Popover className="  ">
+    <div className="w-full top-16  rounded-xl">
+      <Popover className="relative">
         {({ open }) => (
           <>
             <div onMouseLeave={onMouseLeave.bind(null, open)}>
               <Popover.Button
                 ref={buttonRef}
+                // onMouseEnter={(e) => apiCAll(e)}
                 className={`
                   ${open ? "" : "text-opacity-90"}
                   text-white group relative rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
-                onMouseEnter={onMouseEnter.bind(null, open)}
+                onMouseEnter={onMouseEnter.bind(null, open, apiCAll())}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <Image
@@ -100,13 +108,13 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute mb-50 px-4 mt-0 transform overflow-hidden z-50 -translate-x-1/3 left-1/3 sm:px-0 ">
+                <Popover.Panel className="absolute mb-50 bg-white shadow-xl border  rounded-xl mt-0 transform overflow-hidden z-10 -translate-x-1/3 left-1/3 sm:px-0 ">
                   <div
-                    className=" relative rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
+                    className=" relative z-10 rounded-xl  ring-1 ring-black ring-opacity-5"
                     onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className="z-10 bg-white rounded-xl overflow-hidden p-7 ">
+                    <div className=" overflow-hidden p-7 ">
                       <div>
                         <h1 className="font-bold w-full text-lg text-primary">
                           {name}
@@ -126,7 +134,7 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
                           {popOverSubCategoryDataList?.map((product, index) => (
                             <li
                               key={`${index}`}
-                              className=" mx-2 my-2 max-w-xl  w-full rounded-xl "
+                              className=" mx-2 my-2 max-w-2xl w-full rounded-xl "
                             >
                               <Link
                                 href={
@@ -137,7 +145,7 @@ const ProductSubCategroy = ({ id, image, name, type }) => {
                               >
                                 <div className="px-2 py-1  flex justify-start items-center text-black rounded-b-xl">
                                   <div className="text-lg font-semibold tracking-tight ">
-                                    <p className=" line-clamp-1">
+                                    <p className=" line-clamp-2">
                                       {">"}{" "}
                                       {product?.display_name
                                         ? product?.display_name

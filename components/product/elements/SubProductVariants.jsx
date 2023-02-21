@@ -23,6 +23,7 @@ const SubProductVariants = (isVisible) => {
   });
   //setting the slider products
   const productData = data?.data?.response?.sub_category;
+
   //defining the API calling state
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
@@ -31,15 +32,16 @@ const SubProductVariants = (isVisible) => {
   const challengeSplide = productData?.map((product, index) => {
     return (
       <SplideSlide key={`${index}_pro`}>
-        <div key={index} className="flex">
-          <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-4 px-2">
+        <div key={index} className="flex relative z-[5]">
+          <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-4">
             <Link href={`/products/${ProductId}/variants/${product?.id}`}>
               <div className="border border-primary  rounded-xl">
                 <div className="flex flex-col bg-white rounded-t-2xl">
-                  <div className="relative group flex justify-center items-center rounded-t-xl w-full h-full ">
+                  <div className=" group flex justify-center items-center rounded-t-xl w-full h-full ">
                     <ProductSubCategroy
                       name={product?.name}
                       id={product?.id}
+                      parent="tesing"
                       image={
                         product?.image_1920 && product?.image_1920[0]
                           ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
@@ -62,7 +64,7 @@ const SubProductVariants = (isVisible) => {
                       Click Here For more Details
                     </h3>
                   </div>
-                  <div className=" relative z-0">
+                  <div className="relative z-[2]">
                     <PopOver type="variants" id={product?.id} />
                   </div>
                 </div>

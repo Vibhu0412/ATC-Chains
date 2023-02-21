@@ -76,7 +76,7 @@ const FooterSection = () => {
       ) : (
         ""
       )}
-      <div className="footer-bg  mt-28  lg:pt-0 border-none ">
+      <div className="footer-bg mt-28 lg:pt-0 border-none ">
         {/* <span className="absolute bottom-0 right-0 hidden 2xl:block">
           <FooterSettingIcon />
         </span> */}
@@ -86,7 +86,7 @@ const FooterSection = () => {
               <p>Wall of fame</p>
               <h1 className="font-bold text-4xl sm:text-3xl">Our Clients</h1>
             </div>
-            <div className="relative overflow-x-hidden">
+            <div className="overflow-x-hidden">
               <ClientCardSection />
             </div>
           </div>

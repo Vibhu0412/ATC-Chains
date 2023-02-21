@@ -1,4 +1,5 @@
 import { Popover, Transition } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -58,8 +59,8 @@ const MegaMenu = () => {
                     router.pathname == "/industry-details/[industryId]" ||
                     router.pathname == "/industry-details/details/[ProId]"
                       ? "font-bold text-primary"
-                      : "text-text-gray"
-                  }  font-semibold hover:text-primary focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+                      : "text-text-gray font-[500]"
+                  }  hover:text-primary focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
                 >
                   Industries
                 </Link>
@@ -73,14 +74,14 @@ const MegaMenu = () => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute mx-auto z-50  px-4 mt-5 transform   sm:px-0 ">
+                <Popover.Panel className="absolute mx-auto z-50   px-4 mt-5 transform   sm:px-0 ">
                   <div
                     className=" relative z-10 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
                     onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className=" w-full bg-white rounded-xl overflow-hidden p-7 ">
-                      <div className="flex flex-wrap gap-5">
+                    <div className=" w-full bg-white rounded-xl h-[40vh]  p-7 ">
+                      <div className="flex flex-wrap overflow-scroll gap-5">
                         {isLoading
                           ? "loading..."
                           : categoriesList?.map((category, index) => (

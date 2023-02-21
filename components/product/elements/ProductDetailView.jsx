@@ -167,7 +167,7 @@ const ProductDetailView = () => {
         <div className="pb-6">
           <TitleSection name="Related Products" />
         </div>
-        <div className="mx-2  lg:mx-10 max-h-[60vh] ">
+        <div className="mx-2 relative z-[2]  lg:mx-10 max-h-[60vh] ">
           <SubProducts isVisible="productPage" />
         </div>
       </div>

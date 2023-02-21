@@ -20,7 +20,7 @@ const ClientCardSection = () => {
   const clientsList = clients?.map((client, index) => {
     return (
       <SplideSlide key={index}>
-        <div className=" relative" style={{ zIndex: -1 }}>
+        <div className="">
           <img
             key={index}
             width={200}
@@ -31,7 +31,7 @@ const ClientCardSection = () => {
                 : "/assets/images/products/productImageNotFound.jpg"
             }
             alt={client?.name}
-            className="mx-2 overflow-hidden rounded-lg h-[150px] w-[200px] "
+            className="mx-2 relative -z-[2] overflow-hidden rounded-lg h-[150px] w-[200px] "
           />
         </div>
       </SplideSlide>

@@ -21,14 +21,12 @@ export const getAllMainCategory = async () => {
 export const getAllSubCategory = async (ProductId) => {
   try {
     const res = await apiClient.get(`${API.MAINCATEGORY}/${ProductId}`);
-    console.log("res -->", res);
     return res;
   } catch (error) {
     console.log(error);
   }
 };
 export const getAllVariants = async ({ ProductId, Id }) => {
-  console.log("inside variants function");
   try {
     const res = await apiClient.get(
       `${API.MAINCATEGORY}/${ProductId}/variants/${Id}`
@@ -169,7 +167,6 @@ export const conactForm = async (data) => {
 };
 
 export const searchProduct = async (data) => {
-  console.log("data", data);
   try {
     const res = await apiClient.post(`${API.SEARCHPRODUCTS}`, {
       params: {

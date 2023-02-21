@@ -43,7 +43,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="px-2">
+        <div className="px-2 relative z-[2]">
           <ProductCard />
         </div>
 
@@ -95,7 +95,7 @@ const HomePage = () => {
 
       <section id="youtubeSection" className="my-10 px-4">
         <TitleSection name="Videos" />
-        <div className="grid my-20 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
+        <div className="grid  my-20 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
           <YoutubeVideoCard />
         </div>
       </section>

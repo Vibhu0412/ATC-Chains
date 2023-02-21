@@ -99,7 +99,7 @@ const MainProductPage = ({ currentPage }) => {
 
   const debounced = useDebouncedCallback((value) => {
     search(value);
-  }, 800);
+  }, 1000);
   //if
   useEffect(() => {
     if (status === 200) {
@@ -146,9 +146,9 @@ const MainProductPage = ({ currentPage }) => {
                 className="border-none w-full bg-text-gray/210 rounded-xl focus:ring-none"
                 placeholder="Search Product"
                 // value={getValues("name")}
-                onInput={(e) => {
-                  debounced(e.target.value);
-                }}
+                // onInput={(e) => {
+                //   debounced(e.target.value);
+                // }}
                 {...register("name")}
               />
               <button

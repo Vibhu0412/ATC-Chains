@@ -46,10 +46,10 @@ const NavBar = () => {
         <Navbar>
           <Link href="/" as="/">
             <h1
-              className={` bg-transparent hover:text-text-primary  font-semibold ${
+              className={` bg-transparent hover:text-text-primary   ${
                 router.pathname == "/"
                   ? "font-bold text-primary"
-                  : "text-text-gray "
+                  : "text-text-gray font-[500] "
               } `}
             >
               Home
@@ -93,10 +93,10 @@ const NavBar = () => {
           <Navbar key={i}>
             <Link href={item?.href} as={item?.href}>
               <h1
-                className={`bg-transparent hover:text-text-primary font-semibold ${
+                className={`bg-transparent hover:text-text-primary  ${
                   router.pathname == item?.href
                     ? "font-bold text-primary"
-                    : "text-text-gray "
+                    : "text-text-gray font-[500]"
                 } `}
               >
                 {item?.name}

@@ -14,8 +14,8 @@ const SearchProductDetailProductCard = ({ data, currentPage }) => {
               <Image
                 className="-z-1  mt-14"
                 src={
-                  data && data?.image_1920 && data?.image_1920
-                    ? `${process.env.NEXT_PUBLC_API_BASE_URL_DEV}${
+                  data?.image_1920 && data?.image_1920
+                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
                         data?.image_1920 ? data?.image_1920 : data?.image_url
                       }`
                     : "/assets/images/products/image 39.png"

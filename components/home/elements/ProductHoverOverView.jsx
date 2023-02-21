@@ -30,7 +30,7 @@ const ProductHoverOverView = () => {
   }, [productData]);
 
   return (
-    <div className="relative flex flex-wrap-reverse">
+    <div className="relative -z-[0] flex flex-wrap-reverse">
       <Image
         className="w-full h-full   "
         src="/assets/icons/svg/Main-Poster.svg"
@@ -46,7 +46,7 @@ const ProductHoverOverView = () => {
 
             opacity: part.opacity,
           }}
-          className=" rounded-full z-0 absolute"
+          className=" rounded-full absolute"
         >
           <PartsPopOver title={part.name} id={part.id} />
         </div>

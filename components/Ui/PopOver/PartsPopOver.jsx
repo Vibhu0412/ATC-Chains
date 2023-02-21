@@ -2,26 +2,23 @@ import { Popover, Transition } from "@headlessui/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useQuery } from "@tanstack/react-query";
+
 import { motion } from "framer-motion";
 // Import Swiper styles
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment, useEffect, useRef, useState } from "react";
-import {
-  getAllMainCategory,
-  getAllSubCategory,
-} from "../../../fetchers/universalFetch";
+import { Fragment, useRef, useState } from "react";
+import { getAllSubCategory } from "../../../fetchers/universalFetch";
 
 const PartsPopOver = ({ title, id, type }) => {
   const router = useRouter();
   const { category, variantId } = router.query;
   const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
-
   const [productId, setProductId] = useState();
   const buttonRef = useRef(null);
-  const timeoutDuration = 200;
+  const timeoutDuration = 800;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -38,7 +35,6 @@ const PartsPopOver = ({ title, id, type }) => {
     if (open) return;
     return buttonRef.current?.click();
   };
-
   const onMouseLeave = (open) => {
     if (!open) return;
     timeout = setTimeout(() => closePopover(), timeoutDuration);
@@ -57,10 +53,10 @@ const PartsPopOver = ({ title, id, type }) => {
 
   const products = data?.data?.response?.sub_category?.map((product, index) => {
     return (
-      <SplideSlide key={`${index}`}>
+      <SplideSlide key={`${index}`} className="">
         <div
           key={`${index}`}
-          className=" mx-2 my-2 w-[200px] h-[150px]   bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
+          className=" mx-2 my-2 w-[200px] h-[150px] max-w-xl min-w-xl bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
         >
           <Link href={`/products/${MainId}/variants/${product.id}`}>
             <div className=" overflow-hidden w-[195px] h-[150px] pt-5  mx-auto ">
@@ -96,16 +92,16 @@ const PartsPopOver = ({ title, id, type }) => {
       <Popover className="  ">
         {({ open }) => (
           <>
-            <div onMouseLeave={onMouseLeave.bind(null, open)}>
+            <div>
               <Popover.Button
                 ref={buttonRef}
                 className={`
                   ${open ? "" : "text-opacity-90"}
-                  text-white group relative rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
+                  text-white group relative rounded-md -z-1 inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
                 onMouseEnter={(e) => apiCAll(e)}
-                onMouseLeave={onMouseLeave.bind(null, open)}
+                // onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <a className="text-white  bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
+                <a className="text-white relative -z-1 bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
               </Popover.Button>
               <Transition
                 as={Fragment}
@@ -116,40 +112,40 @@ const PartsPopOver = ({ title, id, type }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="px-4 transform overflow-auto rounded-xl bg-white pb-10 border -translate-x-1/3 left-1/3  sm:px-0 ">
+                <Popover.Panel className="px-4  overflow-hidden absolute  z-10 mt-3 lg:px-6 -translate-x-1/2 transform rounded-xl bg-white pb-10 border sm:px-0 ">
                   <div
                     className=" px-4 rounded-xl   "
-                    onMouseEnter={onMouseEnter.bind(null, open)}
+                    //onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className="w-full flex flex-wrap z-100 lg:max-w-2xl   rounded-xl overflow-hidden p-7 ">
+                    <div className="w-full rounded-xl  p-7 ">
                       <div>
-                        <h1 className="font-bold min-w-[10rem]  text-center w-full mb-4 text-xl text-text-orange">
+                        <h1 className="font-bold text-center w-full mb-4 text-xl text-text-orange">
                           {data?.data?.primary_product_name
                             ? data?.data?.primary_product_name
                             : title}
                         </h1>
                       </div>
-                      {isLoading ? (
-                        "Loading..."
-                      ) : (
-                        <Splide
-                          options={{
-                            rewind: false,
-                            autoWidth: true,
-                            perPage: 20,
-                            perMove: 2,
-                            pagination: false,
-                            gap: "1em",
-                            focus: "center",
-                            type: "slide",
-                            easing: "ease",
-                            arrows: true,
-                          }}
-                        >
-                          {products}
-                        </Splide>
-                      )}
+
+                      <div className=" w-full ">
+                        {isLoading ? (
+                          "Loading..."
+                        ) : (
+                          <Splide
+                            options={{
+                              width: 500,
+                              pagination: false,
+                              gap: "1em",
+                              //type: "loop",
+                              drag: "free",
+                              focus: "center",
+                              perPage: 2,
+                            }}
+                          >
+                            {products}
+                          </Splide>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </Popover.Panel>

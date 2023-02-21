@@ -24,7 +24,6 @@ const IndustrySolutionHome = () => {
   const subCategories = (e) => {
     setSelectedSubCategory(e.target.value);
   };
-  console.log("first--------------------------------", data);
   const disabled = subCategory?.length === 0;
   return (
     <div className=" industry-solution-bg">

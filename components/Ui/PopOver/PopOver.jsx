@@ -9,15 +9,17 @@ import "swiper/css/navigation";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
   getAllSubCategory,
   getAllVariants,
 } from "../../../fetchers/universalFetch";
 import { RightArrowIcon } from "../../../public/assets/icons/icons";
 import { useRouter } from "next/router";
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 const PopOver = ({ id, type }) => {
+  const [productMainId, setProductMainId] = useState(id);
   const router = useRouter();
   const { category, variantId } = router.query;
   const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
@@ -28,9 +30,9 @@ const PopOver = ({ id, type }) => {
     refetchOnWindowFocus: false,
   });
   const variants = useQuery({
-    queryKey: ["Variants", ProductId],
+    queryKey: ["Variants", productMainId],
     queryFn: () => getAllVariants({ ProductId: ProductId, Id: id }),
-    enabled: !!ProductId,
+    enabled: !!productMainId,
   });
 
   let popOverSubCategoryDataList = [];
@@ -47,10 +49,8 @@ const PopOver = ({ id, type }) => {
     popOverSubCategoryDataList = variants?.data?.data?.variants;
   }
 
-  // const MainId = data?.data?.primary_product;
-  // const popOverSubCategoryDataList = data?.data?.response?.sub_category;
   const buttonRef = useRef(null);
-  const timeoutDuration = 100000;
+  const timeoutDuration = 10000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -62,19 +62,16 @@ const PopOver = ({ id, type }) => {
     );
   };
 
-  // const onMouseEnter = (open) => {
-  //   clearTimeout(timeout);
-  //   if (open) return;
-  //   return buttonRef.current?.click();
-  // };
-
+  useEffect(() => {}, [productMainId]);
   const onMouseLeave = (open) => {
     if (!open) return;
     timeout = setTimeout(() => closePopover(), timeoutDuration);
   };
-
+  const apiCAll = () => {
+    setProductMainId(id);
+  };
   return (
-    <div className="w-full relative z-10  rounded-xl">
+    <div className=" relative z-10 rounded-xl">
       <Popover className="  ">
         {({ open }) => (
           <>
@@ -84,11 +81,15 @@ const PopOver = ({ id, type }) => {
                 className={`
                   ${open ? "" : "text-opacity-90"}
                   text-white group relative  py-2 rounded-md inline-flex justify-end items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
-                // onMouseEnter={onMouseEnter.bind(null, open)}
+                onMouseEnter={() => apiCAll()}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <a className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  <RightArrowIcon />
+                <a className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <ChevronRightIcon
+                    className={`${
+                      open ? "rotate-90 transform" : ""
+                    } h-8 w-8 text-white`}
+                  />
                 </a>
               </Popover.Button>
               <Transition
@@ -106,7 +107,7 @@ const PopOver = ({ id, type }) => {
                     // onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className=" relative z-10 w-full max-w-md bg-white rounded-xl overflow-hidden p-7 ">
+                    <div className=" relative z-10 w-full max-w-md bg-white border rounded-xl overflow-hidden p-7 ">
                       <div>
                         <h1 className="font-bold w-full text-xl text-text-orange">
                           Showing Sub{" "}
@@ -119,17 +120,16 @@ const PopOver = ({ id, type }) => {
                         spaceBetween={10}
                         slidesPerGroup={1}
                         loop={true}
-                        loopFillGroupWithBlank={true}
+                        loopFillGroupWithBlank={false}
                         navigation
                         scrollbar={{ draggable: true }}
                         className="mySwiper"
                       >
-                        {popOverSubCategoryDataList?.length}
                         {popOverSubCategoryDataList?.map((product, index) => (
                           <SwiperSlide>
                             <div
                               key={`${index}`}
-                              className=" mx-2 my-2  w-full shadow-lg bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
+                              className=" mx-2 my-2 w-full shadow-lg bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
                             >
                               <div className=" overflow-hidden w-[10rem]  pt-5  mx-auto ">
                                 <Image
