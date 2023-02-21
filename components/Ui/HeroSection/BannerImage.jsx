@@ -14,7 +14,7 @@ const BannerImage = ({ image, text, description, classes }) => {
           ></div>
         </div>
         <div className="video-content z-0 w-full pt-32 md:w-full sm:full lg:w-[100vh]">
-          <h1 className="font-semibold capitalize tracking-widest lg:font-bold  2xl:text-6xl  text-white text-xl lg:text-4xl sm:text-2xl md:text-2xl">
+          <h1 className="font-semibold capitalize tracking-widest lg:font-bold  2xl:text-6xl  text-white text-xl lg:text-3xl sm:text-2xl md:text-2xl">
             {text ? text : ""}
           </h1>
           <div className=" lg:w-5/6 w-full py-6 md:w-full">

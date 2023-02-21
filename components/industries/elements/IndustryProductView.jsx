@@ -47,7 +47,7 @@ const IndustryProductView = () => {
   const modalhide = () => {
     setShowModal((prev) => ({ ...prev, isShow: false }));
   };
-  console.log(product);
+  console.log("product------------------>", product);
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
   return (
@@ -92,7 +92,12 @@ const IndustryProductView = () => {
                   </span>
 
                   <div className="py-4">
-                    <h1 className="font-bold text-2xl w-52">{product?.name}</h1>
+                    <h1 className="font-bold text-2xl w-52">
+                      {product?.name
+                        ? product?.name
+                        : product?.product_tmpl_id &&
+                          product?.product_tmpl_id[1]}
+                    </h1>
                   </div>
                   <div className="py-4 mb-2 lg:mb-4">
                     <p className="text-text-gray">{product?.description}</p>
