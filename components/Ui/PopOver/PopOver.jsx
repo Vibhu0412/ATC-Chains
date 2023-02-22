@@ -22,7 +22,7 @@ const PopOver = ({ id, type }) => {
   const [productMainId, setProductMainId] = useState(id);
   const router = useRouter();
   const { category, variantId } = router.query;
-  const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
+  const ProductId = category === undefined ? "" : parseInt(category);
 
   const subCategory = useQuery({
     queryKey: ["popoverItem", id],
@@ -30,9 +30,9 @@ const PopOver = ({ id, type }) => {
     refetchOnWindowFocus: false,
   });
   const variants = useQuery({
-    queryKey: ["Variants", productMainId],
+    queryKey: ["popoverVariants", productMainId],
     queryFn: () => getAllVariants({ ProductId: ProductId, Id: id }),
-    enabled: !!productMainId,
+    enabled: !!ProductId,
   });
 
   let popOverSubCategoryDataList = [];
@@ -84,13 +84,13 @@ const PopOver = ({ id, type }) => {
                 onMouseEnter={() => apiCAll()}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <a className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <div className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <ChevronRightIcon
                     className={`${
                       open ? "rotate-90 transform" : ""
                     } h-8 w-8 text-white`}
                   />
-                </a>
+                </div>
               </Popover.Button>
               <Transition
                 as={Fragment}

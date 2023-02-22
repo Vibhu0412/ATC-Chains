@@ -31,7 +31,7 @@ const ProductSubCategroy = ({ parent, id, image, name, type }) => {
   const variants = useQuery({
     queryKey: ["Variants", productMainId],
     queryFn: () => getAllVariants({ ProductId, Id: id }),
-    enabled: !!productMainId,
+    enabled: !!ProductId,
   });
 
   let popOverSubCategoryDataList = [];
@@ -96,7 +96,7 @@ const ProductSubCategroy = ({ parent, id, image, name, type }) => {
                   src={image}
                   width={400}
                   height={300}
-                  alt={"fsfj"}
+                  alt={"product"}
                 />
               </Popover.Button>
               <Transition

@@ -15,8 +15,8 @@ const YoutubeVideoCard = () => {
   if (isError) return <ProductNotFound text="No Videos Found" />;
   return (
     <>
-      {youtubeData?.map((video, index) => (
-        <ErrorBoundary>
+      <ErrorBoundary>
+        {youtubeData?.map((video, index) => (
           <div
             key={index}
             className=" rounded-lg relative z-[0] bg-white  border-[#bebebe7a]  w-full border-2 p-3"
@@ -38,8 +38,8 @@ const YoutubeVideoCard = () => {
             </section>
             <h2 className="text-primary font-bold   my-2">{video?.title}</h2>
           </div>
-        </ErrorBoundary>
-      ))}
+        ))}
+      </ErrorBoundary>
     </>
   );
 };

@@ -14,7 +14,6 @@ import {
   TitleSection,
   YoutubeVideoCard,
 } from "../Ui";
-import IndustryDetails from "../industries/elements/IndustryDetails";
 import HomeBlogSection from "./elements/HomeBlogSection";
 import IndustrySolutionHome from "./elements/IndustrySolutionHome";
 import HowWeWorkHomeSection from "./elements/HowWeWorkHomeSection";

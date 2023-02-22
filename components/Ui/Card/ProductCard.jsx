@@ -6,13 +6,9 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../../utils/motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import Image from "next/image";
+
 import Link from "next/link";
-import {
-  ArrowDownCircleIcon,
-  ArrowLeftIcon,
-  ArrowRightCircleIcon,
-} from "@heroicons/react/20/solid";
+
 import ProductSubCategroy from "../PopOver/ProductSubCategroy";
 
 const ProductCard = () => {
@@ -22,7 +18,7 @@ const ProductCard = () => {
   });
   const productData = data?.data?.response?.primary_products;
   const router = useRouter();
-  console.log("productData dat--------", productData);
+
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
 
@@ -52,21 +48,6 @@ const ProductCard = () => {
                     }
                     type="subCategory"
                   />
-                  {/* <Image
-                    className="rounded-3xl object-cover h-[300px] max-w-[400px]  mx-auto"
-                    width={400}
-                    height={300}
-                    src={
-                      product?.image_1920 && product?.image_1920
-                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
-                            product?.image_1920
-                              ? product?.image_1920
-                              : product?.image_url
-                          }`
-                        : "/assets/images/products/aluminium-kettenfoerdersystem-4-modular-automation-1380x640_01 3.png"
-                    }
-                    alt={product?.name}
-                  /> */}
                 </div>
                 <div className="px-5 pb-5">
                   <div className="flex gap-2 items-center justify-between text-text-secondary hover:text-text-orange">

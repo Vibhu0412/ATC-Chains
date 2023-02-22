@@ -47,7 +47,7 @@ const IndustryProductView = () => {
   const modalhide = () => {
     setShowModal((prev) => ({ ...prev, isShow: false }));
   };
-  console.log("product------------------>", product);
+
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
   return (

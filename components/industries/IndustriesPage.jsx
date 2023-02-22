@@ -248,11 +248,15 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                             )}
                                           >
                                             {subCategory?.multi_images != 0 && (
-                                              <div className="h-[60vh] max-w-7xl mx-auto ">
+                                              <div
+                                                key={subCategory}
+                                                className="h-[60vh] max-w-7xl mx-auto "
+                                              >
                                                 <Carousel>
                                                   {subCategory?.multi_images?.map(
                                                     (image) => (
                                                       <Image
+                                                        key={image?.name}
                                                         className="w-full h-full"
                                                         src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
                                                         alt={image?.name}
@@ -267,7 +271,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                             <h2 className="font-bold text-2xl text-primary2 my-8 ">
                                               {subCategory?.name}
                                             </h2>
-                                            <p class="my-4  text-base font-normal text-gray-500 dark:text-gray-400">
+                                            <p className="my-4  text-base font-normal text-gray-500 dark:text-gray-400">
                                               {ReactHtmlParser(
                                                 subCategory?.description
                                               )}

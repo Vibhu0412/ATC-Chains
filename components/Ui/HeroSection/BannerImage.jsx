@@ -8,6 +8,7 @@ const BannerImage = ({ image, text, description, classes }) => {
           <img
             src={`${image ? image : "/assets/icons/svg/aboutPageBanner.svg"}`}
             className="min-w-full min-h-full absolute object-cover  bg-center"
+            alt="Banner"
           />
           <div
             className={`min-w-full min-h-full  opacity-70 absolute object-cover ${classes}`}

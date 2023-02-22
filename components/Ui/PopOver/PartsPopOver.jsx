@@ -101,7 +101,7 @@ const PartsPopOver = ({ title, id, type }) => {
                 onMouseEnter={(e) => apiCAll(e)}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <a className="text-white relative -z-1 bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
+                <div className="text-white relative -z-1 bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></div>
               </Popover.Button>
               <Transition
                 as={Fragment}
