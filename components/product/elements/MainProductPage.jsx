@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { useDebouncedCallback } from "use-debounce";
-
+import { motion } from "framer-motion";
 import _ from "lodash";
 
 //internal imports
@@ -30,6 +30,7 @@ import {
   Toaster,
 } from "../../Ui";
 import VariantView from "./VariantView";
+import { staggerContainer } from "../../../utils/motion";
 
 const MainProductPage = ({ currentPage }) => {
   const {
@@ -122,7 +123,13 @@ const MainProductPage = ({ currentPage }) => {
 
   return (
     <ErrorBoundary>
-      <div className="flex gap-4 items-center lg:px-10 px-1 my-16 justify-between">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+        className="flex gap-4 items-center lg:px-10 px-1 my-16 justify-between"
+      >
         <div className="w-full">
           <div className="mb-2">
             <BreadCrumbs
@@ -160,7 +167,7 @@ const MainProductPage = ({ currentPage }) => {
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
       <div className=" ">
         {/* <span className="absolute -z-10 -top-32 -left-10">
           <ProductPageIcon />

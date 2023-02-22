@@ -26,7 +26,7 @@ const HeroSection = () => {
     setSelectedSubCategory(e.target.value);
   };
 
-  const disabled = subCategory.length === 0;
+  const disabled = subCategory?.length === 0;
   return (
     <section className="relative  h-96 md:h-[40vh] lg:h-[85vh] lg:-mt-20 flex flex-col items-start  justify-evenly text-start text-white py-0 lg:px-20 sm:px-2 px-8">
       <div className="video-docker rounded-b-3xl  absolute bottom-0 top-0 left-0 w-full h-full overflow-hidden">
@@ -56,7 +56,9 @@ const HeroSection = () => {
               className="block w-full px-4 py-4 text-lg text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={(e) => selectedIndusrty(e)}
             >
-              <option>Select Category</option>
+              <option selected disabled>
+                Select Category
+              </option>
               {Industry?.map((industry, index) => (
                 <option key={index} value={industry.id}>
                   {industry?.industry_category_name}
@@ -70,7 +72,9 @@ const HeroSection = () => {
               className="block w-full px-6 py-4 text-lg text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={(e) => subCategories(e)}
             >
-              <option slected>Select Sub Category</option>
+              <option selected disabled>
+                Select Sub Category
+              </option>
               {subCategory?.map((sub, index) => (
                 <option key={index} value={sub?.id}>
                   {sub?.name}

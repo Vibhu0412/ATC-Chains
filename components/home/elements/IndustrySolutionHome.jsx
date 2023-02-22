@@ -34,7 +34,9 @@ const IndustrySolutionHome = () => {
               className="block bg-transparent w-full -mb-2 px-16 lg:px-0 py-4  text-lg lg:text-xl text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
               onChange={(e) => selectedIndusrty(e)}
             >
-              <option slected>Conver type</option>
+              <option selected disabled>
+                Conver type
+              </option>
               {Industry?.map((industry, index) => (
                 <option key={index} value={industry.id}>
                   {industry?.industry_category_name}
@@ -48,7 +50,9 @@ const IndustrySolutionHome = () => {
               className="block w-full bg-transparent rotate-180 -mb-2 px-16 lg:px-0 py-4  text-lg lg:text-xl text-primary2 border-none rounded-3xl focus:ring-0 focus:outline-none focus:border-none "
               onChange={(e) => subCategories(e)}
             >
-              <option slected>I need a solution for</option>
+              <option selected disabled>
+                I need a solution for
+              </option>
               {subCategory?.map((sub, index) => (
                 <option key={index} value={sub?.id}>
                   {sub?.name}
@@ -89,7 +93,7 @@ const IndustrySolutionHome = () => {
                 Belting solutions set to fix your tailor-made needs.
               </h2>
               <p>
-                WE believe in delivering value to your business. Invest in our
+                We believe in delivering value to your business. Invest in our
                 robust & durable unique belts and witness the difference
                 yourself!
               </p>

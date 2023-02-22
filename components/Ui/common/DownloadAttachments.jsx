@@ -18,7 +18,7 @@ const DownloadAttachments = (props) => {
       role="list"
       className="divide-y divide-gray-200 rounded-md border border-gray-200"
     >
-      {downloadableAttachments &&
+      {downloadableAttachments?.length > 0 &&
         downloadableAttachments?.map((attachment, index) => (
           <li
             key={index}

@@ -29,7 +29,7 @@ const HowWeWorkHomeSection = () => {
     },
     {
       id: 6,
-      name: "Order confirmation",
+      name: "Order Confirmation",
       desc: "Get your order placed within minutes! Get access to early",
     },
   ];

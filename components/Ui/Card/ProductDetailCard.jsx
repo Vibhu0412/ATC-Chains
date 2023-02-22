@@ -25,7 +25,10 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
 
   return (
     <ErrorBoundary>
-      <motion.div className="my-4 px-2   mx-auto">
+      <motion.div
+        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+        className="my-4 px-2   mx-auto"
+      >
         <div className=" h-[350px] w-[400px] shadow-lg  bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 hover:shadow-2xl  duration-200">
           <Link href={productUrl}>
             {currentPage === "MainCategory" || currentPage === "VariantsId" ? (

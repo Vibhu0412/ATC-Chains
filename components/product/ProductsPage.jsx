@@ -29,7 +29,7 @@ const ProductsPage = ({ currentPage }) => {
           ) : (
             ""
           )}
-          <div>
+          <div className="">
             <MainProductPage currentPage={currentPage} />
           </div>
         </div>

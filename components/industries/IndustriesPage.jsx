@@ -23,12 +23,13 @@ const IndustriesPage = ({ title, content, setRouter }) => {
   const [currentAccordion, setCurrentAccordion] = useState(0); // set the current
   const [activeDisclousre, setActiveDisclousre] = useState(0);
   const [industry, setIndustry] = useState([]);
+  const [activeTabPanel, setActiveTabPanel] = useState(0);
+  const [parentCatId, setParentCatId] = useState(0);
 
   function closeCurrent(e) {
     const button = e.target.closest("button"); // get the button
     const buttonParent = button?.parentElement.parentElement; // get the buttons parent (<dt> tag here)
     const parent = buttonParent?.parentElement; // get the buttons parent parent (Disclosure as div here)
-    console.log("Array?.prototype?.indexOf", Array?.prototype?.indexOf);
     const index =
       Array?.prototype?.indexOf != "undefined" ||
       (Array?.prototype?.indexOf != null &&
@@ -47,7 +48,6 @@ const IndustriesPage = ({ title, content, setRouter }) => {
     }
     setCurrentAccordion(index); // and set the current
   }
-
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -89,9 +89,28 @@ const IndustriesPage = ({ title, content, setRouter }) => {
   useEffect(() => {
     if (data?.data?.Industry) {
       setIndustry(data?.data?.Industry);
+
+      const parentIndex = data?.data?.Industry.findIndex(
+        (parentName) => parentName.industry_category_name === "Food Industry"
+      );
+
+      setActiveDisclousre(parentIndex);
     }
   }, [data]);
-  const activeDeactiveTab = (selected, catName) => {
+
+  const activeDeactiveTab = (selected, catName, parentCatName) => {
+    const filterdIndustrys = industry.filter(
+      (el) => el.industry_category_name === parentCatName
+    )[0];
+
+    let index = filterdIndustrys?.industry_subcategory_name?.findIndex(
+      (cat) => cat.name === catName
+    );
+
+    if (activeIndustries === catName?.split(" ").join("_")) {
+      setActiveTabPanel(index);
+    }
+
     return classNames(
       "w-64  rounded-lg py-8 text-sm font-medium leading-5 ",
       "ring-white ring-opacity-60 px-4 ring-none focus:outline-none focus:ring-none",
@@ -99,6 +118,15 @@ const IndustriesPage = ({ title, content, setRouter }) => {
         ? "industryActive "
         : "text-black industry "
     );
+  };
+
+  const changeTab = (cat_Name) => {
+    alert(cat_Name, setRouter);
+    setRouter === "homePage"
+      ? ""
+      : () => {
+          router.push(`/industries#${cat_Name.split(" ").join("_")}`);
+        };
   };
 
   return (
@@ -113,7 +141,9 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                     <Disclosure
                       as="div"
                       key={index}
-                      defaultOpen={index === 0}
+                      //defaultOpen={index === 0}
+                      // defaultOpen={1}
+                      defaultOpen={index === activeDisclousre}
                       className="pt-2"
                     >
                       {({ open }) => {
@@ -153,8 +183,13 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                             >
                               <div className="w-full text-base text-gray-500">
                                 <div className="w-full block  lg:flex gap-5  sm:px-0">
-                                  <Tab.Group>
-                                    <Tab.List className=" w-56">
+                                  <Tab.Group
+                                    //defaultIndex={activeTabPanel}
+                                    selectedIndex={activeTabPanel}
+                                    manual="false"
+                                    onChange={(number) => console.log(number)}
+                                  >
+                                    <Tab.List className="w-56">
                                       {industry?.industry_subcategory_name?.map(
                                         (category) => (
                                           <Tab
@@ -164,11 +199,12 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                                 .split(" ")
                                                 .join("_")
                                             }`}
-                                            key={category}
+                                            key={category.id}
                                             className={({ selected }) =>
                                               activeDeactiveTab(
                                                 selected,
-                                                category?.name
+                                                category?.name,
+                                                industry?.industry_category_name
                                               )
                                             }
                                             onClick={
@@ -176,7 +212,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                                 ? ""
                                                 : () => {
                                                     router.push(
-                                                      `/industries#${category.name
+                                                      `/industries#${category?.name
                                                         .split(" ")
                                                         .join("_")}`
                                                     );
@@ -189,7 +225,19 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                       )}
                                     </Tab.List>
 
-                                    <Tab.Panels className="mt-2 lg:px-10 px-2 w-full">
+                                    <Tab.Panels
+                                      className={({
+                                        selected,
+                                        selectedIndex,
+                                      }) =>
+                                        classNames(
+                                          "mt-2 lg:px-10 px-2 w-full",
+                                          selected
+                                            ? "bg-blue-500 text-white"
+                                            : `text-blue-700 ${selectedIndex}`
+                                        )
+                                      }
+                                    >
                                       {industry?.industry_subcategory_name?.map(
                                         (subCategory, idx) => (
                                           <Tab.Panel

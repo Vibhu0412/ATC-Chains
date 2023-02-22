@@ -75,7 +75,7 @@ const ProductCard = () => {
                         {product?.name}
                       </h2>
                     </div>
-                    <PopOver type="SubCategory" id={product?.id} />
+                    <PopOver type="subCategory" id={product?.id} />
                   </div>
 
                   <div className="flex items-center justify-between w-96">

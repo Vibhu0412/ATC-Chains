@@ -39,7 +39,7 @@ const PopOver = ({ id, type }) => {
   let MainId = "";
   ///const MainId = subCategory?.data?.data?.primary_product;
   //products/450/variants/216/product/1401
-  if (type === "SubCategory") {
+  if (type === "subCategory") {
     MainId = subCategory?.data?.data?.primary_product;
     popOverSubCategoryDataList =
       subCategory?.data?.data?.response?.sub_category;
@@ -127,33 +127,33 @@ const PopOver = ({ id, type }) => {
                       >
                         {popOverSubCategoryDataList?.map((product, index) => (
                           <SwiperSlide>
-                            <div
-                              key={`${index}`}
-                              className=" mx-2 my-2 w-full shadow-lg bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
+                            <Link
+                              href={
+                                type === "subCategory"
+                                  ? `/products/${MainId}/variants/${product.id}`
+                                  : `/products/${ProductId}/variants/${id}/product/${product.id}`
+                              }
                             >
-                              <div className=" overflow-hidden w-[10rem]  pt-5  mx-auto ">
-                                <Image
-                                  className=" h-28 w-28 mx-auto mt-4"
-                                  width={28}
-                                  height={28}
-                                  src={`${
-                                    process.env.NEXT_PUBLIC_API_BASE_URL_DEV
-                                  }${
-                                    product?.image_1920
-                                      ? product?.image_1920[0]
-                                      : product?.image_url
-                                  }`}
-                                  alt="product image"
-                                />
-                              </div>
-
-                              <Link
-                                href={
-                                  type === "subCategory"
-                                    ? `/products/${MainId}/variants/${product.id}`
-                                    : `/products/${ProductId}/variants/${id}/product/${product.id}`
-                                }
+                              <div
+                                key={`${index}`}
+                                className=" mx-2 my-2 w-full shadow-lg bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
                               >
+                                <div className=" overflow-hidden w-[10rem]  pt-5  mx-auto ">
+                                  <Image
+                                    className=" h-28 w-28 mx-auto mt-4"
+                                    width={28}
+                                    height={28}
+                                    src={`${
+                                      process.env.NEXT_PUBLIC_API_BASE_URL_DEV
+                                    }${
+                                      product?.image_1920
+                                        ? product?.image_1920[0]
+                                        : product?.image_url
+                                    }`}
+                                    alt="product image"
+                                  />
+                                </div>
+
                                 <div className="px-4 py-1 bg-btn-primary flex justify-center items-center text-white rounded-b-xl">
                                   <div className="text-lg font-semibold tracking-tight ">
                                     <p className=" line-clamp-1">
@@ -163,8 +163,8 @@ const PopOver = ({ id, type }) => {
                                     </p>
                                   </div>
                                 </div>
-                              </Link>
-                            </div>
+                              </div>
+                            </Link>
                           </SwiperSlide>
                         ))}
                       </Swiper>

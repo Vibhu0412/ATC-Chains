@@ -28,10 +28,10 @@ const ContactForm = () => {
   };
   //after form submit response
   useEffect(() => {
-    if (isSuccess) {
+    if (data?.status === 200) {
       Toaster.fire({
         icon: "success",
-        title: data?.data?.result,
+        title: data?.data?.result || data?.data?.error?.message,
       });
     }
     reset();

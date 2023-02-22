@@ -99,7 +99,7 @@ const PartsPopOver = ({ title, id, type }) => {
                   ${open ? "" : "text-opacity-90"}
                   text-white group relative rounded-md -z-1 inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
                 onMouseEnter={(e) => apiCAll(e)}
-                // onMouseLeave={onMouseLeave.bind(null, open)}
+                onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <a className="text-white relative -z-1 bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></a>
               </Popover.Button>
