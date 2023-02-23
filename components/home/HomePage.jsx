@@ -79,15 +79,14 @@ const HomePage = () => {
         </div>
         <HowWeWorkHomeSection />
       </div>
-      <section id="industrySection" className="my-10 px-4">
+      <section id="industrySection" className="my-10  px-4">
         <TitleSection name="industries" />
-        <div className="">
-          <IndustriesPage setRouter="homePage" />
-        </div>
+
+        <IndustriesPage setRouter="homePage" />
       </section>
       <section id="productSection" className="">
         <TitleSection name="Products" />
-        <div className="mx-4 relative z-[2] ">
+        <div className="mx-4 relative z-[2] my-10">
           <SubProducts />
         </div>
       </section>

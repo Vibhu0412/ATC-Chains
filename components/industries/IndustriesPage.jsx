@@ -8,6 +8,7 @@ import { Tab } from "@headlessui/react";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { Loader, ProductNotFound } from "../Ui";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,8 +16,6 @@ function classNames(...classes) {
 
 const IndustriesPage = ({ title, content, setRouter }) => {
   const router = useRouter();
-  const [subCategoryList, setSubCategoryList] = useState([]);
-  const [subCategory, setSubCategory] = useState([]);
   const [open, setOpen] = useState(1);
   const [activeIndustries, setActiveIndustries] = useState("");
   const AccordionRefs = useRef([]); // store accordion buttons as Refs
@@ -89,12 +88,23 @@ const IndustriesPage = ({ title, content, setRouter }) => {
   useEffect(() => {
     if (data?.data?.Industry) {
       setIndustry(data?.data?.Industry);
+      let actIndus = router.asPath.split("#")[1];
+      let cat_name = "";
+
+      data?.data?.Industry.length &&
+        data?.data?.Industry.forEach((el) => {
+          el.industry_subcategory_name.filter((subCat) => {
+            if (subCat.name.split(" ").join("_") === actIndus) {
+              cat_name = el.industry_category_name;
+            }
+          });
+        });
 
       const parentIndex = data?.data?.Industry.findIndex(
-        (parentName) => parentName.industry_category_name === "Food Industry"
+        (parentName) => parentName.industry_category_name === cat_name
       );
 
-      setActiveDisclousre(parentIndex);
+      setActiveDisclousre(parentIndex === -1 ? 0 : parentIndex);
     }
   }, [data]);
 
@@ -119,16 +129,8 @@ const IndustriesPage = ({ title, content, setRouter }) => {
         : "text-black industry "
     );
   };
-
-  const changeTab = (cat_Name) => {
-    alert(cat_Name, setRouter);
-    setRouter === "homePage"
-      ? ""
-      : () => {
-          router.push(`/industries#${cat_Name.split(" ").join("_")}`);
-        };
-  };
-
+  if (isLoading) return <Loader />;
+  if (isError) return <ProductNotFound />;
   return (
     <>
       <div className="bg-bg-gray">
@@ -141,7 +143,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                     <Disclosure
                       as="div"
                       key={index}
-                      //defaultOpen={index === 0}
+                      // defaultOpen={index === 0}
                       // defaultOpen={1}
                       defaultOpen={index === activeDisclousre}
                       className="pt-2"
@@ -182,7 +184,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                               className="mt-2"
                             >
                               <div className="w-full text-base text-gray-500">
-                                <div className="w-full block  lg:flex gap-5  sm:px-0">
+                                <div className="w-full block lg:flex gap-5  sm:px-0">
                                   <Tab.Group
                                     //defaultIndex={activeTabPanel}
                                     selectedIndex={activeTabPanel}
@@ -276,7 +278,6 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                                 subCategory?.description
                                               )}
                                             </p>
-
                                             <div>
                                               {subCategory?.Products?.map(
                                                 (product) => (

@@ -259,4 +259,29 @@ export const parts = [
       },
     ],
   },
+  {
+    top: "69%",
+    left: "31%",
+    opacity: 1,
+    bgColor: "skyBlue",
+    activeBgColor: "blue",
+    title: "BEARINGS",
+    imageUrl: [
+      {
+        image: "/assets/images/productOverview/bucket1.svg",
+      },
+      {
+        image: "/assets/images/productOverview/bucket2.svg",
+      },
+      {
+        image: "/assets/images/productOverview/bucket3.svg",
+      },
+      {
+        image: "/assets/images/productOverview/bucket4.svg",
+      },
+      {
+        image: "/assets/images/productOverview/bucket5.svg",
+      },
+    ],
+  },
 ];

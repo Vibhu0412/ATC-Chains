@@ -18,7 +18,7 @@ const PartsPopOver = ({ title, id, type }) => {
   const ProductId = parseInt(category) !== NaN ? parseInt(category) : "";
   const [productId, setProductId] = useState();
   const buttonRef = useRef(null);
-  const timeoutDuration = 800;
+  const timeoutDuration = 500;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -64,12 +64,16 @@ const PartsPopOver = ({ title, id, type }) => {
                 className="  mx-auto my-4"
                 width={400}
                 height={400}
-                src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                src={
                   product?.image_1920
-                    ? product?.image_1920[0]
-                    : product?.image_url
-                }`}
-                alt="product image"
+                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                        product?.image_1920
+                          ? product?.image_1920[0]
+                          : product?.image_1920[1]
+                      }`
+                    : "/assets/images/products/product2.jpeg"
+                }
+                alt={`product image`}
               />
             </div>
 
@@ -99,7 +103,7 @@ const PartsPopOver = ({ title, id, type }) => {
                   ${open ? "" : "text-opacity-90"}
                   text-white group relative rounded-md -z-1 inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
                 onMouseEnter={(e) => apiCAll(e)}
-                onMouseLeave={onMouseLeave.bind(null, open)}
+                // onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <div className="text-white relative -z-1 bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></div>
               </Popover.Button>

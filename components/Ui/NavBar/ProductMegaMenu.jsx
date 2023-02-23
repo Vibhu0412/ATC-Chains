@@ -80,13 +80,13 @@ const ProductMegaMenu = () => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen   lg:px-10 -translate-x-1/2 transform sm:px-0">
+                <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen lg:px-10 -translate-x-1/2 transform sm:px-0">
                   <div
                     className=" relative rounded-lg  px-10 ring-opacity-5"
                     onMouseEnter={onMouseEnter.bind(null, open)}
                     // onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className=" w-full bg-white  border h-[60vh] mt-4 shadow-lg overflow-scroll  rounded-xl p-7 ">
+                    <div className=" w-full bg-white  border h-[60vh] mt-4 shadow-lg overflow-scroll rounded-xl p-7 ">
                       <div className="flex flex-wrap gap-5 ">
                         {isLoading
                           ? "loading..."

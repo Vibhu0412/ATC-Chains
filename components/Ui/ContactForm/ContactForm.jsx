@@ -190,7 +190,9 @@ const ContactForm = () => {
                       <p className="pt-2 ml-2 text-purple-800 font-bold">
                         Mobile Number
                       </p>
-                      <p className="ml-2">03 482 394 123</p>
+                      <a className="ml-2" href="tel:+919023725674">
+                        (902) 37-25674
+                      </a>
                     </div>
                   </div>
                 </div>

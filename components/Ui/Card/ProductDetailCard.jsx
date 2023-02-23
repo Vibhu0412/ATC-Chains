@@ -46,18 +46,13 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
                 height={300}
               />
             ) : (
-              <div className="h-[300px] w-[350px]   mx-auto ">
-                <Carousel
-                  className=""
-                  indicators={false}
-                  controls={false}
-                  slideInterval={3000}
-                >
+              <div className="h-[300px] w-[390px]   mx-auto ">
+                <Carousel indicators={false} slideInterval={3000}>
                   {data &&
                     data?.image_1920 &&
                     data?.image_1920?.map((image, index) => (
                       <img
-                        className=" mt-14"
+                        className="mt-14"
                         src={
                           data?.image_1920 && data?.image_1920
                             ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image}`
