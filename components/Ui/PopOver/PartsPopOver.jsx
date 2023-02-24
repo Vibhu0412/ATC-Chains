@@ -59,7 +59,7 @@ const PartsPopOver = ({ title, id, type }) => {
           className=" mx-2 my-2 w-[200px] h-[150px] max-w-xl min-w-xl bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
         >
           <Link href={`/products/${MainId}/variants/${product.id}`}>
-            <div className=" overflow-hidden w-[195px] h-[150px] pt-5  mx-auto ">
+            <div className=" overflow-hidden w-[195px] h-[150px] pt-1.5  mx-auto ">
               <Image
                 className="  mx-auto my-4"
                 width={400}
@@ -93,7 +93,7 @@ const PartsPopOver = ({ title, id, type }) => {
   });
   return (
     <div className="w-full rounded-xl">
-      <Popover className="  ">
+      <Popover onMouseEnter={onMouseEnter.bind(null, open)} className="  ">
         {({ open }) => (
           <>
             <div>
@@ -103,7 +103,7 @@ const PartsPopOver = ({ title, id, type }) => {
                   ${open ? "" : "text-opacity-90"}
                   text-white group relative rounded-md -z-1 inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
                 onMouseEnter={(e) => apiCAll(e)}
-                // onMouseLeave={onMouseLeave.bind(null, open)}
+                onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <div className="text-white relative -z-1 bg-btn-secondary/50 w-4 h-4 lg:w-6 lg:h-6 hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm "></div>
               </Popover.Button>
@@ -119,7 +119,7 @@ const PartsPopOver = ({ title, id, type }) => {
                 <Popover.Panel className="px-4  overflow-hidden absolute  z-10 mt-3 lg:px-6 -translate-x-1/2 transform rounded-xl bg-white pb-10 border sm:px-0 ">
                   <div
                     className=" px-4 rounded-xl   "
-                    //onMouseEnter={onMouseEnter.bind(null, open)}
+                    onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
                     <div className="w-full rounded-xl  p-7 ">

@@ -150,14 +150,18 @@ const MainProductPage = ({ currentPage }) => {
               <SearchIcon />
               <input
                 type="search"
-                className="border-none w-full bg-text-gray/210 rounded-xl focus:ring-none"
-                placeholder="Search Product"
+                className={`${
+                  errors.name ? "focus:ring-red-500" : ""
+                } border-none w-full bg-text-gray/210 rounded-xl focus:ring-none`}
+                placeholder={`${
+                  errors.name ? errors.name.message : "Search Product"
+                }`}
                 // value={getValues("name")}
                 // onInput={(e) => {
                 //   debounced(e.target.value);
                 // }}
-                {...register("name")}
-              />
+                {...register("name", { required: "Please enter someting" })}
+              />{" "}
               <button
                 type="submit"
                 className="bg-primary hover:bg-btn-secondary transition-all ease-in-out duration-200 p-3 rounded-xl"

@@ -50,7 +50,7 @@ const PopOver = ({ id, type }) => {
   }
 
   const buttonRef = useRef(null);
-  const timeoutDuration = 10000;
+  const timeoutDuration = 1000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
@@ -101,13 +101,13 @@ const PopOver = ({ id, type }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute mb-50 z-50   px-4 mt-0 transform overflow-hidden -translate-x-2/3 left-1/3 sm:px-0 ">
+                <Popover.Panel className="absolute mb-50 z-50 px-4 mt-0  transform overflow-hidden -translate-x-2/3 lg:left-1/2 sm:px-0 ">
                   <div
                     className="  rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
                     // onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className=" relative z-10 w-full max-w-md bg-white border rounded-xl overflow-hidden p-7 ">
+                    <div className=" relative z-10 w-full max-w-md bg-white border rounded-xl overflow-hidden p-2 lg:p-7 ">
                       <div>
                         <h1 className="font-bold w-full text-xl text-text-orange">
                           Showing Sub{" "}

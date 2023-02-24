@@ -23,7 +23,7 @@ const TestimonialsCardSection = () => {
       <SplideSlide key={index}>
         <div className="flex">
           <div className="mb-8 m-4 border border-gray-200 rounded-2xl shadow-lg dark:border-gray-700 md:mb-12">
-            <figure className="flex flex-col items-start justify-start p-8 text-start bg-white border-b border-gray-200 rounded-2xl md:border-r dark:bg-gray-800 dark:border-gray-700">
+            <figure className="flex relative flex-col items-start justify-start p-8 text-start bg-white min-h-[30vh] max-h-full border-b border-gray-200 rounded-2xl md:border-r dark:bg-gray-800 dark:border-gray-700">
               <blockquote className="max-w-2xl  mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-1">
                   {testimonial?.title}
@@ -32,27 +32,29 @@ const TestimonialsCardSection = () => {
                   {testimonial?.testi_monial_des}
                 </p>
               </blockquote>
-              <figcaption className="flex items-center justify-center space-x-3">
-                <Image
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                  src={
-                    testimonial?.image_url && testimonial?.image_url
-                      ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${testimonial?.image_url}`
-                      : "/assets/images/avatar/avatar-1.jpg"
-                  }
-                  alt="profile picture"
-                />
-                <div className="space-y-0.5 font-medium dark:text-white text-left">
-                  <div>{testimonial?.name}</div>
-                  <div className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    {testimonial?.function
-                      ? testimonial?.function
-                      : "Designation"}
+              <div className="absolute bottom-4">
+                <figcaption className="flex items-center justify-center space-x-3 ">
+                  <Image
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                    src={
+                      testimonial?.image_url && testimonial?.image_url
+                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${testimonial?.image_url}`
+                        : "/assets/images/avatar/avatar-1.jpg"
+                    }
+                    alt="profile picture"
+                  />
+                  <div className="space-y-0.5 font-medium dark:text-white text-left">
+                    <div>{testimonial?.name}</div>
+                    <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+                      {testimonial?.function
+                        ? testimonial?.function
+                        : "Designation"}
+                    </div>
                   </div>
-                </div>
-              </figcaption>
+                </figcaption>
+              </div>
             </figure>
           </div>
         </div>

@@ -138,14 +138,12 @@ const IndustriesPage = ({ title, content, setRouter }) => {
           <div className="divide-y-2 divide-gray-200 ">
             <dl className="mt-6 space-y-2 divide-y divide-gray-200 ">
               {industry &&
-                industry?.map((industry, index) => {
+                industry?.map((industry, idx) => {
                   return (
                     <Disclosure
                       as="div"
-                      key={index}
-                      // defaultOpen={index === 0}
-                      // defaultOpen={1}
-                      defaultOpen={index === activeDisclousre}
+                      key={idx}
+                      defaultOpen={idx === activeDisclousre || open}
                       className="pt-2"
                     >
                       {({ open }) => {
@@ -153,15 +151,15 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                           <>
                             <dt
                               className={`${
-                                activeDisclousre === index || open
+                                activeDisclousre === idx || open
                                   ? "industryActive text-white"
                                   : "industry text-primary"
                               } py-6 px-10 w-80`}
                               onClick={closeCurrent}
-                              ref={(el) => (AccordionRefs.current[index] = el)}
+                              ref={(el) => (AccordionRefs.current[idx] = el)}
                             >
                               <Disclosure.Button
-                                open={activeDisclousre === index || open}
+                                open={activeDisclousre === idx || open}
                                 className="flex my-4 justify-between items-center px-3 w-full  focus:outline-none"
                               >
                                 <span className="w-full font-medium  ">
@@ -170,7 +168,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                 <span className="flex ml-6 menuItems-center h-7">
                                   <ChevronUpIcon
                                     className={`${
-                                      activeDisclousre === index || open
+                                      activeDisclousre === idx || open
                                         ? "rotate-180 transform"
                                         : ""
                                     } h-6 w-6 text-gray-500`}
@@ -179,18 +177,13 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                               </Disclosure.Button>
                             </dt>
                             <Disclosure.Panel
-                              as="div"
-                              static={activeDisclousre === index}
+                              as="dd"
+                              static={activeDisclousre === idx}
                               className="mt-2"
                             >
                               <div className="w-full text-base text-gray-500">
                                 <div className="w-full block lg:flex gap-5  sm:px-0">
-                                  <Tab.Group
-                                    //defaultIndex={activeTabPanel}
-                                    selectedIndex={activeTabPanel}
-                                    manual="false"
-                                    onChange={(number) => console.log(number)}
-                                  >
+                                  <Tab.Group selectedIndex={activeTabPanel}>
                                     <Tab.List className="w-56">
                                       {industry?.industry_subcategory_name?.map(
                                         (category) => (
@@ -211,7 +204,13 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                             }
                                             onClick={
                                               setRouter === "homePage"
-                                                ? ""
+                                                ? () => {
+                                                    router.push(
+                                                      `#${category?.name
+                                                        .split(" ")
+                                                        .join("_")}`
+                                                    );
+                                                  }
                                                 : () => {
                                                     router.push(
                                                       `/industries#${category?.name

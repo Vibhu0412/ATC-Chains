@@ -1,12 +1,10 @@
 import { Popover, Transition } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useRef } from "react";
 import { getIndustryList } from "../../../fetchers/universalFetch";
-import Router, { withRouter } from "next/router";
 const MegaMenu = () => {
   const { isLoading, isError, data, error, onSuccess } = useQuery({
     queryKey: ["megaMenuList"],
@@ -74,13 +72,13 @@ const MegaMenu = () => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen lg:px-10 -translate-x-1/2 transform sm:px-0 ">
+                <Popover.Panel className="absolute left-1/2 z-10 mt-3 max-w-screen lg:px-10 -translate-x-1/2 transform sm:px-0 ">
                   <div
                     className=" relative z-10 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
                     onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >
-                    <div className=" w-full bg-white rounded-xl h-[40vh] mt-4 shadow-lg overflow-scroll  p-7 ">
+                    <div className=" w-full bg-white rounded-xl max-h-[40vh] mt-4 shadow-lg overflow-scroll  p-7 ">
                       <div className="flex flex-wrap overflow-scroll gap-5">
                         {isLoading
                           ? "loading..."
@@ -100,39 +98,8 @@ const MegaMenu = () => {
                                             sub?.name &&
                                             sub?.name.split(" ").join("_")
                                           }`}
-                                          // href={{
-                                          //   pathname: `/industries#${
-                                          //     sub?.name &&
-                                          //     sub?.name.split(" ").join("_")
-                                          //   }`,
-                                          //   query: { name: "test" },
-                                          // }}
-                                          // passHref
                                         >
-                                          <li
-                                            key={index}
-                                            className="py-2"
-                                            // onClick={() => {
-                                            //   const temp =
-                                            //     `/industries` +
-                                            //     "#" +
-                                            //     `${
-                                            //       sub?.name &&
-                                            //       sub?.name.split(" ").join("_")
-                                            //     }`;
-                                            //   console.log("temp", temp);
-                                            //   console.log(
-                                            //     "temp",
-                                            //     decodeURI(temp)
-                                            //   );
-                                            //   Router.push({
-                                            //     pathname: encodeURI(temp),
-                                            //     state: {
-                                            //       pattern: "manish",
-                                            //     },
-                                            //   });
-                                            // }}
-                                          >
+                                          <li key={index} className="py-2">
                                             {sub?.name}
                                           </li>
                                         </Link>
