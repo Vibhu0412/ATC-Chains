@@ -119,6 +119,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
 
     if (activeIndustries === catName?.split(" ").join("_")) {
       setActiveTabPanel(index);
+      //setParentCatId(index)
     }
 
     return classNames(
@@ -184,7 +185,11 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                               <div className="w-full text-base text-gray-500">
                                 <div className="w-full block lg:flex gap-5  sm:px-0">
                                   <Tab.Group selectedIndex={activeTabPanel}>
-                                    <Tab.List className="w-56">
+                                    <Tab.List
+                                      className="w-56"
+                                      selectedIndex={activeTabPanel}
+                                      // selectedIndex={setActiveTabPanel}
+                                    >
                                       {industry?.industry_subcategory_name?.map(
                                         (category) => (
                                           <Tab
@@ -194,6 +199,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                                 .split(" ")
                                                 .join("_")
                                             }`}
+                                            selectedIndex={activeTabPanel}
                                             key={category.id}
                                             className={({ selected }) =>
                                               activeDeactiveTab(
@@ -226,25 +232,13 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                                       )}
                                     </Tab.List>
 
-                                    <Tab.Panels
-                                      className={({
-                                        selected,
-                                        selectedIndex,
-                                      }) =>
-                                        classNames(
-                                          "mt-2 lg:px-10 px-2 w-full",
-                                          selected
-                                            ? "bg-blue-500 text-white"
-                                            : `text-blue-700 ${selectedIndex}`
-                                        )
-                                      }
-                                    >
+                                    <Tab.Panels selectedIndex={activeTabPanel}>
                                       {industry?.industry_subcategory_name?.map(
                                         (subCategory, idx) => (
                                           <Tab.Panel
                                             key={idx}
                                             className={classNames(
-                                              "rounded-xl  p-3",
+                                              "rounded-xl p-3",
                                               "ring-white ring-opacity-60 ring-offset-2 ring-none focus:outline-none focus:ring-none"
                                             )}
                                           >
