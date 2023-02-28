@@ -3,13 +3,15 @@ import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
+import { useStateContext } from "../../../context/StateManagement";
 import { getIndustryList } from "../../../fetchers/universalFetch";
 const MegaMenu = () => {
   const { isLoading, isError, data, error, onSuccess } = useQuery({
     queryKey: ["megaMenuList"],
     queryFn: getIndustryList,
   });
+
   const router = useRouter();
   const categoriesList = data?.data?.Industry;
   const buttonRef = useRef(null);

@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Router from "next/router";
 import { useState } from "react";
 import GlobalLoader from "../components/Ui/common/GlobalLoader";
+import StateManagement from "../context/StateManagement";
 //internal imports
 
 const poppins = Poppins({
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }) {
       {/* {isLoading && <GlobalLoader />} */}
       <AnimatePresence exitBeforeEnter>
         <div className={poppins.className}>
-          <Component {...pageProps} />
+          <StateManagement>
+            <Component {...pageProps} />
+          </StateManagement>
         </div>
       </AnimatePresence>
     </QueryClientProvider>

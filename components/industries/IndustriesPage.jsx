@@ -9,6 +9,8 @@ import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Loader, ProductNotFound } from "../Ui";
+import ContextProvider from "./ContextProvider";
+import { useStateContext } from "../../context/StateManagement";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -24,7 +26,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
   const [industry, setIndustry] = useState([]);
   const [activeTabPanel, setActiveTabPanel] = useState(0);
   const [parentCatId, setParentCatId] = useState(0);
-
+  const { selectIndustry, setSelectIndustry } = useStateContext();
   function closeCurrent(e) {
     const button = e.target.closest("button"); // get the button
     const buttonParent = button?.parentElement.parentElement; // get the buttons parent (<dt> tag here)
@@ -130,6 +132,8 @@ const IndustriesPage = ({ title, content, setRouter }) => {
         : "text-black industry "
     );
   };
+
+  // console.log("data", data);
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound />;
   return (
@@ -184,7 +188,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                             >
                               <div className="w-full text-base text-gray-500">
                                 <div className="w-full block lg:flex gap-5  sm:px-0">
-                                  <Tab.Group selectedIndex={activeTabPanel}>
+                                  <Tab.Group>
                                     <Tab.List
                                       className="w-56"
                                       selectedIndex={activeTabPanel}
@@ -296,6 +300,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
           </div>
         </div>
       </div>
+      {/* <ContextProvider /> */}
     </>
   );
 };
