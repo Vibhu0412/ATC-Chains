@@ -145,7 +145,7 @@ const ProductSubCategroy = ({ parent, id, image, name, type }) => {
                               >
                                 <div className="px-2 py-1  flex justify-start items-center text-black rounded-b-xl">
                                   <div className="text-lg font-semibold tracking-tight ">
-                                    <p className=" line-clamp-2">
+                                    <p className=" line-clamp-2 hover:underline hover:scale-105 transition duration-200">
                                       {">"}{" "}
                                       {product?.display_name
                                         ? product?.display_name

@@ -118,7 +118,10 @@ const ProductMegaMenu = () => {
                                           }  font-semibold `}
                                           href={`/products/${categories.id}/variants/${sub?.id}`}
                                         >
-                                          <li key={index} className="py-2">
+                                          <li
+                                            key={index}
+                                            className="py-2 hover:scale-105 transition duration-200 hover:underline hover:text-primary "
+                                          >
                                             {sub?.display_name}
                                           </li>
                                         </Link>
