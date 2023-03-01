@@ -14,12 +14,11 @@ function classNames(...classes) {
 const ContextProvider = () => {
   let tabIndex = null;
   const router = useRouter();
+  console.log("{router }", router.pathname);
   // make accordions close when one is opened.
   const AccordionRefs = useRef([]); // store accordion buttons as Refs
   const [currentAccordion, setCurrentAccordion] = useState(0); // set the current
   function closeCurrent(e) {
-    // alert();
-    console.log("AccordionRefs.current ---> ", AccordionRefs.current);
     const button = e?.target?.closest("button"); // get the button
     const buttonParent = button?.parentElement?.parentElement; // get the buttons parent (<dt> tag here)
     const parent = buttonParent?.parentElement; // get the buttons parent parent (Disclosure as div here)
@@ -36,7 +35,6 @@ const ContextProvider = () => {
           .getAttribute("aria-expanded") === "true" &&
         currentAccordion !== index // if it is opened and not the current
       ) {
-        //  alert("if");
         AccordionRefs.current[i].querySelector("button").click(); // then trigger a click to close it.
       }
     }
@@ -49,10 +47,6 @@ const ContextProvider = () => {
     refetchOnWindowFocus: false,
   });
 
-  const test = () => {
-    console.log("test -------------- call......");
-  };
-
   const [industryList, setIndustryList] = useState([]);
   const [isPageLoad, setIsPageLoad] = useState(false);
   const [activeDisclousre, setActiveDisclousre] = useState(false);
@@ -61,7 +55,7 @@ const ContextProvider = () => {
   const [oldActiveDisclousreIndex, setOldActiveDisclousreIndex] = useState(0);
 
   const openDaynamicAccordion = () => {
-    if (data?.data?.Industry) {
+    if (data?.data?.Industry && industryList.length > 0) {
       let actIndus = router.asPath.split("#")[1];
       let cat_name = "";
 
@@ -77,38 +71,25 @@ const ContextProvider = () => {
       const parentIndex = data?.data?.Industry.map(
         (el) => el.industry_category_name
       ).indexOf(cat_name);
-
       setActiveDisclousre(parentIndex === -1 ? 0 : parentIndex);
       setOldActiveDisclousreIndex(parentIndex === -1 ? 0 : parentIndex);
       let ind = parentIndex === -1 ? 0 : parentIndex;
 
-      console.log("parentIndex", parentIndex);
-      console.log("data arr ===>", data.data.Industry);
+      if (activeDisclousre !== parentIndex) {
+        AccordionRefs.current[ind]?.querySelector("button").click();
+      }
 
-      AccordionRefs.current[ind]?.querySelector("button").click();
-      // alert(11);
       setIsActiveDisclousreIndex(ind);
-      // setIsTabActiveIndex()
-      // isTabActiveIndex
     }
   };
 
   const findChildTabIndex = () => {
     let actIndus = router.asPath.split("#")[1];
-    console.log("isActiveDisclousreIndex ===> ", isActiveDisclousreIndex);
-    console.log("actIndus ---> ", actIndus);
-    console.log(
-      "industry --->",
-      data?.data?.Industry[isActiveDisclousreIndex].industry_subcategory_name
-    );
 
     data?.data?.Industry[
       isActiveDisclousreIndex
     ].industry_subcategory_name.forEach((el, i) => {
-      console.log("***********", el.name.split(" ").join("_"), actIndus);
-
       if (el.name.split(" ").join("_") === actIndus) {
-        console.log("index --->", i);
         tabIndex = i;
         setIsTabActiveIndex(i);
         return i;
@@ -118,17 +99,10 @@ const ContextProvider = () => {
     if (oldActiveDisclousreIndex !== isActiveDisclousreIndex) {
       AccordionRefs.current[ind]?.querySelector("button").click();
     }
-
-    console.log("tabIndex ---->", tabIndex);
   };
 
   useEffect(() => {
     let parent_ind = findChildTabIndex();
-    console.log(
-      "isActiveDisclousreIndex isActiveDisclousreIndex ---> ",
-      isActiveDisclousreIndex
-    );
-    console.log("isTabActiveIndex in useEffect ---> ", isTabActiveIndex);
 
     let result = data?.data?.Industry.map((el, i) => {
       return {
@@ -139,32 +113,26 @@ const ContextProvider = () => {
       };
     });
 
-    console.log("aaaaaaaaaaaaaaaaaaa result", result);
     result && setIndustryList([...result]);
 
-    console.log("AccordionRefs.current --->", AccordionRefs.current);
-    if (isActiveDisclousreIndex) {
-      AccordionRefs.current[isActiveDisclousreIndex]
-        ?.querySelector("button")
-        .click();
-    }
+    // if (isActiveDisclousreIndex) {
+    //   console.log("click button 1");
+    //   AccordionRefs.current[isActiveDisclousreIndex]
+    //     ?.querySelector("button")
+    //     .click();
     // }
-  }, [isActiveDisclousreIndex, isTabActiveIndex, router]);
+  }, [isActiveDisclousreIndex, router]);
 
   useEffect(() => {
     if (data?.data?.Industry.length) {
       setIndustryList(data?.data?.Industry ?? []);
       openDaynamicAccordion();
     }
-  }, [data?.data?.Industry.length]);
+  }, [data?.data?.Industry.length, router, industryList, activeDisclousre]);
 
   useEffect(() => {
     findChildTabIndex();
   }, [data?.data?.Industry.length, router]);
-
-  useEffect(() => {
-    console.log("industryList -------->", industryList);
-  }, [industryList]);
 
   const industries = data?.data?.Industry ?? [];
 
@@ -172,15 +140,14 @@ const ContextProvider = () => {
     <div className="">
       <div className="p-4 mx-auto  sm:px-6 lg:px-8">
         <div className="divide-y-2 divide-gray-200 ">
-          {`disclosure index : ${isActiveDisclousreIndex}`}
-          <dl className="mt-6 space-y-6 divide-y divide-gray-200 ">
+          <dl className="mt-6 space-y-6 divide-y  ">
             {industryList &&
               industryList?.map((industry, index) => {
                 return (
                   <Disclosure
                     as="div"
                     className="pt-6"
-                    //  defaultOpen={index === 0}
+                    defaultOpen={index === 0}
                   >
                     {({ open }) => (
                       <>
@@ -191,16 +158,17 @@ const ContextProvider = () => {
                             open
                               ? "industryActive text-white"
                               : "industry text-primary"
-                          } py-6 px-10 w-80`}
+                          } py-10 pl-16 px-10 w-80`}
                         >
                           <Disclosure.Button
-                            // onClick={() => test()}
-                            className="flex justify-between w-full text-left text-gray-400 focus:outline-none"
+                            className={` ${
+                              open ? " text-white" : " text-primary"
+                            } flex justify-between w-full text-left  focus:outline-none`}
                           >
-                            <span className="w-full font-medium text-gray-900">
-                              {`${industry.industry_category_name} ${industry?.isParentIndex}`}
+                            <span className="w-full font-medium ">
+                              {`${industry.industry_category_name}`}
                             </span>
-                            <span className="flex mt-4 ml-6 menuItems-center h-7">
+                            <span className=" ml-6 menuItems-center h-7">
                               <ChevronUpIcon
                                 className={`${
                                   open ? "rotate-180 transform" : ""
@@ -211,30 +179,30 @@ const ContextProvider = () => {
                         </dt>
                         <Disclosure.Panel as="dd" className="mt-2">
                           <div className="w-full text-base text-gray-500">
-                            {/* {industry.industry_category_desc} */}
-
                             <div className="w-full text-base text-gray-500">
-                              {`isTabActiveIndex : ${isTabActiveIndex}`}
                               <div className="w-full block lg:flex gap-5  sm:px-0">
                                 <Tab.Group
+                                  vertical
                                   selectedIndex={
-                                    isTabActiveIndex ===
-                                      industry?.isChildIndex &&
-                                    industry?.isParentIndex === index
-                                      ? isTabActiveIndex
-                                      : 0
+                                    isTabActiveIndex ? isTabActiveIndex : ""
                                   }
-                                  //  selectedIndex={isTabActiveIndex === industry?.isActive }
+                                  // selectedIndex={
+                                  //   isTabActiveIndex ===
+                                  //     industry?.isChildIndex &&
+                                  //   industry?.isParentIndex === index
+                                  //     ? isTabActiveIndex
+                                  //     : 0
+                                  // }
+                                  // selectedIndex={
+                                  //   isTabActiveIndex === industry?.isActive
+                                  // }{}
+
                                   onChange={(num) => {
                                     console.log("tab group on change", num);
                                     setIsTabActiveIndex(num);
                                   }}
                                 >
-                                  <Tab.List
-                                    className="w-56"
-
-                                    // selectedIndex={setActiveTabPanel}
-                                  >
+                                  <Tab.List className="w-[50rem]">
                                     {industry?.industry_subcategory_name?.map(
                                       (category) => (
                                         <Tab
@@ -242,18 +210,18 @@ const ContextProvider = () => {
                                             category?.name &&
                                             category?.name.split(" ").join("_")
                                           }`}
-                                          key={category.id}
-                                          // className="bg-gray-500 text-white my-3"
-                                          className={({ selected }) => (
-                                            "w-64  rounded-lg py-8 text-sm font-medium leading-5 ",
-                                            "ring-white ring-opacity-60 px-4 ring-none focus:outline-none focus:ring-none",
-                                            selected
-                                              ? "industryActive "
-                                              : "text-black industry "
-                                          )}
+                                          key={category.name}
+                                          className={({ selected }) =>
+                                            classNames(
+                                              "w-64 rounded-lg py-7 text-sm font-medium leading-5 text-primary",
+                                              "ring-white ring-opacity-60 ring-none ring-offset-blue-400 focus:outline-none focus:ring-2",
+                                              selected
+                                                ? "  industryActive "
+                                                : "text-primary industry  "
+                                            )
+                                          }
                                         >
                                           {category?.name}
-                                          {`${category?.name} ${industry?.isChildIndex}`}
                                         </Tab>
                                       )
                                     )}
@@ -265,14 +233,14 @@ const ContextProvider = () => {
                                         <Tab.Panel
                                           key={idx}
                                           className={classNames(
-                                            "rounded-xl p-3",
+                                            "rounded-xl p-3 px-4",
                                             "ring-white ring-opacity-60 ring-offset-2 ring-none focus:outline-none focus:ring-none"
                                           )}
                                         >
                                           {subCategory?.multi_images != 0 && (
                                             <div
                                               key={subCategory}
-                                              className="h-[60vh] max-w-7xl mx-auto "
+                                              className="h-[60vh] min-w-[80%] max-w-[80%]  mx-auto "
                                             >
                                               <Carousel>
                                                 {subCategory?.multi_images?.map(

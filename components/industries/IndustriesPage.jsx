@@ -138,7 +138,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
   if (isError) return <ProductNotFound />;
   return (
     <>
-      <div className="bg-bg-gray">
+      {/* <div className="bg-bg-gray">
         <div className="p-4 mx-auto  sm:px-6 lg:px-8">
           <div className="divide-y-2 divide-gray-200 ">
             <dl className="mt-6 space-y-2 divide-y divide-gray-200 ">
@@ -164,7 +164,7 @@ const IndustriesPage = ({ title, content, setRouter }) => {
                               ref={(el) => (AccordionRefs.current[idx] = el)}
                             >
                               <Disclosure.Button
-                                open={activeDisclousre === idx || open}
+                                // open={activeDisclousre === idx || open}
                                 className="flex my-4 justify-between items-center px-3 w-full  focus:outline-none"
                               >
                                 <span className="w-full font-medium  ">
@@ -299,8 +299,8 @@ const IndustriesPage = ({ title, content, setRouter }) => {
             </dl>
           </div>
         </div>
-      </div>
-      {/* <ContextProvider /> */}
+      </div> */}
+      <ContextProvider />
     </>
   );
 };
