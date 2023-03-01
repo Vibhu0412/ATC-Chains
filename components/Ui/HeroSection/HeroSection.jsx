@@ -41,7 +41,7 @@ const HeroSection = () => {
         <div className="min-w-full min-h-full bg-[#120202] opacity-70 absolute object-cover"></div>
       </div>
       <div className="video-content z-0 w-full  md:w-full sm:full lg:w-[100vh]">
-        <h1 className="font-semibold sm:text-2xl tracking-widest pt-[50vh] sm:pt-[50vh] lg:pt-28 md:pt-[40vh] lg:font-bold  2xl:text-7xl text-2xl  text-white  lg:text-4xl  md:text-2xl">
+        <h1 className="font-semibold sm:text-2xl tracking-widest pt-[50vh] sm:pt-[50vh] lg:pt-28 md:pt-[40vh] lg:font-bold  2xl:text-6xl text-2xl  text-white  lg:text-3xl  md:text-2xl">
           Belting solutions set to fix all your customized needs.
         </h1>
         <div className=" lg:w-5/6 w-full py-6 md:w-full">

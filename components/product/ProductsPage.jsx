@@ -19,7 +19,7 @@ const ProductsPage = ({ currentPage }) => {
         />
         <div className=" 2xl:px-8 relative">
           {currentPage === "MainCategory" ? (
-            <div className=" -mt-[13rem] 2xl:-mt-[20rem] relative z-[2] pb-2 px-4">
+            <div className=" -mt-[13rem] 2xl:-mt-[16rem] 3xl:-mt-[18rem] relative z-[2] pb-2 px-4">
               <SubProducts />
             </div>
           ) : currentPage === "SubCategory" ? (
