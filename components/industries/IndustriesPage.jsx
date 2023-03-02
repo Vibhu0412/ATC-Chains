@@ -14,7 +14,6 @@ function classNames(...classes) {
 const IndustriesPage = () => {
   let tabIndex = null;
   const router = useRouter();
-  console.log("{router }", router.pathname);
   // make accordions close when one is opened.
   const AccordionRefs = useRef([]); // store accordion buttons as Refs
   const [currentAccordion, setCurrentAccordion] = useState(0); // set the current
@@ -25,7 +24,7 @@ const IndustriesPage = () => {
     const index = parent?.children
       ? Array.prototype.indexOf.call(parent?.children, buttonParent)
       : null; // find the index of the button in container
-    console.log("index", index);
+
     for (let i = 0; i < AccordionRefs.current.length; i++) {
       // loop throug
       if (
@@ -147,7 +146,8 @@ const IndustriesPage = () => {
                   <Disclosure
                     as="div"
                     className="pt-6"
-                    defaultOpen={index === 0}
+                    defaultIndex={activeDisclousre}
+                    //selectedIndex={activeDisclousre ? activeDisclousre : 0}
                   >
                     {({ open }) => (
                       <>
@@ -186,23 +186,12 @@ const IndustriesPage = () => {
                                   selectedIndex={
                                     isTabActiveIndex ? isTabActiveIndex : ""
                                   }
-                                  // selectedIndex={
-                                  //   isTabActiveIndex ===
-                                  //     industry?.isChildIndex &&
-                                  //   industry?.isParentIndex === index
-                                  //     ? isTabActiveIndex
-                                  //     : 0
-                                  // }
-                                  // selectedIndex={
-                                  //   isTabActiveIndex === industry?.isActive
-                                  // }{}
-
                                   onChange={(num) => {
                                     console.log("tab group on change", num);
                                     setIsTabActiveIndex(num);
                                   }}
                                 >
-                                  <Tab.List className="w-[50rem]">
+                                  <Tab.List className="lg:w-[50rem]">
                                     {industry?.industry_subcategory_name?.map(
                                       (category) => (
                                         <Tab

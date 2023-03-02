@@ -19,7 +19,7 @@ const NavBar = () => {
         <Link href={"/"}>
           <Image
             src="/assets/images/logo/Logo-dark.png"
-            className=" h-10 lg:h-14"
+            className="w-full h-10 lg:h-14"
             alt="ATC Chain India"
             width={200}
             height={200}
