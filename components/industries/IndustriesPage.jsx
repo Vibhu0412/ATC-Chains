@@ -87,7 +87,7 @@ const IndustriesPage = () => {
 
     data?.data?.Industry[
       isActiveDisclousreIndex
-    ].industry_subcategory_name.forEach((el, i) => {
+    ]?.industry_subcategory_name.forEach((el, i) => {
       if (el.name.split(" ").join("_") === actIndus) {
         tabIndex = i;
         setIsTabActiveIndex(i);
@@ -140,7 +140,7 @@ const IndustriesPage = () => {
       <div className="p-4 mx-auto  sm:px-6 lg:px-8">
         <div className="divide-y-2 divide-gray-200 ">
           <dl className="mt-6 space-y-6 divide-y  ">
-            {industryList &&
+            {industryList.length >= 0 &&
               industryList?.map((industry, index) => {
                 return (
                   <Disclosure
