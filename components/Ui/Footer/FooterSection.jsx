@@ -80,7 +80,7 @@ const FooterSection = () => {
         {/* <span className="absolute bottom-0 right-0 hidden 2xl:block">
           <FooterSettingIcon />
         </span> */}
-        <div className="w-full flex items-center justify-center overflow-visible">
+        <div className="w-full mb-36 lg:mb-2 flex items-center justify-center overflow-visible">
           <div className="lg:max-w-6xl md:max-w-3xl sm:max-w-2xl  max-w-lg w-full rounded-3xl pb-5  mb-6 lg:p-12 p-3 bg-primary">
             <div className="flex flex-col items-center justify-center text-white mb-6">
               <p>Wall of fame</p>
