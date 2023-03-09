@@ -84,12 +84,25 @@ const PopOver = ({ id, type }) => {
                 onMouseEnter={() => apiCAll()}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <div className="text-white bg-text-secondary hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  p-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  <ChevronRightIcon
+                <div className="text-white bg-[#2E437C] hover:bg-btn-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm  px-2 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  {/* <ChevronRightIcon
                     className={`${
                       open ? "rotate-90 transform" : ""
                     } h-8 w-8 text-white`}
-                  />
+                  /> */}
+                  <svg
+                    width="27"
+                    height="19"
+                    viewBox="0 0 27 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.8163 7.80667L1.5102 3.93571L1 14.5809L16.8163 10.226L16.5 10.5L17.5 17.5L26 9.25829L17.5 1.5V7.00022L16.8163 7.80667Z"
+                      fill="white"
+                      stroke="white"
+                    />
+                  </svg>
                 </div>
               </Popover.Button>
               <Transition
@@ -136,9 +149,9 @@ const PopOver = ({ id, type }) => {
                             >
                               <div
                                 key={`${index}`}
-                                className=" mx-2 my-2 w-full shadow-lg bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
+                                className=" mx-2 my-2 w-full shadow-xl  rounded-xl "
                               >
-                                <div className=" overflow-hidden w-[10rem]  pt-5  mx-auto ">
+                                <div className=" overflow-hidden w-[10rem] pt-5 mx-auto ">
                                   <Image
                                     className=" h-28 w-28 mx-auto mt-4"
                                     width={28}
@@ -154,7 +167,7 @@ const PopOver = ({ id, type }) => {
                                   />
                                 </div>
 
-                                <div className="px-4 py-1 bg-btn-primary flex justify-center items-center text-white rounded-b-xl">
+                                <div className="px-4 py-1 bg-white flex justify-center items-center text-primary2 rounded-b-xl">
                                   <div className="text-lg font-semibold tracking-tight ">
                                     <p className=" line-clamp-1">
                                       {product?.display_name

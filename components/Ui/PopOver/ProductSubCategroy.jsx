@@ -91,11 +91,9 @@ const ProductSubCategroy = ({ parent, id, image, name, type }) => {
                 onMouseEnter={onMouseEnter.bind(null, open, apiCAll())}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
-                <Image
-                  className="object-center object-cover h-[300px] max-w-[400px]  rounded-t-xl"
+                <img
+                  className="object-center mx-auto object-cover h-[300px] max-w-[400px]  rounded-t-xl"
                   src={image}
-                  width={400}
-                  height={300}
                   alt={"product"}
                 />
               </Popover.Button>

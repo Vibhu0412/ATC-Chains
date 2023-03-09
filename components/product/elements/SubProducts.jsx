@@ -25,11 +25,11 @@ const SubProducts = (isVisible) => {
   const challengeSplide = productData?.map((product, index) => {
     return (
       <SplideSlide key={`${index}_pro`}>
-        <div key={index} className="flex">
-          <motion.div className="transition-all  max-w-md duration-100 ease-in-out delay-150 py-4 ">
+        <div key={index} className="flex mb-10 lg:mb-16">
+          <motion.div className="transition-all max-w-[400px] max-h-[300px] duration-100 ease-in-out hover:scale-[1.02] delay-150 py-4 ">
             <Link href={`/products/${product?.id}`}>
-              <div className="  rounded-xl">
-                <div className="flex flex-col bg-primary/40 rounded-t-xl ">
+              <div className=" shadow-xl rounded-xl">
+                <div className="flex   flex-col rounded-t-[16px] ">
                   <div className="group flex justify-center items-center rounded-t-xl w-full h-full ">
                     <ProductSubCategroy
                       name={product?.name}
@@ -45,14 +45,14 @@ const SubProducts = (isVisible) => {
                       }
                       type="subCategory"
                     />
-                    <div className=" text-center px-2 focus:outline-none line-clamp-1 h-16 focus:ring-2 rounded-t-xl top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-4 w-full bg-primary">
+                    {/* <div className=" text-center px-2 focus:outline-none line-clamp-1 h-16 focus:ring-2 rounded-t-xl top-0 z-10 absolute text-xl font-bold leading-none  text-gray-100 py-4 w-full bg-primary">
                       {product?.name}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
-                <div className="p-2 py-1 bg-primary/40 backdrop-blur-md	 text-white rounded-b-lg flex justify-between items-center px-6">
-                  <h3 className="text-lg  font-bold hover:underline line-clamp-2 min-h-10 ">
-                    Click Here For more Detail
+                <div className=" py-1 bg-white backdrop-blur-md text-primary2 rounded-b-lg flex justify-between items-center px-6">
+                  <h3 className="text-lg max-w-sm text-ellipsis overflow-hidden font-bold hover:underline line-clamp-2  ">
+                    {product?.name}
                   </h3>
 
                   <div className=" relative z-10">
