@@ -15,7 +15,7 @@ const HowWeWorkHomeSection = () => {
     {
       id: 3,
       name: "Quick Dispatch",
-      desc: "We at Atcchains facilitate the on-time delivery to cater to perfect customized solutions",
+      desc: "We at ATC Chain facilitate the on-time delivery to cater to perfect customized solutions",
     },
     {
       id: 4,
@@ -25,12 +25,12 @@ const HowWeWorkHomeSection = () => {
     {
       id: 5,
       name: "Best Offer",
-      desc: "The best deal adds more value ATC offers the best deal to meet your personalized needs! ",
+      desc: "The best deal adds more value ATC offers the best deal to meet your personalized needs.",
     },
     {
       id: 6,
       name: "Order Confirmation",
-      desc: "Get your order placed within minutes! Get access to early",
+      desc: "Get your order placed within minutes! Get access to early.",
     },
   ];
 

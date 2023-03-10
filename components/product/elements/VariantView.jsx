@@ -29,7 +29,7 @@ const VariantView = ({ data, currentPage, index }) => {
         <div className="lg:flex gap-4 block p-4 bg-[#EAEAEA] rounded-[20px] items-center">
           <div className="w-full rounded-l-lg  ">
             <Image
-              className="mx-auto shadow-md w-full max-h-[300px] rounded-[30px] "
+              className="mx-auto shadow-md w-full max-h-[300px] min-h-[300px] rounded-[30px] "
               src={
                 data?.image_url
                   ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${data?.image_url}`
@@ -48,43 +48,22 @@ const VariantView = ({ data, currentPage, index }) => {
             </div>
 
             <div className="grid grid-cols-2 w-full  gap-3">
-              <div className="flex gap-4 items-center w-full">
-                <div className="bg-primary2 p-3 hidden lg:block rounded-lg">
-                  <CubeIcon2 />
-                </div>
-                <div>
-                  <h5>Height</h5>
-                  <p className="text-[#666666]">
-                    {data?.height ? data?.height : "No data"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-center w-full">
-                <div className="bg-primary2 p-3 hidden lg:block rounded-lg">
-                  <CubeIcon2 />
-                </div>
-                <div>
-                  <h5>Weight</h5>
-                  <p className="text-[#666666]">
-                    {data?.weight ? data?.weight : "No data"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex gap-4 items-center w-full">
-                  <div className="bg-primary2 p-3 hidden lg:block rounded-lg">
-                    <CubeIcon2 />
+              {data?.product_specification &&
+                data?.product_specification?.map((item, index) => (
+                  <div className="flex gap-4 items-center w-full">
+                    <div className="bg-primary2 p-3 hidden lg:block rounded-lg">
+                      <CubeIcon2 />
+                    </div>
+                    <div>
+                      <h5>{item.name && item?.name?.split(":")[0]}</h5>
+                      <p className="text-[#666666]">
+                        {item?.name && item?.name
+                          ? item?.name?.split(":")[1]
+                          : "No data"}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h5>Colour</h5>
-                    <p className="text-[#666666]">
-                      {data?.color_custom ? data?.color_custom : "No data"}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                ))}
             </div>
           </div>
         </div>

@@ -191,7 +191,7 @@ const ContactForm = () => {
                         Mobile Number
                       </p>
                       <a className="ml-2" href="tel:+919023725674">
-                        (902) 37-25674
+                        +91(902) 37-25674
                       </a>
                     </div>
                   </div>

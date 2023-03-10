@@ -89,10 +89,10 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="col-span-2 relative">
-              <h1 className="text-9xl hidden lg:block 2xl:left-96 xl:left-20 absolute top-4 text-text-gray">
+              <h1 className="text-9xl hidden -z-10 lg:block xl:left-[8rem] lg:left-[20rem] 3xl:left-[20rem] 2xl:left-[20rem] absolute top-4 text-text-gray">
                 02
               </h1>
-              <div class="mx-5 block lg:grid place-content-end">
+              <div class="mx-5 z-1  block lg:grid place-content-end">
                 <div class="bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl text-white text-center h-[25rem] lg:max-w-lg 2xl:max-w-2xl mx-auto">
                   <img
                     className="w-full h-full rounded-xl"
@@ -116,7 +116,7 @@ const AboutPage = () => {
       <div className="grid grid-cols-3 gap-4 lg:mb-0 mb-6 items-center justify-between">
         <div className=" border-4 border-btn-primary rounded-full  text-lg font-bold -ml-10 p-4 col-span-2">
           <h1 className="text-3xl pl-20 font-bold text-primary capitalize">
-            Our Teams
+            Our Team
           </h1>
         </div>
         <div className="text-lg font-bold  p-10 rounded-lg">
