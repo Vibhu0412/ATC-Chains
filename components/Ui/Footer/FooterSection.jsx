@@ -99,11 +99,27 @@ const FooterSection = () => {
                   ATC Chains
                 </h2>
                 <p className="text-lg w-full lg:w-2/3 text-gray-300 mb-4">
-                  22, Kalyannagar Society, O/s Shahpur Gate, Shahpur, Ahmedabad
-                  - 380004
+                  <span className="font-bold">Office Address:</span> 22,
+                  Kalyannagar Society, O/s Shahpur Gate, Shahpur, Ahmedabad -
+                  380004
                 </p>
-                <p className=" text-gray-300 mb-4">
-                  <a href="tel:90237 25674">+91 (902) 37-25674 </a>
+                <p className=" text-gray-300 ">
+                  <a href="mailto:sales@atcchain.com">
+                    <span className="text-white font-semibold">Email:</span>{" "}
+                    sales@atcchain.com
+                  </a>
+                </p>
+                <p className=" text-gray-300">
+                  <a href="tel:90237 25674">
+                    <span className="text-white font-semibold">Mob:</span> +91
+                    90237-25674
+                  </a>
+                </p>
+                <p className=" text-gray-300">
+                  <a href="tel:90237 25674">
+                    <span className="text-white font-semibold">Mob:</span> +91
+                    90237-25676
+                  </a>
                 </p>
                 {/* <p className=" text-gray-300 mb-4">(603)  90237 25674 </p> */}
               </div>
