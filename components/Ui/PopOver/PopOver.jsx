@@ -80,7 +80,7 @@ const PopOver = ({ id, type }) => {
                 ref={buttonRef}
                 className={`
                   ${open ? "" : "text-opacity-90"}
-                  text-white group relative  py-2 rounded-md inline-flex justify-end items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
+                  text-white group relative py-2 rounded-md inline-flex justify-end items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-opacity-75`}
                 onMouseEnter={() => apiCAll()}
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
@@ -114,9 +114,9 @@ const PopOver = ({ id, type }) => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute mb-50 z-50 px-4 mt-0  transform overflow-hidden -translate-x-2/3 lg:left-1/2 sm:px-0 ">
+                <Popover.Panel className="absolute left-1/2 z-10  w-screen max-w-sm lg:-translate-x-1/2 -translate-x-2/3  px-4 sm:px-0 lg:max-w-3xl ">
                   <div
-                    className="  rounded-xl shadow-lg ring-1 ring-black ring-opacity-5"
+                    className="  rounded-xl  ring-1 ring-black ring-opacity-5"
                     // onMouseEnter={onMouseEnter.bind(null, open)}
                     onMouseLeave={onMouseLeave.bind(null, open)}
                   >

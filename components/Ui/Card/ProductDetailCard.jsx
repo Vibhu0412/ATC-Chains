@@ -26,7 +26,7 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
   return (
     <ErrorBoundary>
       <div className="my-4 mx-auto mb-14 ring-0 rounded-t-xl hover:shadow-2xl transition ease-in-out delay-150  border-none  hover:-translate-y-1 hover:scale-105 shadow-xl duration-200">
-        <div className=" h-[300px] w-[400px]">
+        <div className=" h-[300px] w-[400px] bg-white">
           <Link href={productUrl}>
             {currentPage === "MainCategory" || currentPage === "VariantsId" ? (
               <Image

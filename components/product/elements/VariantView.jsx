@@ -26,10 +26,10 @@ const VariantView = ({ data, currentPage, index }) => {
     <>
       {/* {index % 2 === 0 ? ( */}
       <Link href={productUrl}>
-        <div className="flex bg-[#EAEAEA] rounded-[20px] items-center">
+        <div className="lg:flex gap-4 block p-4 bg-[#EAEAEA] rounded-[20px] items-center">
           <div className="w-full rounded-l-lg  ">
             <Image
-              className="mx-auto sm:pl-2 max-w-[400px] max-h-[300px] rounded-[30px] py-3"
+              className="mx-auto shadow-md w-full max-h-[300px] rounded-[30px] "
               src={
                 data?.image_url
                   ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${data?.image_url}`

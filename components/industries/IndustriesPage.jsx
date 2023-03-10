@@ -146,7 +146,7 @@ const IndustriesPage = () => {
                   <Disclosure
                     as="div"
                     className="pt-6"
-                    defaultIndex={activeDisclousre}
+                    defaultIndex={index === 0}
                     //selectedIndex={activeDisclousre ? activeDisclousre : 0}
                   >
                     {({ open }) => (

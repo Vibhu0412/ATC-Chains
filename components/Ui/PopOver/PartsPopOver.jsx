@@ -56,7 +56,7 @@ const PartsPopOver = ({ title, id, type }) => {
       <SplideSlide key={`${index}`} className="">
         <div
           key={`${index}`}
-          className=" mx-2 my-2 w-[200px] h-[150px] max-w-xl min-w-xl bg-[url('/assets/icons/svg/product-bg.svg')]  bg-cover bg-no-repeat rounded-xl "
+          className=" mx-2 my-2 w-[200px] h-[150px] max-w-xl min-w-xl shadow-xl hover:scale-105 transition-all ease-in-out duration-200 hover:shadow-2xl drop-shadow-sm border-1 rounded-t-xl "
         >
           <Link href={`/products/${MainId}/variants/${product.id}`}>
             <div className=" overflow-hidden w-[195px] h-[150px] pt-1.5  mx-auto ">
@@ -77,7 +77,7 @@ const PartsPopOver = ({ title, id, type }) => {
               />
             </div>
 
-            <div className="px-4 py-1 bg-btn-primary flex justify-center items-center text-white rounded-b-xl">
+            <div className="px-4 py-1 bg-white  shadow-xl hover:shadow-2xl flex justify-center items-center text-primary2 rounded-b-xl">
               <div className="text-lg font-semibold tracking-tight ">
                 <p className=" line-clamp-1">
                   {product?.display_name
