@@ -15,6 +15,10 @@ const FooterSection = () => {
   const [showModal, setShowModal] = useState({ isShow: false, name: "" });
   const downloadableAttachments = [
     {
+      name: "Product-detail-overview.pdf",
+      attachment_url: "assets/docs/CATALOGUE.pdf",
+    },
+    {
       name: "Product-overview.pdf",
       attachment_url: "assets/docs/PRODUCT_OVERVIEW_CATALOGUE.pdf",
     },
@@ -169,7 +173,7 @@ const FooterSection = () => {
               </span>
               <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <a
-                  href="https://www.youtube.com/@atcchainsindia3442"
+                  href="https://www.youtube.com/@atcchainsindia"
                   target="_blank"
                   className="text-gray-500 hover:text-white"
                 >
