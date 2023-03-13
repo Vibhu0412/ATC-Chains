@@ -56,11 +56,13 @@ const ContactForm = () => {
               </div>
             </div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7343.257677229065!2d72.57585897692887!3d23.03739633978203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8442629d0ef7%3A0x475a2529ab81e2dc!2sATC%20CHAINS%20INDIA!5e0!3m2!1sen!2sin!4v1675669203787!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230667.1239119503!2d72.44514044006596!3d23.039461559235846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8442629d0ef7%3A0x475a2529ab81e2dc!2sATC%20CHAINS%20INDIA!5e0!3m2!1sen!2sin!4v1678705140644!5m2!1sen!2sin"
+              width="600"
+              height="450"
               className=" rounded-3xl w-full lg:w-[70vh] h-full lg:h-[75vh] hidden lg:block "
-              style={{ border: 0 }}
+              allowfullscreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>

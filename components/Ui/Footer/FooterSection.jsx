@@ -9,26 +9,25 @@ import {
 import ClientCardSection from "../Card/ClientCardSection";
 import DownloadAttachments from "../common/DownloadAttachments";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
-import Modal from "../modal/Modal";:
+import Modal from "../modal/Modal";
 
 const FooterSection = () => {
   const [showModal, setShowModal] = useState({ isShow: false, name: "" });
   const downloadableAttachments = [
-    {:
+    {
       name: "Product-detail-overview.pdf",
       attachment_url: "assets/docs/CATALOGUE.pdf",
     },
-    {:
+    {
       name: "Product-overview.pdf",
       attachment_url: "assets/docs/PRODUCT_OVERVIEW_CATALOGUE.pdf",
     },
-  },
-  ];:
+  ];
   const downloadAttachments = () => {
     setShowModal({
       isShow: true,
       name: "Download Attachments",
-    });:
+    });
   };
 
   const modalhide = () => {

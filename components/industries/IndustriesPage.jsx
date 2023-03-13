@@ -191,7 +191,7 @@ const IndustriesPage = () => {
                                     setIsTabActiveIndex(num);
                                   }}
                                 >
-                                  <Tab.List className="lg:w-[50rem]">
+                                  <Tab.List className="">
                                     {industry?.industry_subcategory_name?.map(
                                       (category) => (
                                         <Tab
@@ -202,7 +202,7 @@ const IndustriesPage = () => {
                                           key={category.name}
                                           className={({ selected }) =>
                                             classNames(
-                                              "w-64 rounded-lg py-7 text-sm font-medium leading-5 text-primary",
+                                              "w-[17rem] rounded-lg py-7 text-sm font-medium leading-5 text-primary",
                                               "ring-white ring-opacity-60 ring-none ring-offset-blue-400 focus:outline-none focus:ring-2",
                                               selected
                                                 ? "  industryActive "
@@ -216,13 +216,13 @@ const IndustriesPage = () => {
                                     )}
                                   </Tab.List>
 
-                                  <Tab.Panels>
+                                  <Tab.Panels className="w-full">
                                     {industry?.industry_subcategory_name?.map(
                                       (subCategory, idx) => (
                                         <Tab.Panel
                                           key={idx}
                                           className={classNames(
-                                            "rounded-xl p-3 px-4",
+                                            "rounded-xl p-3 px-4 w-full",
                                             "ring-white ring-opacity-60 ring-offset-2 ring-none focus:outline-none focus:ring-none"
                                           )}
                                         >
