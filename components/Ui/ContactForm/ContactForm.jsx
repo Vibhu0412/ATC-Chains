@@ -70,7 +70,7 @@ const ContactForm = () => {
         <div className=" w-full px-6">
           <div className="">
             <p className="text-sm font-bold text-secondary">
-              BOOK THE PRODUCTS
+              Order your Unique manufacturing equipment.
             </p>
             <div className="flex lg:flex sm pt-4 text-3xl lg:text-5xl">
               <p className=" text-secondary  font-bold">ATC Chain </p>
@@ -78,8 +78,10 @@ const ContactForm = () => {
             </div>
 
             <p className="text-md pt-5 text-text-gray">
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and visual{" "}
+              With our Large portfolio of premium manufacturing products,
+              ordering your customized conveying solution is just a click away
+              Check our wide variety of conveyor belts, cable chains & Modular
+              conveyor belts.{" "}
             </p>
           </div>
 

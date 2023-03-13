@@ -25,12 +25,12 @@ const HowWeWorkHomeSection = () => {
     {
       id: 5,
       name: "Best Offer",
-      desc: "The best deal adds more value ATC offers the best deal to meet your personalized needs.",
+      desc: "Through our best deals, you can order your unique conveyor products at the best available price. ATC Chains offers with the best package deals for your unique requirements across all niches.",
     },
     {
       id: 6,
       name: "Order Confirmation",
-      desc: "Get your order placed within minutes! Get access to early.",
+      desc: "We instantly ensure your order confirmation so you can order a premium range of services and manufacturing products & have a hassle-free & quick delivery.",
     },
   ];
 
