@@ -57,3 +57,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Manish Shaw
 License
 This project is licensed under the Tecblic Pvt. Ltd. License - see the LICENSE.md file for details.
+
+
+
+
+
+
+
+

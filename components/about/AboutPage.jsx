@@ -11,7 +11,7 @@ const AboutPage = () => {
         text={
           "ATC chains is basically one stop solution for all our Belting needs"
         }
-        description="Invest in our strong and long-lasting unique belts and services to see the difference for yourself! We believe in adding value to your business and work hard to achieve that goal. 
+        description="Invest in our strong and long-lasting unique belts and services to see the difference for yourself We believe in adding value to your business and work hard to achieve that goal. 
         "
         classes="bg-[#120202]"
       />
