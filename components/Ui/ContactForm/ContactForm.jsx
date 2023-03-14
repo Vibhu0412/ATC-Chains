@@ -76,7 +76,7 @@ const ContactForm = () => {
               <p className=" text-secondary  font-bold">ATC Chain </p>
               <p className="pl-2  text-[#1B1C57] font-bold">Products</p>
             </div>
-
+            /home/jarvis/Manish/projects/atc-chain/atc-chain/public/assets/docs/PRODUCT_OVERVIEW_CATALOGUE.pdf
             <p className="text-md pt-5 text-text-gray">
               With our Large portfolio of premium manufacturing products,
               ordering your customized conveying solution is just a click away

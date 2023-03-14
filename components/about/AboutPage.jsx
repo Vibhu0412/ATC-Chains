@@ -35,10 +35,10 @@ const AboutPage = () => {
             impeccable services.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-3 mt-10 lg:mt-18 items-start justify-center ">
-            <div className="col-span-2  relative">
-              <h1 className="text-9xl hidden lg:block 2xl:left-96 lg:left-20 absolute top-4 text-text-gray">
+            <div className="col-span-2 relative">
+              {/* <h1 className="text-9xl hidden lg:block 2xl:left-[16rem] lg:left-20 absolute top-4 text-text-gray">
                 01
-              </h1>
+              </h1> */}
               <div class="mx-5 block lg:grid  place-content-end">
                 <div class="bg-gradient-to-r  rounded-2xl text-white text-center z-10 h-[25rem] lg:max-w-lg 2xl:max-w-2xl mx-auto">
                   <img
@@ -88,9 +88,9 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="col-span-2 relative">
-              <h1 className="text-9xl hidden -z-10 lg:block xl:left-[8rem] lg:left-[20rem] 3xl:left-[20rem] 2xl:left-[20rem] absolute top-4 text-text-gray">
+              {/* <h1 className="text-9xl hidden -z-[2] lg:block 2xl:left-[20rem] xl:left-[20rem] lg:left-20 absolute top-4 text-text-gray">
                 02
-              </h1>
+              </h1> */}
               <div class="mx-5 z-1  block lg:grid place-content-end">
                 <div class="bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl text-white text-center h-[25rem] lg:max-w-lg 2xl:max-w-2xl mx-auto">
                   <img

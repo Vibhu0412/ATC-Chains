@@ -95,7 +95,7 @@ const IndustrySolutionHome = () => {
               <p>
                 We believe in delivering value to your business. Invest in our
                 robust & durable unique belts and witness the difference
-                yourself!
+                yourself.
               </p>
             </div>
           </div>
