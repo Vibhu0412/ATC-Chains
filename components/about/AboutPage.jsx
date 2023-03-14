@@ -9,7 +9,7 @@ const AboutPage = () => {
     <>
       <BannerImage
         text={
-          "ATC chains is basically one stop solution for all our Belting needs!"
+          "ATC chains is basically one stop solution for all our Belting needs"
         }
         description="Invest in our strong and long-lasting unique belts and services to see the difference for yourself! We believe in adding value to your business and work hard to achieve that goal. 
         "
@@ -304,7 +304,7 @@ const AboutPage = () => {
                         across the countries like and we rigorously compete with
                         other international parallel companies executing
                         high-end quality machines. We deliver the best conveyor
-                        fit for our consumers’ dynamic needs!
+                        fit for our consumers’ dynamic needs.
                       </p>
                     </div>
                   </div>

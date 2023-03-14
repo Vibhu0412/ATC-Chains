@@ -36,7 +36,7 @@ const HomePage = () => {
                 </h1>
                 <p className=" text-xl lg:text-2xl px-0 lg:px-12 w-full text-text-gray">
                   We deliver our customers with supreme quality & durable
-                  products built to last!
+                  products built to lasts.
                 </p>
               </div>
             </div>
@@ -54,7 +54,7 @@ const HomePage = () => {
               <p className="font-semibold text-primary mb-2">INDUSTRIES</p>
               <h1 className="font-bold text-[#1B1C57] text-4xl">
                 Industries we have{" "}
-                <span className="text-primary"> set our expertise on! </span>
+                <span className="text-primary"> set our expertise on </span>
               </h1>
             </div>
             <span className="hidden relative lg:block">
