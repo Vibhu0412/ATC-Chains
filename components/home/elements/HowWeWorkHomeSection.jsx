@@ -5,17 +5,17 @@ const HowWeWorkHomeSection = () => {
     {
       id: 1,
       name: "Explore our Diverse range of products",
-      desc: "We have a diverse range of Products which include Modular conveyor belts,slat chains,  UHMW wearstrips, sprockets for conveyor belts & the list is endless.Convey your requirements to us and we deliver the best fit exclusively for YOU!",
+      desc: "We have a diverse range of Products which include Modular conveyor belts,slat chains,  UHMW wearstrips, sprockets for conveyor belts & the list is endless.Convey your requirements to us and we deliver the best fit exclusively for you.",
     },
     {
       id: 2,
       name: "Rapid Response",
-      desc: "Choose our services & we offer 24*7 assistance, exclusively for you! Get an instant solution to your Query from our sales team.",
+      desc: "Choose our services & we offer 24*7 assistance, exclusively for you Get an instant solution to your Query from our sales team.",
     },
     {
       id: 3,
       name: "Quick Dispatch",
-      desc: "We at ATC Chain facilitate the on-time delivery to cater to perfect customized solutions",
+      desc: "We at ATC Chains facilitate the on-time delivery to cater to perfect customized solutions",
     },
     {
       id: 4,
