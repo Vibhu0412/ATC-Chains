@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).and for the front-end framework we used [`tailwind-css`](https://tailwindcss.com/)
 
-## Getting Started
+## ATC Chains
 
-First, run the development server:
+First, you need to clone the project got the git 
+after that you need to install depencencies and you can use this commonds for that
+run the development server:
 
 ```bash
 npm run dev
@@ -11,12 +13,28 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+and you need to add .env file and add this name:
+```bash
+ESLINT_NO_DEV_ERRORS=true
+NEXT_PUBLIC_NODE_ENV = "production"
+NEXT_PUBLIC_API_BASE_URL_DEV = ""
+```
+you can also change the localhost port from the /server.js.
+for the API routes/urls you can change from /fetchers folder 
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+For project build you can use this commands
+
+```bash
+npm run build
+# or
+yarn build
+```
 
 ## Learn More
 
@@ -33,53 +51,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-ATC Chains
-This is a Next.js project for [insert purpose of the project here].
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Prerequisites
-Node.js and npm (Node Package Manager) installed on your machine.
-Installing
-Clone the repository to your local machine using the command:
-bash
-Copy code
-git clone https://github.com/[username]/[project-name].git
-Navigate to the project directory and install the dependencies using npm:
-bash
-Copy code
-cd [project-name]
-npm install
-Running the application
-To run the application in development mode, use the following command:
-
-Copy code
-npm run dev
-Open your browser and navigate to http://localhost:3000 to see the application running.
-
-Building for production
-To build the application for production, use the following command:
-
-Copy code
-npm run build
-This will create an optimized production build of the application in the out directory.
-
-Deployment
-[Insert deployment instructions here.]
-
-Built With
-Next.js - The React Framework for Production
-React.js - A JavaScript library for building user interfaces
-Node.js - A JavaScript runtime built on Chrome's V8 JavaScript engine
-npm - A package manager for the JavaScript programming language
-Contributing
-[Insert contribution guidelines here.]
-
-Authors
+## Authors
 Manish Shaw
 License
 This project is licensed under the Tecblic Pvt. Ltd. License - see the LICENSE.md file for details.
-
-Acknowledgments
-[Insert acknowledgments here.]
