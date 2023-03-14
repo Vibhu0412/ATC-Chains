@@ -32,3 +32,54 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+ATC Chains
+This is a Next.js project for [insert purpose of the project here].
+
+Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+Prerequisites
+Node.js and npm (Node Package Manager) installed on your machine.
+Installing
+Clone the repository to your local machine using the command:
+bash
+Copy code
+git clone https://github.com/[username]/[project-name].git
+Navigate to the project directory and install the dependencies using npm:
+bash
+Copy code
+cd [project-name]
+npm install
+Running the application
+To run the application in development mode, use the following command:
+
+Copy code
+npm run dev
+Open your browser and navigate to http://localhost:3000 to see the application running.
+
+Building for production
+To build the application for production, use the following command:
+
+Copy code
+npm run build
+This will create an optimized production build of the application in the out directory.
+
+Deployment
+[Insert deployment instructions here.]
+
+Built With
+Next.js - The React Framework for Production
+React.js - A JavaScript library for building user interfaces
+Node.js - A JavaScript runtime built on Chrome's V8 JavaScript engine
+npm - A package manager for the JavaScript programming language
+Contributing
+[Insert contribution guidelines here.]
+
+Authors
+Manish Shaw
+License
+This project is licensed under the Tecblic Pvt. Ltd. License - see the LICENSE.md file for details.
+
+Acknowledgments
+[Insert acknowledgments here.]
