@@ -7,8 +7,10 @@ const BannerImage = ({ image, text, description, classes }) => {
         <div className="video-docker rounded-b-3xl absolute bottom-0 top-0 left-0 w-full h-full overflow-hidden">
           <img
             src={`${image ? image : "/assets/icons/svg/aboutPageBanner.svg"}`}
-            className="min-w-full min-h-full absolute object-cover  bg-center"
+            className="min-w-full min-h-full absolute object-cover bg-center"
             alt="Banner"
+            width="100%"
+            height={100}
           />
           <div
             className={`min-w-full min-h-full  opacity-70 absolute object-cover ${classes}`}

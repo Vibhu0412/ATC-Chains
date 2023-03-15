@@ -47,7 +47,7 @@ const HeroSection = () => {
         <div className=" lg:w-5/6 w-full py-6 md:w-full">
           <h3 className=" leading-[30px] text-lg lg:text-2xl text-white opacity-75">
             Leading in the manufacturing Industry, We build durable & robust
-            machines which are built to last for generations.
+            products which are built to last for generations.
           </h3>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:mt-0 mt-20 md:mt-20  gap-3">

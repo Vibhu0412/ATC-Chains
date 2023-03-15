@@ -6,7 +6,8 @@ import { getIndustryList } from "../../fetchers/universalFetch";
 import { Carousel } from "flowbite-react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
+import ReactHtmlParser from "react-html-parser";
+import { htmlToText } from "html-to-text";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -251,7 +252,9 @@ const IndustriesPage = () => {
                                             {subCategory?.name}
                                           </h2>
                                           <p className="my-4  text-base font-normal text-gray-500 dark:text-gray-400">
-                                            {subCategory?.description}
+                                            {htmlToText(
+                                              subCategory?.description
+                                            )}
                                           </p>
                                           <div>
                                             {subCategory?.Products?.map(

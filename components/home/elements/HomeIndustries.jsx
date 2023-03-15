@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import ReactHtmlParser from "react-html-parser";
+import { htmlToText } from "html-to-text";
 //internal imports
 import { getIndustryList } from "../../../fetchers/universalFetch";
 import { Loader, ProductNotFound } from "../../Ui";
@@ -43,8 +44,8 @@ const HomeIndustries = () => {
                 <p className="text-primary font-semibold text-xl sm:text-2xl line-clamp-1 capitalize ">
                   {industries.industry_category_name}
                 </p>
-                <p className="h-full b-5 font-thin text-gray-500 mt-2  line-clamp-6">
-                  {ReactHtmlParser(industries.industry_category_desc)}
+                <p className="h-full b-5 font-thin text-gray-500 mt-2 line-clamp-6">
+                  {htmlToText(industries.industry_category_desc)}
                 </p>
               </div>
             </div>
