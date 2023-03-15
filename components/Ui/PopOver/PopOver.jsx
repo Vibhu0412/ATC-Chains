@@ -182,7 +182,13 @@ const PopOver = ({ id, type }) => {
                         ))}
                       </Swiper>
                       <div className="flex items-center mt-3 justify-center w-full overflow-hidden">
-                        <Link href={`/products/${MainId}`}>
+                        <Link
+                          href={
+                            type === "subCategory"
+                              ? `/products/${MainId}`
+                              : `/products/${ProductId}/variants/${id}`
+                          }
+                        >
                           <p className="text-primary underline text-center">
                             Show all the products
                           </p>
