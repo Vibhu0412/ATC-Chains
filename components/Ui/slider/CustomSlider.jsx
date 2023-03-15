@@ -32,7 +32,7 @@ const CustomSlider = ({ data, image }) => {
             className="flex mt-2 overflow-hidden items-center justify-center"
           >
             <Image
-              className="mx-auto cursor-pointer mb-14 max-w-lg my-6 hover:scale-150 transition-all ease-in-out duration-100"
+              className="mx-auto cursor-pointer mb-14 my-6 hover:scale-110 transition-all ease-in-out duration-100"
               src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
               width={400}
               height={500}

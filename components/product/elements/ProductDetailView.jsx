@@ -144,7 +144,7 @@ const ProductDetailView = () => {
                       Attachments
                     </button>
                   </div>
-                  <div className=" max-w-2xl min-w-3xl mx-auto w-full">
+                  <div className=" max-w-xl  min-w-xl mx-auto w-full">
                     {/*  <img
                       className="overflow-hidden mt-14 mx-auto w-[80%] "
                       src={

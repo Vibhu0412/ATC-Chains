@@ -86,7 +86,7 @@ const HomePage = () => {
       </section>
       <section id="productSection" className="">
         <TitleSection name="Products" />
-        <div className="mx-4 relative z-[2] my-10">
+        <div className="mx-4 relative z-[2] my-10 mb-20">
           <SubProducts />
         </div>
       </section>

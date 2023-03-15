@@ -229,7 +229,7 @@ const IndustriesPage = () => {
                                           {subCategory?.multi_images != 0 && (
                                             <div
                                               key={subCategory}
-                                              className="h-[60vh] min-w-[80%] max-w-[80%]  mx-auto "
+                                              className="h-[40vh] lg:h-[60vh] min-w-[100%] max-w-[100%]  mx-auto "
                                             >
                                               <Carousel>
                                                 {subCategory?.multi_images?.map(
@@ -239,8 +239,8 @@ const IndustriesPage = () => {
                                                       className="w-full h-full"
                                                       src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
                                                       alt={image?.name}
-                                                      width={500}
-                                                      height={500}
+                                                      width={800}
+                                                      height={800}
                                                     />
                                                   )
                                                 )}
