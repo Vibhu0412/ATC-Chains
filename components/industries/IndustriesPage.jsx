@@ -137,7 +137,7 @@ const IndustriesPage = () => {
 
   return (
     <div className="">
-      <div className="p-4 mx-auto  sm:px-6 lg:px-8">
+      <div className="py-4 px-0 mx-auto   lg:px-8">
         <div className="divide-y-2 divide-gray-200 ">
           <dl className="mt-6 space-y-6 divide-y  ">
             {industryList.length >= 0 &&
