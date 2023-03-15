@@ -35,7 +35,7 @@ const IndustrySolutionHome = () => {
               onChange={(e) => selectedIndusrty(e)}
             >
               <option selected disabled>
-                Conver type
+                Conveyor type
               </option>
               {Industry?.map((industry, index) => (
                 <option key={index} value={industry.id}>
