@@ -50,7 +50,7 @@ const PopOver = ({ id, type }) => {
   }
 
   const buttonRef = useRef(null);
-  const timeoutDuration = 1000;
+  const timeoutDuration = 4000;
   let timeout;
   const closePopover = () => {
     return buttonRef.current?.dispatchEvent(
