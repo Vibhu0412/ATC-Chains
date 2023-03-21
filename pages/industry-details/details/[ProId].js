@@ -17,7 +17,7 @@ const index = () => {
         keyWords={"Keywords"}
       />
       <Layout>
-        <IndustryProductView />
+        <IndustryProductView /> 
       </Layout>
     </motion.div>
   );

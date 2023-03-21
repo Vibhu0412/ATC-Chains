@@ -47,6 +47,8 @@ const IndustriesPage = () => {
     refetchOnWindowFocus: false,
   });
 
+  console.log("industry list data ----> ", data);
+
   const [industryList, setIndustryList] = useState([]);
   const [isPageLoad, setIsPageLoad] = useState(false);
   const [activeDisclousre, setActiveDisclousre] = useState(false);
@@ -233,16 +235,18 @@ const IndustriesPage = () => {
                                               className="h-[40vh] lg:h-[60vh] min-w-[100%] max-w-[100%]  mx-auto "
                                             >
                                               <Carousel>
-                                                {subCategory?.multi_images?.map(
+                                                {subCategory?.get_sub_category_data[0]?.multi_images.map(
                                                   (image) => (
-                                                    <Image
-                                                      key={image?.name}
-                                                      className="w-full h-full"
-                                                      src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
-                                                      alt={image?.name}
-                                                      width={800}
-                                                      height={800}
-                                                    />
+                                                    <>
+                                                      <Image
+                                                        key={image?.name}
+                                                        className="w-full h-full"
+                                                        src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
+                                                        alt={image?.name}
+                                                        width={800}
+                                                        height={800}
+                                                      />
+                                                    </>
                                                   )
                                                 )}
                                               </Carousel>

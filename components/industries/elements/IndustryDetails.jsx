@@ -16,6 +16,9 @@ const IndustryDetails = () => {
   });
 
   const Industry = data?.data?.Industry?.industry_subcategory_name;
+
+  console.log("Industry ----> ", Industry);
+
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;
   return (
@@ -28,13 +31,44 @@ const IndustryDetails = () => {
                 className="font-bold text-primary text-2xl pl-6 mb-6 capitalize"
                 key={index}
               >
-                {industries?.product_tmpl_id && industries?.product_tmpl_id[1]}
+                {industries?.name}
               </h1>
-              <div className="grid grid-cols-1 lg:grid-cols-3">
-                {industries.products.map((product, index) => (
-                  <IndustryProducts key={index} index={index} data={product} />
-                ))}
+
+              {/* <h1
+                className="font-bold text-primary text-2xl pl-6 mb-6 capitalize"
+                key={index}
+              >
+                {industries.get_sub_category_data[index].product_tmpl_id[1]}
+              </h1> */}
+              {/* {industries[0]?.product_tmpl_id[1]} */}
+
+              {/* <h1
+                className="font-bold text-primary text-2xl pl-6 mb-6 capitalize"
+                key={index}
+              >
+                {industries?.product_tmpl_id && industries?.product_tmpl_id[1]}
+              </h1> */}
+              <div className="grid-e grid-cols-1-e lg:grid-cols-3-e">
+                {industries?.get_sub_category_data &&
+                  industries?.get_sub_category_data.map((product, index) => (
+                    <IndustryProducts
+                      key={index}
+                      index={index}
+                      data={product}
+                    />
+                  ))}
               </div>
+
+              {/* <div className="grid grid-cols-1 lg:grid-cols-3">
+                {industries?.products &&
+                  industries.products.map((product, index) => (
+                    <IndustryProducts
+                      key={index}
+                      index={index}
+                      data={product}
+                    />
+                  ))}
+              </div> */}
             </>
           ))}
         </div>
