@@ -87,7 +87,7 @@ const IndustrySolutionHome = () => {
           <div className="flex items-center justify-start h-full px-4 lg:mt-20">
             <div className=" lg:pl-52">
               <p className="capitalize font-bold">
-                SOLUTION MAKE YOUR OWN CONVER
+                SOLUTION MAKE YOUR OWN CONVEYOR
               </p>
               <h2 className="text-4xl font-semibold py-4">
                 Belting solutions set to fix your tailor-made needs.

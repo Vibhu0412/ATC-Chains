@@ -151,7 +151,11 @@ const SearchDetails = () => {
                         image={
                           searchResult?.products?.image_url
                             ? searchResult?.products?.image_url
-                            : "/assets/images/products/product2.jpeg"
+                            : ""
+                          //: "/assets/images/products/image 39.png"
+
+                          //: "/assets/images/products/product2.jpeg"
+                          //: "/assets/images/products/product2.jpeg"
                         }
                         data={
                           searchResult?.multi_image

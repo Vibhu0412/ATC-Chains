@@ -17,10 +17,17 @@ const ProductHoverOverView = () => {
   const filterProductOverview = () => {
     productData &&
       productData.filter((product) => {
+        console.log("testing ---> ", productData);
+        console.log("parts ---> ", parts);
         return parts.some(({ title, top, left }) => {
-          if (title === product.name) {
+          console.log("product in loop --> ", product);
+          if (title === product.static_label) {
             setPro((prev) => [...prev, { top, left, ...product }]);
           }
+
+          // if (product.pro.match(title)) {
+          //   setPro((prev) => [...prev, { top, left, ...product }]);
+          // }
         });
       });
   };
@@ -29,10 +36,14 @@ const ProductHoverOverView = () => {
     filterProductOverview();
   }, [productData]);
 
+  useEffect(() => {
+    console.log("pro ---> ", pro);
+  }, [pro]);
+
   return (
     <div className="relative -z-[0] flex flex-wrap-reverse">
       <Image
-        className="w-full h-full   "
+        className="w-full h-full"
         src="/assets/icons/svg/Main-Poster.svg"
         width={500}
         height={500}
