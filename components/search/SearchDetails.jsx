@@ -82,8 +82,10 @@ const SearchDetails = () => {
 
                     <div className="py-4">
                       <h1 className="font-bold text-2xl w-64">
-                        {searchResult?.products &&
-                          searchResult?.products?.product_name}
+                        {(searchResult?.products &&
+                          searchResult?.products?.name) ||
+                          searchResult?.products?.product_name ||
+                          searchResult?.products?.display_name}
                       </h1>
                     </div>
                     <div className="py-4 mb-2 lg:mb-4">
