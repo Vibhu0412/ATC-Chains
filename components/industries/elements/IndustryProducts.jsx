@@ -22,12 +22,22 @@ const IndustryProducts = ({ data, currentPage }) => {
                   <div className="flex  mx-auto  items-center justify-center">
                     <img
                       className="z-0 h-[300px] w-[400px]"
+                      // src={
+                      //   data && data?.image_1920 && data?.image_1920
+                      //     ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
+                      //         data?.image_1920
+                      //           ? data?.image_1920
+                      //           : data?.image_url
+                      //       }`
+                      //     : "/assets/images/products/image 39.png"
+                      // }
+
                       src={
-                        data && data?.image_1920 && data?.image_1920
+                        product && product?.image_url && product?.image_url
                           ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
-                              data?.image_1920
-                                ? data?.image_1920
-                                : data?.image_url
+                              product?.image_url
+                                ? product?.image_url
+                                : product?.image_url
                             }`
                           : "/assets/images/products/image 39.png"
                       }

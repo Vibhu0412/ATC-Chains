@@ -95,8 +95,8 @@ const IndustryProductView = () => {
 
                   <div className="py-4">
                     <h1 className="font-bold text-2xl w-52">
-                      {product?.name
-                        ? product?.name
+                      {product?.product_name
+                        ? product?.product_name
                         : product?.product_tmpl_id &&
                           product?.product_tmpl_id[1]}
                     </h1>
