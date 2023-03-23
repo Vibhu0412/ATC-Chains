@@ -60,6 +60,21 @@ const PartsPopOver = ({ title, id, type }) => {
         >
           <Link href={`/products/${MainId}/variants/${product.id}`}>
             <div className=" overflow-hidden w-[195px] h-[150px] pt-1.5  mx-auto ">
+              {product?.image_1920.map((img) => (
+                <Image
+                  className="  mx-auto my-4"
+                  width={400}
+                  height={400}
+                  src={
+                    img
+                      ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${img}`
+                      : "/assets/images/products/product2.jpeg"
+                  }
+                  alt={`product image`}
+                />
+              ))}
+
+              {/*               
               <Image
                 className="  mx-auto my-4"
                 width={400}
@@ -74,7 +89,7 @@ const PartsPopOver = ({ title, id, type }) => {
                     : "/assets/images/products/product2.jpeg"
                 }
                 alt={`product image`}
-              />
+              /> */}
             </div>
 
             <div className="px-4 py-1 bg-white  shadow-xl hover:shadow-2xl flex justify-center items-center text-primary2 rounded-b-xl">
@@ -91,6 +106,7 @@ const PartsPopOver = ({ title, id, type }) => {
       </SplideSlide>
     );
   });
+
   return (
     <div className="w-full rounded-xl">
       <Popover onMouseEnter={onMouseEnter.bind(null, open)} className="  ">
