@@ -97,7 +97,7 @@ const MainProductPage = ({ currentPage }) => {
       data?.data?.result?.products?.search_products;
   } else {
   }
-
+  console.log("MainCategory", MainCategory.isLoading);
   const debounced = useDebouncedCallback((value) => {
     search(value);
   }, 1000);
@@ -128,7 +128,7 @@ const MainProductPage = ({ currentPage }) => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className="flex gap-4 items-center lg:px-10 px-1 my-16 justify-between"
+        className="flex gap-4 items-center lg:px-10 px-1 my-16 justify-between "
       >
         <div className="w-full">
           <div className="mb-2">
@@ -234,6 +234,7 @@ const MainProductPage = ({ currentPage }) => {
             )}
           </div>
         )}
+        {MainCategory?.isLoading && <Loader />}
         {product?.length != 0 ? (
           ""
         ) : (
