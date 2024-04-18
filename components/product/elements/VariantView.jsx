@@ -29,7 +29,7 @@ const VariantView = ({ data, currentPage, index }) => {
         <div className="lg:flex gap-4 block p-4 bg-[#EAEAEA] rounded-[20px] items-center">
           <div className="w-full rounded-l-lg  ">
             <Image
-              className="mx-auto shadow-md w-full max-h-[300px] min-h-[300px] rounded-[30px] "
+              className="mx-auto shadow-md w-[300px] max-h-[300px] min-h-[300px] rounded-[30px] "
               src={
                 data?.image_url
                   ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${data?.image_url}`
@@ -49,8 +49,8 @@ const VariantView = ({ data, currentPage, index }) => {
 
             <div className="grid grid-cols-2 w-full  gap-3">
               {data?.product_specification &&
-                data?.product_specification?.map((item, index) => (
-                  <div className="flex gap-4 items-center w-full">
+                data?.product_specification.slice(0, 4).map((item, index) => (
+                  <div className="flex gap-4 items-center w-full" key={index}>
                     <div className="bg-primary2 p-3 hidden lg:block rounded-lg">
                       <CubeIcon2 />
                     </div>
