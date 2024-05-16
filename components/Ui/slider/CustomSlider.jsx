@@ -5,18 +5,22 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
 const CustomSlider = ({ data, image }) => {
-  console.log("image  --> ", image);
   const images = [{ image_url: image }, ...data];
+  const maxCustomPaging = 10;
   const settings = {
     customPaging: function (i) {
+      if (i >= maxCustomPaging) return <></>;
       return (
-        <a className="w-full ">
+        <a className="w-full">
           <img
+            className="pt-12"
             src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${images[i].image_url}`}
+            alt={`Thumbnail ${i + 1}`}
           />
         </a>
       );
     },
+
     dots: true,
     dotsClass: "slick-dots",
     infinite: true,
@@ -34,7 +38,7 @@ const CustomSlider = ({ data, image }) => {
           >
             {image?.image_url === "" ? (
               <Image
-                className="mx-auto cursor-pointer mb-14 my-6 hover:scale-110 transition-all ease-in-out duration-100"               
+                className="mx-auto cursor-pointer mb-20 pb-20 my-6 hover:scale-110 transition-all ease-in-out duration-100"
                 src="/assets/images/products/image 39.png"
                 width={400}
                 height={500}
