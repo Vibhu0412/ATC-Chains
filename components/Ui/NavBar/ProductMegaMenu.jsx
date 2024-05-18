@@ -37,7 +37,7 @@ const ProductMegaMenu = () => {
     if (!open) return;
     timeout = setTimeout(() => closePopover(), timeoutDuration);
   };
-  //   console.log("menulist ----------", data?.data);
+
   //if (isLoading) return "loading----------";
 
   const { category, variantId } = router.query;

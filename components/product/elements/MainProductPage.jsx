@@ -97,7 +97,7 @@ const MainProductPage = ({ currentPage }) => {
       data?.data?.result?.products?.search_products;
   } else {
   }
-  console.log("MainCategory", MainCategory.isLoading);
+
   const debounced = useDebouncedCallback((value) => {
     search(value);
   }, 1000);
@@ -128,7 +128,7 @@ const MainProductPage = ({ currentPage }) => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className="flex gap-4 items-center lg:px-10 px-1 my-16 justify-between "
+        className="flex gap-4 items-center lg:px-10 mx-auto max-w-screen-2xl px-1 my-16 justify-between "
       >
         <div className="w-full">
           <div className="mb-2">
@@ -208,7 +208,7 @@ const MainProductPage = ({ currentPage }) => {
             </div>
           )
         ) : (
-          <div className="grid z-10 grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-6">
+          <div className="grid z-10 grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 max-w-screen-2xl mx-auto  md:grid-cols-2 sm:grid-cols-2 gap-6">
             {loading == "loading" ? (
               <Loader />
             ) : isSearchDataAvailable ? (

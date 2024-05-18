@@ -26,7 +26,9 @@ class ErrorBoundary extends React.Component {
             <div className="relative">
               <div className="absolute">
                 <div className="">
-                <h2 className="font-bold text-2xl">Oops, there is an error!</h2>
+                  <h2 className="font-bold text-2xl">
+                    Oops, there is an error!
+                  </h2>
                   <h1 className="my-2 text-gray-800 font-bold text-2xl">
                     Looks like you{"'"}ve found the doorway to the great nothing
                   </h1>
@@ -43,13 +45,13 @@ class ErrorBoundary extends React.Component {
                   </button>
                 </div>
               </div>
-            {/*   <div>
+              {/*   <div>
             <img className="w-72 opacity-50 ml-56 pt-28" src="/assets/icons/svg/bug_fixing.svg" /> 
               </div> */}
             </div>
           </div>
           <div>
-            <img  src="/assets/icons/svg/bug_fixing.svg" />
+            <img src="/assets/icons/svg/bug_fixing.svg" />
           </div>
         </div>
       );

@@ -33,7 +33,7 @@ const SubProductVariants = (isVisible) => {
     return (
       <SplideSlide key={`${index}_pro`}>
         <div key={index} className="flex  mb-10 lg:mb-16 relative z-[5]">
-          <motion.div className="transition-all max-w-[400px] max-h-[300px] duration-100 ease-in-out hover:scale-105 delay-150 py-4">
+          <motion.div className="transition-all max-w-[300px] max-h-[300px] duration-100 ease-in-out hover:scale-105 delay-150 py-4">
             <Link href={`/products/${ProductId}/variants/${product?.id}`}>
               <div className=" shadow-xl rounded-xl">
                 <div className="flex flex-col bg-white rounded-t-2xl">

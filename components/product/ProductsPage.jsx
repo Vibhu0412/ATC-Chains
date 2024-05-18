@@ -17,7 +17,7 @@ const ProductsPage = ({ currentPage }) => {
               : "product-page-bannerThree"
           }`}
         />
-        <div className=" 2xl:px-8 relative">
+        <div className=" mx-auto max-w-screen-2xl 2xl:px-8 relative">
           {currentPage === "MainCategory" ? (
             <div className=" -mt-[13rem] 2xl:-mt-[16rem] 3xl:-mt-[18rem] relative z-[2] pb-2 px-4">
               <SubProducts />

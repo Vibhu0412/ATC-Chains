@@ -92,7 +92,7 @@ const ProductSubCategroy = ({ parent, id, image, name, type }) => {
                 onMouseLeave={onMouseLeave.bind(null, open)}
               >
                 <img
-                  className="object-center mx-auto object-cover h-[300px] max-w-[400px]  rounded-t-xl"
+                  className="object-center mx-auto object-cover h-[300px] max-w-[300px]  rounded-t-xl"
                   src={image}
                   alt={"product"}
                 />

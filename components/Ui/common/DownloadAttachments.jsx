@@ -6,13 +6,7 @@ const DownloadAttachments = (props) => {
       ? props?.data?.attachements || props?.data?.product_attachment
       : props?.data || props?.data?.data?.attachements;
   const downloadableType = props.type;
-  console.log(
-    "props--------",
-    props,
-    downloadableAttachments,
-    "------------",
-    downloadableType
-  );
+
   return (
     <ul
       role="list"

@@ -9,15 +9,13 @@ const IndustryDetails = () => {
   const router = useRouter();
   const { industryId } = router.query;
   const indId = parseInt(industryId);
-  console.log(indId);
+
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["industry", industryId],
     queryFn: () => getIndustryDetails(indId),
   });
 
   const Industry = data?.data?.Industry?.industry_subcategory_name;
-
-  console.log("Industry ----> ", Industry);
 
   if (isLoading) return <Loader />;
   if (isError) return <ProductNotFound text="Product Not Found" />;

@@ -26,7 +26,7 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
   return (
     <ErrorBoundary>
       <div className="my-4 mx-auto mb-14 ring-0 rounded-t-xl hover:shadow-2xl transition ease-in-out delay-150  border-none  hover:-translate-y-1 hover:scale-105 shadow-xl duration-200">
-        <div className=" h-[300px] w-[400px] bg-white">
+        <div className=" h-[300px] w-[300px] bg-white">
           <Link href={productUrl}>
             {currentPage === "MainCategory" || currentPage === "VariantsId" ? (
               <Image
@@ -39,11 +39,11 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
                     : "/assets/images/products/image 39.png"
                 }
                 alt="product image"
-                width={400}
+                width={300}
                 height={300}
               />
             ) : (
-              <div className="h-[300px] w-[400px]   mx-auto ">
+              <div className="h-[300px] w-[300px]  mx-auto ">
                 <Carousel indicators={false} slideInterval={3000}>
                   {data &&
                     data?.image_1920 &&
@@ -57,7 +57,7 @@ const ProductDetailCard = ({ data, currentPage, index }) => {
                         }
                         alt="product image"
                         key={index}
-                        width={400}
+                        width={300}
                         height={300}
                       />
                     ))}

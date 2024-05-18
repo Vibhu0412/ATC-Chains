@@ -15,7 +15,7 @@ const AboutPage = () => {
         "
         classes="bg-[#120202]"
       />
-      <div class="relative pt-20 pb-20 lg:pb-0 px-4 lg:px-20">
+      <div class="relative mx-auto max-w-screen-2xl pt-20 pb-20 lg:pb-0 px-4 lg:px-20">
         <div class=" inset-0 flex items-center justify-start gap-6">
           <div class="w-12 md:w-56 lg:w-56 xl:w-96 border-2 bg-black border-black"></div>
           <h1 className="text-5xl font-bold text-primary">
@@ -112,7 +112,7 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 lg:mb-0 mb-6 items-center justify-between">
+      <div className="grid max-w-screen-2xl mx-auto grid-cols-3 gap-4 lg:mb-0 mb-6 items-center justify-between">
         <div className=" border-4 border-btn-primary rounded-full  text-lg font-bold -ml-10 p-4 col-span-2">
           <h1 className="text-3xl pl-20 font-bold text-primary capitalize">
             Our Team
@@ -124,7 +124,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-      <section className="relative ">
+      <section className="relative max-w-screen-2xl mx-auto ">
         <TeamSection />
 
         <img
@@ -134,7 +134,7 @@ const AboutPage = () => {
         />
       </section>
 
-      <div className="about-section-bg w-full h-full bg-primary">
+      <div className="about-section-bg max-w-screen-2xl mx-auto w-full h-full bg-primary">
         <div className="block lg:flex items-center  justify-center w-full px-6 lg:px-20">
           <div className="lg:w-2/3 w-full mx-auto items-center">
             <div className=" block lg:flex gap-6">
@@ -186,7 +186,7 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <section>
+      <section className="max-w-screen-2xl mx-auto">
         <div className="bg-primary text-white py-8">
           <div className="container mx-auto flex flex-col items-start sm:flex-row md:flex-row my-0 md:my-24">
             <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 sm:w-full mt-2 md:mt-12 px-4">

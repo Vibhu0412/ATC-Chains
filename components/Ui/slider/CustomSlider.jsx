@@ -13,7 +13,7 @@ const CustomSlider = ({ data, image }) => {
       return (
         <a className="w-full">
           <img
-            className="pt-12"
+            className=""
             src={`${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${images[i].image_url}`}
             alt={`Thumbnail ${i + 1}`}
           />
@@ -22,7 +22,7 @@ const CustomSlider = ({ data, image }) => {
     },
 
     dots: true,
-    dotsClass: "slick-dots",
+    dotsClass: "slick-dots space-y-4",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -34,11 +34,11 @@ const CustomSlider = ({ data, image }) => {
         images?.map((image, index) => (
           <div
             key={index}
-            className="flex mt-2 overflow-hidden items-center justify-center"
+            className="flex mt-2 mb-32 md:mb-12 overflow-hidden items-center justify-center"
           >
             {image?.image_url === "" ? (
               <Image
-                className="mx-auto cursor-pointer mb-20 pb-20 my-6 hover:scale-110 transition-all ease-in-out duration-100"
+                className="mx-auto cursor-pointer max-h-[500px] max-w[400px] mb-20 pb-20 sm:mt-20 my-6 hover:scale-110 transition-all ease-in-out duration-100"
                 src="/assets/images/products/image 39.png"
                 width={400}
                 height={500}
@@ -46,7 +46,7 @@ const CustomSlider = ({ data, image }) => {
               />
             ) : (
               <Image
-                className="mx-auto cursor-pointer mb-14 my-6 hover:scale-110 transition-all ease-in-out duration-100"
+                className="mx-auto cursor-pointer max-h-[500px] max-w-[400px] mb-32 md:mb-24 my-6  hover:scale-110 transition-all ease-in-out duration-100"
                 src={` ${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${image?.image_url}`}
                 width={400}
                 height={500}

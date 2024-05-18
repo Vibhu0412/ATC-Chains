@@ -47,8 +47,6 @@ const IndustriesPage = () => {
     refetchOnWindowFocus: false,
   });
 
-  console.log("industry list data ----> ", data);
-
   const [industryList, setIndustryList] = useState([]);
   const [isPageLoad, setIsPageLoad] = useState(false);
   const [activeDisclousre, setActiveDisclousre] = useState(false);
@@ -118,7 +116,7 @@ const IndustriesPage = () => {
     result && setIndustryList([...result]);
 
     // if (isActiveDisclousreIndex) {
-    //   console.log("click button 1");
+
     //   AccordionRefs.current[isActiveDisclousreIndex]
     //     ?.querySelector("button")
     //     .click();
@@ -190,7 +188,6 @@ const IndustriesPage = () => {
                                     isTabActiveIndex ? isTabActiveIndex : ""
                                   }
                                   onChange={(num) => {
-                                    console.log("tab group on change", num);
                                     setIsTabActiveIndex(num);
                                   }}
                                 >

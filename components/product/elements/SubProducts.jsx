@@ -26,11 +26,11 @@ const SubProducts = (isVisible) => {
     return (
       <SplideSlide key={`${index}_pro`}>
         <div key={index} className="flex mb-10 lg:mb-16">
-          <motion.div className="transition-all max-w-[400px] max-h-[300px] duration-100 ease-in-out hover:scale-[1.02] delay-150 py-4 ">
+          <motion.div className="transition-all max-w-[300px] max-h-[300px] duration-100 ease-in-out hover:scale-[1.02] delay-150 py-4 ">
             <Link href={`/products/${product?.id}`}>
               <div className=" shadow-xl rounded-xl">
                 <div className="flex   flex-col rounded-t-[16px] ">
-                  <div className="group flex justify-center items-center rounded-t-xl w-full h-full ">
+                  <div className="group flex justify-center items-center rounded-t-xl w-[300px] h-full ">
                     <ProductSubCategroy
                       name={product?.name}
                       id={product?.id}

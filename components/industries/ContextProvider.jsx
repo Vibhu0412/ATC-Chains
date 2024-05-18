@@ -14,7 +14,7 @@ function classNames(...classes) {
 const ContextProvider = () => {
   let tabIndex = null;
   const router = useRouter();
-  console.log("{router }", router.pathname);
+
   // make accordions close when one is opened.
   const AccordionRefs = useRef([]); // store accordion buttons as Refs
   const [currentAccordion, setCurrentAccordion] = useState(0); // set the current
@@ -25,7 +25,6 @@ const ContextProvider = () => {
     const index = parent?.children
       ? Array.prototype.indexOf.call(parent?.children, buttonParent)
       : null; // find the index of the button in container
-    console.log("index", index);
     for (let i = 0; i < AccordionRefs.current.length; i++) {
       // loop throug
       if (
@@ -116,7 +115,6 @@ const ContextProvider = () => {
     result && setIndustryList([...result]);
 
     // if (isActiveDisclousreIndex) {
-    //   console.log("click button 1");
     //   AccordionRefs.current[isActiveDisclousreIndex]
     //     ?.querySelector("button")
     //     .click();
@@ -198,7 +196,6 @@ const ContextProvider = () => {
                                   // }{}
 
                                   onChange={(num) => {
-                                    console.log("tab group on change", num);
                                     setIsTabActiveIndex(num);
                                   }}
                                 >

@@ -17,10 +17,7 @@ const ProductHoverOverView = () => {
   const filterProductOverview = () => {
     productData &&
       productData.filter((product) => {
-        console.log("testing ---> ", productData);
-        console.log("parts ---> ", parts);
         return parts.some(({ title, top, left }) => {
-          console.log("product in loop --> ", product);
           if (title === product.static_label) {
             setPro((prev) => [...prev, { top, left, ...product }]);
           }
@@ -35,10 +32,6 @@ const ProductHoverOverView = () => {
   useEffect(() => {
     filterProductOverview();
   }, [productData]);
-
-  useEffect(() => {
-    console.log("pro ---> ", pro);
-  }, [pro]);
 
   return (
     <div className="relative -z-[0] flex flex-wrap-reverse">

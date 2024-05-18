@@ -81,9 +81,9 @@ const ProductDetailView = () => {
       ) : (
         ""
       )}
-      <div className="">
+      <div className="mx-auto max-w-screen-2xl">
         <div className="pt-6">
-          <div className="mx-auto px-3 pt-20 pb-16 sm:px-4 lg:grid lg:gap-x-8 lg:px-4 lg:pt-32 lg:pb-24">
+          <div className="mx-auto  px-3 pt-20 pb-16 sm:px-4 lg:grid lg:gap-x-8 lg:px-4 lg:pt-32 lg:pb-24">
             <div className="lg:flex  block gap-4 bg-white border rounded-xl pb-14 shadow-lg">
               <div className="bg-[#C6D5FC] w-full -mb-6  rounded-xl mt-10 pr-4 h-full">
                 <div className="bg-primary relative -mt-10 rounded-lg w-full  p-16 text-white py-12 pb-20">

@@ -33,7 +33,6 @@ const IndustryProductView = () => {
   const product_specification =
     data?.data?.Industry_products?.product_specification;
 
-  console.log("product --> ", product);
   const raiseInquiry = () => {
     setShowModal({
       isShow: true,

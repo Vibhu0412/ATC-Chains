@@ -31,7 +31,7 @@ const ProductCard = () => {
             className="m-4"
           >
             {" "}
-            <div className="w-full  bg-white rounded-3xl border border-gra-400 dark:bg-gray-800 dark:border-gray-700">
+            <div className="w-[333px]  bg-white rounded-3xl border border-gra-400 dark:bg-gray-800 dark:border-gray-700">
               <Link href={`/products/${product.id}`}>
                 <div className=" p-4  mx-auto ">
                   <ProductSubCategroy
@@ -51,8 +51,8 @@ const ProductCard = () => {
                 </div>
                 <div className="px-5 pb-5">
                   <div className="flex gap-2 items-center justify-between text-text-secondary hover:text-text-orange">
-                    <div className="w-full">
-                      <h2 className="text-xl w-72  font-bold  text-text-secondary dark:text-white line-clamp-1">
+                    <div className="">
+                      <h2 className="text-xl w-full  font-bold  text-text-secondary dark:text-white line-clamp-1">
                         {product?.name}
                       </h2>
                     </div>

@@ -136,7 +136,7 @@ const PopOver = ({ id, type }) => {
                         loopFillGroupWithBlank={false}
                         navigation
                         scrollbar={{ draggable: true }}
-                        className="mySwiper"
+                        className="mySwiper px-2"
                       >
                         {popOverSubCategoryDataList?.map((product, index) => (
                           <SwiperSlide>
