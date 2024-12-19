@@ -22,7 +22,7 @@ const IndustryDetails = () => {
   return (
     <>
       <div className="w-full ">
-        <div className=" w-full rounded-2xl max-w-7xl my-10 px-2 mx-auto">
+        <div className=" w-full rounded-2xl my-10 px-2 mx-auto">
           {Industry?.map((industries, index) => (
             <>
               <h1
@@ -46,7 +46,7 @@ const IndustryDetails = () => {
               >
                 {industries?.product_tmpl_id && industries?.product_tmpl_id[1]}
               </h1> */}
-              <div className="grid-e grid-cols-1-e lg:grid-cols-3-e">
+              <div>
                 {industries?.get_sub_category_data &&
                   industries?.get_sub_category_data.map((product, index) => (
                     <IndustryProducts

@@ -13,15 +13,15 @@ const IndustryProducts = ({ data, currentPage }) => {
           {data.product_tmpl_id[1]}
         </h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-8">
           {data?.products.map((product) => {
             let productUrl = `/industry-details/details/${product?.id}`;
             return (
               <Link href={productUrl}>
-                <div className="z-auto h-[350px] w-[350px] shadow-lg  overflow-hidden  rounded-xl  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 hover:shadow-2xl  duration-200">
-                  <div className="flex  mx-auto  items-center justify-center">
+                <div className="z-auto h-[350px] w-[300px] shadow-lg my-6  overflow-hidden  rounded-xl  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 hover:shadow-2xl  duration-200">
+                  <div className="  items-center justify-center">
                     <img
-                      className="z-0 h-[300px] w-[400px]"
+                      className="z-0 "
                       // src={
                       //   data && data?.image_1920 && data?.image_1920
                       //     ? `${process.env.NEXT_PUBLIC_API_BASE_URL_DEV}${
